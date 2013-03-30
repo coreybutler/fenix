@@ -4,7 +4,11 @@ Fenix is a desktop application for launching ad-hoc static web servers.
 It is available for Windows, Mac, and Linux.
 
 Fenix was designed as a development tool. It is **not for production use**.
-Use it to launch one or more ad-hoc web servers (static).
+However; it can be quite useful in development. Use it to launch one or
+more ad-hoc static servers. Provide each server a unique port number and
+web root, then fire it up. That's really all there is to it. When done,
+shut it down. The settings are saved, so the next time you boot up your
+computer, you won't have to re-enter your configurations.
 
 ![Fenix](https://raw.github.com/coreybutler/fenix/master/docs/screen1.jpg)
 
