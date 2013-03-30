@@ -6,7 +6,7 @@ It is available for Windows, Mac, and Linux.
 Fenix was designed as a development tool. It is **not for production use**.
 Use it to launch one or more ad-hoc web servers (static).
 
-![Fenix](https://raw.github.com/coreybutler/fenix/docs/scsreen1.jpg)
+![Fenix](https://raw.github.com/coreybutler/fenix/master/docs/screen1.jpg)
 
 There's a [website](https://coreybutler.github.com/fenix) where you can see
 Fenix in action and download a free copy to use.
