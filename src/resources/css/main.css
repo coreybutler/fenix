@@ -1,0 +1,224 @@
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Oswald Light'), local('Oswald-Light'), url(../fonts/oswald-light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(../fonts/oswald.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(../fonts/oswald-bold
+  .woff) format('woff');
+}
+@font-face {
+  font-family: 'entypo';
+  src:url('../fonts/entypo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+BODY {
+  background-image: url(../img/bg.jpg);
+  padding: 5px 20px 20px 20px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: 'Segoe WP', 'Segoe UI', Monaco, Consolas, Arial, sans-serif;
+}
+input: {width: 100%;}
+#servers hr {
+  margin: 20px 0 5px 0 !important;
+  border: 0px;
+  border-top: 1px dotted rgba(0,0,0,.04);
+  clear:both;
+}
+#servers div input:first-child,
+#servers div.running input:first-child {
+  border-radius: 500px;
+  width: 45px;
+  height: 45px;
+  background: #5C4033;
+  font-size: 20px;
+  font-family: 'Oswald';
+  line-height: 45px;
+  padding: 8px;
+  color: #efefef;
+  text-align: center;
+  vertical-align: middle;
+  text-shadow: 0px 0px 2px #999 !important;
+  -webkit-box-shadow: inset 0 0 3px #efefef;
+  float: left;
+  margin-right: 20px;
+}
+#servers div.running input:first-child {
+  background-color: #9DB68C;
+}
+#servers div.running input:first-child,
+#servers div input:first-child {
+  width: 60px;
+  height: 60px;
+  padding: 0px !important;
+  border: 0px !important;
+}
+#servers div input:nth-child(2) {
+  color: #5C4033 !important;
+  clear: right;
+}
+#servers div input:nth-child(2) {
+  padding:0px;
+  background: transparent;
+  width: 80%;
+  border: 0px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left:-16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: 'Segoe WP', 'Segoe UI', Monaco, Consolas, Arial, sans-serif;
+}
+#servers div.running input:nth-child(2){
+  margin: 0px;
+  color: #9DB68C !important;
+}
+#servers div label:nth-child(3){
+  font-family:'entypo';
+  float: left;
+  font-size: 16px;
+  margin:40px 0px -15px 0px;
+  text-decoration: none;
+  color: #999;
+  cursor: pointer;
+  border: 0px solid red;
+}
+#servers div label:nth-child(3) > input {
+  opacity: .4;
+  width: 5px;
+  height: 10px;
+  padding: 0px;
+  margin: 0 0 0 -20px;
+  visibility: hidden;
+  cursor: pointer;
+}
+#servers div.running label:nth-child(3){
+  display: none;
+}
+#servers div input:nth-child(4) {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  width: 75%;
+  margin: 0 0 0 4px;
+  font-size: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: 'Segoe WP', 'Segoe UI', Monaco, Consolas, Arial, sans-serif;
+}
+#servers div div:first-child:before {
+  content: 'running';
+  font-size: xx-small;
+  font-family: 'Segoe WP', 'Segoe UI', Monaco, Consolas, Arial, sans-serif;
+  clear:both;
+  margin-bottom: -23px;
+  margin-top: -20px;
+  float: none !important;
+  display: block;
+  color: rgba(255,255,255,.2);
+  text-shadow: none !important;
+  z-index: 10;
+}
+#servers div div:nth-child(3) {
+  margin: -20px 0 0 0;
+}
+#servers div div:last-child {
+  position: absolute;
+  right: 10px;
+  margin: -50px 0 0 0;
+  z-index: 10;
+}
+#servers div.running div:last-child {
+  margin: -46px 0 0 0;
+}
+#servers div div:last-child a {
+  font-family: 'entypo';
+  font-size: 35px;
+  text-decoration: none;
+  color: #999;
+  border-radius: 50px;
+  padding: 6px;
+}
+#servers div div:last-child a:hover {
+  background-color: #fff;
+}
+#servers div.running div:last-child a:nth-child(2),
+#servers div.running h2 {
+  color: #3F602B !important;
+}
+#servers div.running div:first-child {
+  background-color: #9DB68C !important;
+}
+#servers div.running div:last-child a:nth-child(2) {
+  color: #5C4033 !important;
+}
+#servers div div:last-child a:last-child {
+  color: #8B2323;
+}
+#servers div div:last-child {
+  visibility:hidden;
+}
+#servers div:hover div:last-child {
+  visibility: visible;
+}
+#servers div:first-child{
+  position: absolute;
+  top:-65px;
+  width: 100%;
+  background-color: rgba(255,255,255,.98);
+  margin: -15px 0px 15px -30px;
+  padding: 10px 0px 10px 28px;
+  border: 1px solid #ccc;
+}
+#servers div:first-child input:first-child{
+  background-color: rgba(0,0,0,.08);
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: #333;
+  font-family: 'Segoe WP', 'Segoe UI', Monaco, Consolas, Arial, sans-serif;
+}
+#servers div:first-child div:last-child a {
+  font-family: 'entypo';
+  font-size: 25px;
+  color: #efefef;
+  background-color: #a6d67a;
+  cursor: pointer;
+  display: block !important;
+  visibility: visible;
+  margin-right: 58px;
+}
+#cancel {
+  position: absolute;
+  z-index: 50;
+  right: 46px;
+  top: 65px;
+  font-size: xx-small;
+  color: #999999;
+  text-decoration: none;
+  display: none;
+}
+#cancel:hover {
+  color: #8B2323;
+}
+input:focus, textarea:focus {
+    outline: 0;
+    background-color: rgba(0,0,0,.1) !important;
+}
+/*
+#servers div.running:before {
+  position: absolute;
+  content: 'Log Available';
+  font-size: 11px;
+  margin-top: 50px;
+  right: 10px;
+}*/

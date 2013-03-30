@@ -1,0 +1,19 @@
+{
+  "main": "index.html",
+  "name": "Fenix Web Servers",
+  "description": "Beautifully simple static web servers.",
+  "version": "0.1.0",
+  "keywords": [ "fenix", "send", "web", "server", "static" ],
+  "window": {
+    "icon": "./resources/fenix.png",
+    "toolbar": false,
+    "width": 700,
+    "height": 300,
+    "position": "mouse",
+    "min_width": 600,
+    "min_height": 250,
+    "max_width": 800,
+    "max_height": 600,
+    "show": false
+  }
+}
