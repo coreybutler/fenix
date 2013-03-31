@@ -12,7 +12,7 @@ computer, you won't have to re-enter your configurations.
 
 ![Fenix](https://raw.github.com/coreybutler/fenix/master/docs/screen1.jpg)
 
-There's a [website](https://coreybutler.github.com/fenix) where you can see
+There's a [website](http://coreybutler.github.com/fenix) where you can see
 Fenix in action and download a free copy to use.
 
 I also wrote a little about the [inspiration for this project](http://artofidea.com/cookbook/development/fenix).
