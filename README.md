@@ -15,7 +15,7 @@ computer, you won't have to re-enter your configurations.
 There's a [website](http://coreybutler.github.com/fenix) where you can see
 Fenix in action and download a free copy to use.
 
-I also wrote a little about the [inspiration for this project](http://artofidea.com/cookbook/development/fenix).
+I also wrote a little about the [inspiration for this project](http://artofidea.com/cookbook/development/articles/fenix).
 
 ## License
 
