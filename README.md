@@ -1,3 +1,6 @@
+Follow the author on [G+](https://plus.google.com/u/1/111169756342687497578?rel=author)
+or [Twitter (@goldglovecb)](http://twitter.com/goldglovecb).
+
 # Fenix
 
 Fenix is a desktop application for launching ad-hoc static web servers.
