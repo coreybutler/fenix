@@ -1,0 +1,13 @@
+.*
+_*
+*.fnx
+components
+bower.json
+tmp
+node_modules
+!.gitignore
+!.jshintignore
+!.npmignore
+!.travis.yml
+*.db
+npm-debug.log

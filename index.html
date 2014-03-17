@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Fenix Web Servers</title>
+		<link rel="stylesheet" href="lib/css/main.css"/>
+		<link rel="stylesheet" href="lib/css/fenix-embedded.css"/>
+		<link rel="stylesheet" href="lib/css/animate.min.css"/>
+		<link rel="stylesheet" href="lib/css/hint.min.css"/>
+    <script type="text/javascript" src="./lib/api/class.js"></script>
+    <script type="text/javascript" src="./lib/api/utility.js"></script>
+    <script type="text/javascript" src="./lib/api/syslog.js"></script>
+    <script type="text/javascript" src="./lib/api/server.js"></script>
+    <script type="text/javascript" src="./lib/api/router.js"></script>
+    <script type="text/javascript" src="./lib/api/api.js"></script>
+  </head>
+  <body>
+    <div id="out" style="z-index: 5; position: absolute;top:250px;display: flex;"></div>
+		<div id="servers">
+			<div style="display:none;"></div>
+			<a href="javascript:gui.Clipboard.get().set('C:\\Users\\Corey\\Documents\\workspace\\Fenix\\app\\v2\\demo');">Demo</a>
+		</div>
+		<div id="wizard" class="animated">
+			<h1>New Server</h1>
+			<input type="text" placeholder="Descriptive Name" id="name"/>
+			<input type="text" placeholder="Directory" id="path"><div id="filebrowser" class="icon-folder"></div></input>
+			<input type="text" placeholder="80" id="port"/>
+			<button id="createServerBtn" disabled="true">Create</button>
+			<input type="file" id="choosefile" style="display:none;" nwdirectory/>
+			<a href="">&times;</a>
+		</div>
+		<div id="editwizard" class="animated">
+			<h1>Modify Server</h1>
+			<input type="text" placeholder="Descriptive Name" id="ename"/>
+			<input type="text" placeholder="Directory" id="epath"><div id="filebrowser2" class="icon-folder"></div></input>
+			<input type="text" placeholder="80" id="eport"/>
+			<button id="editServerBtn" disabled="true">Update</button>
+			<input type="hidden" value="" id="eserver"/>
+			<input type="file" id="choosefile2" style="display:none;" nwdirectory/>
+			<a href="">&times;</a>
+		</div>
+		<div id="log" class="animated">
+			<h3>Log:<span></span></h3>
+			<div></div>
+			<a href="">&times;</a>
+		</div>
+		<div id="loader">Loading...</div>
+		<div id="mask" class="animated"></div>
+		<div id='status' style='display: none;'></div>	
+		<script type="text/javascript">
+			process.on('uncaughtException',function(e){
+				if (e.message.indexOf('EADDRINUSE') >= 0){
+					alert('The server could not be started. Another process is already running on the same port.');
+				} else {
+					console.dir(e);
+				}
+			});
+		</script>
+		<script type="text/javascript" src="./lib/js/zepto.js"></script>
+		<script type="text/javascript" src="./lib/js/router.js"></script>
+		<script type="text/javascript" src="./lib/js/UI.js"></script>
+		<script type="text/javascript" src="./lib/js/wizard.js"></script>
+		<script type="text/javascript" src="./lib/js/editwizard.js"></script>
+		<script type="text/javascript" src="./lib/controller.js"></script>
+		<script type="text/javascript">
+			// LogViewer Controller
+			$('#log > a:last-child').on('click',function(e){
+				e.preventDefault();
+				UI.logview.hide();
+			});
+			
+			UI.server.listen();
+		</script>
+  </body>
+</html>

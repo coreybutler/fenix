@@ -1,0 +1,492 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(./font/opensanslight.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(./font/opensans.woff) format('woff');
+}
+
+HTML, BODY {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+BODY, * {
+	font-family: 'Open Sans';
+	font-weight: 300;
+}
+BODY {
+	color: #efefef;
+	background-color: #131313;
+	/*background-image: url(../../resources/fenix2.png);
+	background-position: center 95%;
+	background-repeat:no-repeat;*/
+}
+
+BODY > div {
+	position: absolute;
+	top: 6px;
+	bottom: 6px;
+	right: 6px;
+	left: 6px;
+	z-index: 10;
+	overflow: hidden;
+	display: none;
+}
+			
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+	background-color: #000;
+	border-radius: 2px;
+}
+
+::-webkit-scrollbar	{
+	width: 6px;
+	background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 2px;
+}
+
+#servers {
+	overflow-y: auto;
+	display: block;
+	padding: 0 6px 0 6px;
+}
+#servers > div {
+	background: #222;
+	border-radius: 2px;
+	padding: 4px;
+	height: 40px;
+	display: flex;
+	flex-flow: row;
+	box-shadow: 2px 1px 3px #111;
+	margin: 4px 0 0 0;
+	border-top: 1px solid #313131;
+	clear: both;
+	border-right: 4px solid #c0392b;
+	border-left: 4px solid transparent;
+}
+#servers > div > img:first-child {
+	min-width: 34px !important;
+	width: 34px !important;
+	height: 34px !important;
+	border-radius: 2px;
+	box-shadow: 1px 1px 2px #111;
+	margin: 3px 8px 3px 3px;
+	border: 0px;
+}
+#servers > div > div {
+	cursor: pointer;
+	color: #9c9c9c;
+}
+#servers > div > div:nth-child(2) {
+	flex: 1 100%;
+	width: auto;
+}
+#servers > div > div:nth-child(2) > div {
+	display: inline-flex;
+	font-size: 11px;
+	font-weight: 300;
+	max-width: 80%;
+}
+#servers > div > div:nth-child(2) > div:first-child {
+	font-size: 16px;
+	font-weight: 400;
+	display: flex;
+	color: #aaa;
+	text-shadow: 0px 0px 6px #000;
+}
+#servers > div > div:nth-child(2) > div:last-child {
+	text-overflow:ellipsis;
+	overflow: hidden;
+	cursor: default;
+}
+#servers > div:hover > div:nth-child(2) > div:last-child {
+	cursor: default !important;
+}
+#servers > div > div:last-child {
+	position: relative;
+	display: none;
+	line-height: 40px;
+	vertical-align: middle;
+	margin: 0 4px 0 0;
+}
+#servers > div > div:nth-child(2) > div:last-child,
+#servers > div > div:nth-child(2) > div:nth-child(3) {
+	border-left: 1px solid #333;
+	padding: 0 3px 0 6px;
+}
+#servers > div:hover > div:last-child {
+	display: flex;
+}
+#servers > div > div:last-child > div {
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 20px;
+	margin: 0 5px 0 5px;
+}
+#servers > div > div:last-child > div:hover {
+	color: #eee;
+}
+#servers > div > div:last-child > div:nth-last-child(2),
+#servers > div > div:last-child > div:last-child {
+	position: absolute;
+	bottom: 0;
+	right: -10px;
+	font-size: 14px;
+	color: #5e5e5e;
+	display: none;
+}
+#servers > div > div:last-child > div:nth-last-child(2) {
+	right: 10px;
+}
+#servers > div > div:last-child > div:nth-last-child(2),
+#servers > div:not(.unavailable):hover > div:last-child > div:nth-child(1),
+#servers > div:hover > div:last-child > div:last-child {
+	display: block;
+}
+#servers > div:hover > div:last-child > div:last-child:hover {
+	color: #e74c3c;
+	text-shadow: -1px -1px 2px #111;
+}
+#servers > div > div:last-child > div:nth-last-child(2):hover {
+	color: #f1c40f;
+	text-shadow: -1px -1px 2px #111;
+}
+#servers > div > div:last-child > div:nth-child(1),
+#servers > div > div:last-child > div:nth-child(2) {
+	display: none;
+}
+#servers > div.running > div:last-child > div:nth-child(1),
+#servers > div.running > div:last-child > div:nth-child(2) {
+	display: inline-flex;
+}
+/* Override the play button icon with the stop icon when the server is running */
+#servers > div.running > div:last-child > div:nth-child(3) > div:before {
+	content: '\e802' !important;
+}
+#servers > div.running {
+	border-right: 4px solid #27ae60;
+	border-left: 4px solid transparent;
+}
+#servers > div.running > div:nth-child(2) > div:first-child {
+	color: #eee;
+	text-shadow: 0 0 3px rgba(26,156,188,.65);
+}
+#servers > div.unavailable {
+	background-color: #292929;
+	border-right: 4px solid #f1c40f;
+}
+#servers > div.unavailable > div:nth-child(2) > div {
+	cursor:default;
+}
+#servers > div > div:nth-child(2) > div.hint--bounce:after,
+#servers > div > div:nth-child(2) > div.hint--bounce:before {
+	display: none;
+}
+#servers > div.unavailable > div:nth-child(2) > div {
+	color: #444;
+	text-shadow: none;
+}
+#servers > div.unavailable > div:last-child > div {
+	display: none;
+}
+#servers > div.unavailable > div:last-child > div:nth-child(n+4) {
+	display: block;
+	color: #efefef;
+}
+#servers > div > div:nth-child(2) > div {
+	cursor: default;
+}
+#servers > div.running > div:nth-child(2) > div:nth-child(n-1){
+	cursor: pointer;
+}
+#servers > div.running > div:nth-child(2) > div.hint--bounce:after,
+#servers > div.running > div:nth-child(2) > div.hint--bounce:before {
+	display: block;
+}
+#servers > div.running.shared {
+	position: relative;
+	margin-bottom: 27px;
+	margin-top: 4px;
+	border-bottom: 1px solid transparent !important;
+}
+#servers > div.running.shared:hover {
+	/*border-top: 1px solid rgba(54,151,255,.81);*/
+}
+#servers > div.running.shared:before {
+	position: absolute;
+	bottom: -24px;
+	left: -4px;
+	right: 1px;
+	color: #555;
+	content: 'Open ' attr(shared-url) ' | Copy Link';
+	border: 1px solid #333;
+	z-index: 1;
+	font-size: 11px;
+	padding: 0 24px 0 0px;
+	background-color: /*rgba(54,151,255,.11)*/rgba(255,255,255,.05);
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-top-right-radius: 0px;
+	border-right: 4px solid transparent;
+	border-left: 0px;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	height: 20px;
+	line-height: 22px;
+	vertical-align: middle;
+	text-align: right;
+}
+#servers > div.running.shared.highlight:before {
+	background-color: rgba(255,255,255,.15);
+}
+#servers > div.running.shared {
+	cursor: pointer;
+}
+#servers > div.running.shared:hover > * {
+	cursor: default;
+}
+#servers > div.running.shared:hover > div:last-child > div {
+	cursor: pointer;
+}
+#servers > div.running.shared:hover:before{
+	color: #efefef;
+}
+#servers > div.running.shared:after {
+	z-index: 15;
+	content: '\e800';
+	position: absolute;
+	bottom: -28px;
+	right: -2px;
+	width: 20px;
+	height: 20px;
+	font-family: fenix;
+	color: #777;/*#27ae60;*/
+	text-shadow: 1px 1px 2px #000;
+	/*transform: rotate(-5deg);*/
+	font-size: 14px;
+	padding: 1px 2px 2px 2px;
+}
+#servers > div.running.shared:hover:after {
+	color: #efefef;
+}
+#servers > div.running.shared > div:last-child > div:nth-child(2) {
+	color: rgba(54,151,255,.9);
+}
+#servers > div.running > img:first-child {
+	cursor: pointer !important;
+}
+
+#loader {
+	z-index: 1000;
+	background: rgba(0,0,0,.7);
+	color: #fff;
+	text-shadow: 1px 1px 3px #333;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	padding: 75px 25px 25px 0;
+}
+
+#editwizard,
+#wizard {
+	z-index: 50;
+	background: rgba(0,0,0,.91);
+	color: #eee;
+	padding: 2px 8px 8px 8px;
+}
+
+#editwizard > input,
+#wizard > input {
+	position: relative;
+	background: transparent;
+	color: #fff;
+	text-shadow: -1px -1px 1px #222;
+	padding: 4px;
+	font-size: 20px;
+	border: 1px solid #333;
+	border-radius: 2px;
+	width: 100%;
+}
+#editwizard > input:nth-child(3),
+#wizard > input:nth-child(3) {
+	padding-right: 37px;
+}
+#editwizard > input:focus,
+#wizard > input:focus {
+	outline-color: #000;
+}
+#editwizard > input.optional,
+#wizard > input.optional {
+	position: relative;
+	border: 1px dashed #333;
+}
+#editwizard > button,
+#wizard > button {
+	margin: 12px 0 0 0;
+	border-radius: 2px;
+	background: #27ae60;
+	width: 100%;
+	height: 40px;
+	color: #ecf0f1;
+	font-size: 20px;
+	border: 1px solid #333;
+	cursor: pointer;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: #444;
+}
+#editwizard > input.optional::-webkit-pinput-placeholder,
+#wizard > input.optional::-webkit-input-placeholder { /* WebKit browsers */
+	color: #232323;
+}
+#filebrowser2,
+#filebrowser {
+	position: absolute;
+	right: 10px;
+	top: 140px;
+	font-size: 20px;
+	font-family: fenix;
+	z-index: 100;
+	min-height: 28px;
+	min-width: 28px;
+	line-height: 34px;
+	vertical-align: middle;
+	color: rgba(255,255,255,.3);
+}
+#filebrowser2:hover,
+#filebrowser:hover {
+	cursor: pointer;
+	color: rgba(255,255,255,.9);
+}
+
+#log {
+	top: 12px;
+	bottom: 15px;
+	left: 10px; 
+	right: 10px;
+	border: 2px solid #000;
+	border-radius: 3px;
+	z-index: 20;
+	background: rgba(0,0,0,.91);
+	color: #eee;
+	padding: 2px 8px 8px 8px;
+	overflow: hidden;
+}
+
+#log > h3 {
+	margin: 2px 0 6px 0;
+	color: gold;
+}
+
+#log > h3 > span {
+	margin-left: 8px;
+	color: gold;
+}
+
+#editwizard > a:last-child,
+#wizard > a:last-child,
+#log > a:last-child {
+	position: absolute;
+	top: 4px;
+	right: 7px;
+	font-size: 22px;
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+#log > div {
+	position: absolute;
+	top: 35px;
+	bottom: 6px;
+	left: 10px;
+	right: 10px;
+	overflow: auto;
+	padding-right: 6px;
+}
+
+#log > div > p {
+	margin: 0;
+	padding: 4px 2px 4px 2px;
+	border-top: 1px solid #111;
+	font-family: Monaco, Consolas, "courier new";
+	font-size: small;
+	color: #aaa;
+	border-radius: 2px;
+	border-left: 4px solid transparent;
+	overflow-x: hidden;
+}
+#log > div > p:last-child {
+	color: #ddd;
+}
+
+#log > div > p.error {
+	background: rgba(192,58,43,.1) !important;
+	border-left: 4px solid rgba(192,58,43,.95);
+}
+#log > div > p.warn {
+	background: rgba(243,157,18,.1) !important;
+	border-left: 4px solid rgba(243,157,18,.95);
+}
+
+#log > div > p:hover {
+	color: #fff;
+	background-color: #000;
+	text-shadow: 1px 1px 1px #111;
+}
+
+#log > div > p.error:hover {
+	background: rgba(192,58,43,.95) !important;
+	border-left: 4px solid transparent;
+}
+#log > div > p.warn:hover {
+	background: rgba(243,157,18,.95) !important;
+	border-left: 4px solid transparent;
+}
+
+#log > div > p:first-child {
+	border: 0;
+}
+
+#editServerBtn[disabled='true'],
+#createServerBtn[disabled='true'] {
+	position: relative;
+	color: rgba(255,255,255,.3);
+	background-color: #222;
+	cursor: default;
+}
+editServerBtn[disabled='true']:before,
+#createServerBtn[disabled='true']:before {
+	content: 'Form must be completed.';
+	position: absolute;
+	top: -15px;
+	left: 0px;
+	font-size: 11px;
+	color: #777;
+}
+
+.show {
+	display: block;
+}
+
+#mask {
+	z-index: 1000;
+	position: absolute;
+	background: rgba(0,0,0,.9);
+	color: #555;
+	left: -1000;
+	text-align: center;
+}
