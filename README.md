@@ -4,10 +4,11 @@ Version 2.0 is complete and undergoing pre-release testing.
 
 ## New Features in 2.0
 
-- Request bin
+- Request bin (receive webhooks)
 - Growl support
 - Installation Wizard
 - Now supports Mac OSX
+- [Command Line Utility](http://github.com/coreybutler/fenix-cli) (requires [node.js](http://nodejs.org))
 
 ### Upgrades in 2.0
 
