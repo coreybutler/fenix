@@ -4,9 +4,11 @@
 		<link rel="stylesheet" href="lib/css/main.css"/>
 		<link rel="stylesheet" href="lib/css/animate.min.css"/>
 		<link rel="stylesheet" href="lib/css/hint.min.css"/>
+		<link rel="stylesheet" href="lib/css/prism.css"/>
 		<script type="text/javascript" src="./lib/js/zepto.js"></script>
     <script type="text/javascript" src="./lib/api/class.js"></script>
     <script type="text/javascript" src="./lib/api/utility.js"></script>
+    <script type="text/javascript" src="./lib/js/prism.js"></script>
 		<style>
 			BODY {
 				position: relative;
@@ -116,8 +118,8 @@
 			#requests > div > span:last-child {
 				display: block;
 				clear: both;
-				font-size: 9px;
-				color: #555;
+				font-size: 10px;
+				color: #bbb;
 				margin: 4px 0 0 0;
 				position: absolute;
 				right: 6px;
@@ -130,15 +132,50 @@
 				background-color: transparent !important;
 				border: 0px !important;
 			}
+			#request > div > table {
+				padding: 0;
+				margin: 0;
+			}
+			#request > div > table > tbody {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			#request > div > table > tbody > tr > th {
+				text-align: left;
+				padding: 2px;
+				font-family: 'Open Sans', 'Arial', sans-serif;
+				font-size: 14px;
+				color: cyan;
+				margin: 0;
+			}
+			#request > div > table > tbody > tr > th:first-child {
+				min-width: 150px;
+			}
+			#request > div > table > tbody > tr:first-child > th:last-child {
+				padding-left: 8px !important;
+			}
 			#request > div > table > tbody > tr > td {
-				font-family: "courier new";
-				font-size: 11px;
+				font-family: 'Open Sans';
+				font-size: 13px;
 				font-weight: 300;
+				background-color: #000;
+				padding: 0;
+				margin: 0;
 			}
 			#request > div > table > tbody > tr > td:first-child {
 				font-weight: bold !important;
 				color: #999;
 				vertical-align: top;
+			}
+			#request > div > table > tbody > tr:nth-child(n+1) > td:last-child {
+				font-family: "courier new", Monaco, Consolas, 'Open Sans';
+				font-weight: 100 !important;
+				color: white !important;
+				padding: 2 2 2 8;
+			}
+			#request > div > table > tbody > tr:hover > td {
+				background-color: rgba(255,255,255,.1);
 			}
 			#request > .headers {
 				position: relative;
@@ -160,8 +197,8 @@
 			#showheader:hover {
 				cursor: pointer;
 			}
-			#request > pre.body {
-				font-family: Monaco, Consolas,"courier new";
+			#request > pre > code {
+				font-family: Monaco, Consolas,"courier new" !important;
 				font-size: 14px;
 				color: #bbb;
 			}

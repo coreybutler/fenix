@@ -3,8 +3,21 @@ var express = require('express'),
 		localtunnel = require('localtunnel'),
 		app = express();
 
-app.use(express.json());
+//app.use(express.json());
 app.use(express.urlencoded());
+app.use (function(req, res, next) {
+	req.setEncoding('utf8');
+	var data='';
+	req.setEncoding('utf8');
+	req.on('data', function(chunk) { 
+		 data += chunk;
+	});
+
+	req.on('end', function() {
+			req.body = data;
+			next();
+	});
+});
 
 /**
  * @class RequestBin
@@ -174,7 +187,7 @@ var RequestBin = Utility.extend({
 				me.addRequest({
 					method: req.method,
 					headers: req.headers,
-					body: req.body || null,
+					body: req.body.replace(/\</gi,'&lt;').replace(/\>/gi,'&gt;'),
 					query: req.query,
 					url: req.url,
 					source: req.ip

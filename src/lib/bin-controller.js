@@ -1,6 +1,7 @@
 // Create a new Request Bin
 var RequestBrowser = new RequestBin(),
-		Growler = require('growler');
+		Growler = require('growler'),
+		gui = require('nw.gui');
 
 // Create the UI controller
 var UI = {
@@ -8,7 +9,7 @@ var UI = {
 	request: $('#request'),
 	server: {
 		start: function(){
-			UI.status.removeClass().addClass('online').empty()[0].innerHTML = "Accepting requests at <a href=''>http://localhost:"+RequestBrowser.port.toString()+"</a>"
+			UI.status.removeClass().addClass('online').empty()[0].innerHTML = "Accepting requests at <a href='javascript:gui.Shell.openExternal(\"http://localhost:"+RequestBrowser.port.toString()+"\");'>http://localhost:"+RequestBrowser.port.toString()+"</a>"
 			+(RequestBrowser.connecting 
 				? "<div class=\"hint--left hint--rounded\" data-hint=\"Connecting to the internet...\">Connecting</div>"
 				: "<div class=\"hint--left hint--rounded\" data-hint=\"Make this available on the internet.\"><a href='#' id='connect'>Share</a></div>");
@@ -21,7 +22,7 @@ var UI = {
 			UI.status.removeClass().addClass('offline').empty()[0].innerHTML = "Offline";
 		},
 		share: function(){
-			UI.status.removeClass().addClass('public').empty()[0].innerHTML = "Accepting requests at <a href=''>"+RequestBrowser.publicUrl+"</a>"
+			UI.status.removeClass().addClass('public').empty()[0].innerHTML = "Accepting requests at <a href='javascript:gui.Shell.openExternal(\""+RequestBrowser.publicUrl+"\");'>"+RequestBrowser.publicUrl+"</a>"
 			+ "<div class=\"hint--left hint--rounded\" data-hint=\"Stop internet sharing.\"><a href='#' id='disconnect'>Unshare</a></div>";
 			$('#disconnect').click(function(e){
 				e.preventDefault();
@@ -61,25 +62,36 @@ var UI = {
 			req = RequestBrowser.getRequestDetails(timestamp);
 			UI.request[0].setAttribute('method',req.method);
 			UI.request[0].setAttribute('source',req.source);
-			UI.request.empty()[0].innerHTML = '<a href="#" id="showheader">Show Headers</a><div id="headers" class="hide animated">'+UI.render.headers(req.headers)+'</div><pre class="body">'+UI.render.body(req.body)+'</pre>';
+			var type = req.headers.hasOwnProperty('content-type') ? (req.headers['content-type'].toLowerCase().indexOf('json') >= 0 ? 'javascript' : 'markup') : 'markup';
+			UI.request.empty()[0].innerHTML = '<a href="#" id="showheader">Show Headers</a><div id="headers" class="hide animated">'+UI.render.headers(req.headers)+'</div><pre id="code" class="language-'+type+' line-numbers" style="background-color: transparent !important;"><code>'+UI.render.body(req.body)+'</code></pre>';
+			Prism.highlightAll();//Prism.highlightElement($('#code')[0]);
+			$('a.url-link').forEach(function(el){
+				el.setAttribute('href','javascript:gui.Shell.openExternal("'+el.getAttribute('href')+'");');
+			});
 			$('#showheader').click(function(e){
 				e.preventDefault();
 				UI.render.toggleHeader();
 			});
 			$('#requests > div > span').off('click').click(function(e){
 				e.preventDefault();
-				console.log(e.currentTarget.parentNode);
 				UI.render.request(e.currentTarget.parentNode.id);
 			});
 		},
 		headers: function(headers){
-			var str = '<table width="100%"><tbody>';
+			var str = '<table width="100%"><tbody><tr><th>Header</th><th>Value</th></tr>';
 			Object.keys(headers).forEach(function(type){
 				str += '<tr><td>'+type+':</td><td>'+headers[type]+'</td></tr>';
 			});
 			return str += '</tbody></table>';
 		},
 		body: function(body){
+			console.log(body);
+			try {
+				body = JSON.parse(body);
+				console.log("Is JSON");
+			} catch (e){
+				console.log(e);
+			}
 			return typeof body !== 'string'  ? JSON.stringify(body,null,2) : body;
 		},
 		showHeaders: function(){

@@ -451,6 +451,11 @@ var Server = Utility.extend({
 			h = w;
 		}
 		
+		if (!this.running){
+			cb()
+			return;
+		}
+		
 		url='http://localhost:'+this.port.toString();
 		webshot(url).width(w).height(h).capture(function(err,img){
 			if (err) throw err;
