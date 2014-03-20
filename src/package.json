@@ -8,7 +8,9 @@
     "send",
     "web",
     "server",
-    "static"
+    "static",
+		"bin",
+		"request"
   ],
 	"author": {
 		"name": "Corey butler",
