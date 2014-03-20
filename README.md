@@ -6,6 +6,8 @@ Version 2.0 is complete and undergoing pre-release testing.
 
 - Request bin
 - Growl support
+- Installation Wizard
+- Now supports Mac OSX
 
 ### Upgrades in 2.0
 
