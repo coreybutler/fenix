@@ -1,22 +1,17 @@
 <html>
   <head>
     <title>Fenix Web Servers</title>
+		<!-- build:css lib/css/core.css -->
 		<link rel="stylesheet" href="lib/css/main.css"/>
-		<link rel="stylesheet" href="lib/css/fenix-embedded.css"/>
 		<link rel="stylesheet" href="lib/css/animate.min.css"/>
 		<link rel="stylesheet" href="lib/css/hint.min.css"/>
-    <script type="text/javascript" src="./lib/api/class.js"></script>
-    <script type="text/javascript" src="./lib/api/utility.js"></script>
-    <script type="text/javascript" src="./lib/api/syslog.js"></script>
-    <script type="text/javascript" src="./lib/api/server.js"></script>
-    <script type="text/javascript" src="./lib/api/router.js"></script>
-    <script type="text/javascript" src="./lib/api/api.js"></script>
+		<!-- endbuild -->
+		<link rel="stylesheet" href="lib/css/fenix-embedded.css"/>
   </head>
   <body>
     <div id="out" style="z-index: 5; position: absolute;top:250px;display: flex;"></div>
 		<div id="servers">
 			<div style="display:none;"></div>
-			<a href="javascript:gui.Clipboard.get().set('C:\\Users\\Corey\\Documents\\workspace\\Fenix\\app\\v2\\demo');">Demo</a>
 		</div>
 		<div id="wizard" class="animated">
 			<h1>New Server</h1>
@@ -54,12 +49,22 @@
 				}
 			});
 		</script>
+		<!-- build:js lib/js/core.js -->
+    <script type="text/javascript" src="./lib/api/class.js"></script>
+    <script type="text/javascript" src="./lib/api/utility.js"></script>
 		<script type="text/javascript" src="./lib/js/zepto.js"></script>
-		<script type="text/javascript" src="./lib/js/router.js"></script>
+		<!-- endbuild -->
+		<!-- build:js lib/js/web.js -->
+		<script type="text/javascript" src="./lib/api/syslog.js"></script>
+    <script type="text/javascript" src="./lib/api/server.js"></script>
+    <script type="text/javascript" src="./lib/api/router.js"></script>
+    <script type="text/javascript" src="./lib/js/router.js"></script>
 		<script type="text/javascript" src="./lib/js/UI.js"></script>
 		<script type="text/javascript" src="./lib/js/wizard.js"></script>
 		<script type="text/javascript" src="./lib/js/editwizard.js"></script>
+		<script type="text/javascript" src="./lib/api/api.js"></script>
 		<script type="text/javascript" src="./lib/controller.js"></script>
+		<!-- endbuild -->
 		<script type="text/javascript">
 			// LogViewer Controller
 			$('#log > a:last-child').on('click',function(e){
