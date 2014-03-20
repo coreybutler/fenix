@@ -1,3 +1,9 @@
+# NOTICE
+
+This is the repository for Fenix 1.0. [Fenix 2.0](http://github.com/coreybutler/fenix) development is complete and in a release candidate state. Once it is formally released, this repository will be merged with the new one.
+
+---
+
 Follow the author on [G+](https://plus.google.com/u/1/111169756342687497578?rel=author)
 or [Twitter (@goldglovecb)](http://twitter.com/goldglovecb).
 
