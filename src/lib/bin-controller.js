@@ -85,7 +85,6 @@ var UI = {
 			return str += '</tbody></table>';
 		},
 		body: function(body){
-			console.log(body);
 			try {
 				body = JSON.parse(body);
 				console.log("Is JSON");
@@ -125,7 +124,7 @@ var UI = {
 				'Status': {
 					displayname: 'Fenix Receiver',
 					enabled: true,
-					icon: require('fs').readFileSync('./resources/webhooks.png')
+					icon: require('fs').readFileSync('./lib/icons/webhooks.png')
 				}
 			});
 			UI._growl.app.register();

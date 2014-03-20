@@ -1,251 +1,15 @@
 <html>
   <head>
     <title>Fenix Request Browser</title>
+		<!-- build:css lib/css/core.css -->
 		<link rel="stylesheet" href="lib/css/main.css"/>
 		<link rel="stylesheet" href="lib/css/animate.min.css"/>
 		<link rel="stylesheet" href="lib/css/hint.min.css"/>
+		<!-- endbuild -->
+		<!-- build:css lib/css/bin.css -->
 		<link rel="stylesheet" href="lib/css/prism.css"/>
-		<script type="text/javascript" src="./lib/js/zepto.js"></script>
-    <script type="text/javascript" src="./lib/api/class.js"></script>
-    <script type="text/javascript" src="./lib/api/utility.js"></script>
-    <script type="text/javascript" src="./lib/js/prism.js"></script>
-		<style>
-			BODY {
-				position: relative;
-			}
-			#status {
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				height: 28px;
-				font-weight: 300;
-				display: block;
-				padding: 6px;
-				line-height: 28px;
-				vertical-align: middle;
-				font-family: 'Open Sans';
-			}
-			#status > a {
-				text-decoration: none;
-				font-weight: bold;
-			}
-			#status.public {
-				background-color: #27ae60;
-				color: rgba(255,255,255,.6);
-				font-weight: bold;
-			}
-			#status.public > a {
-				color: rgba(255,255,255,.95);
-			}
-			#status.online {
-				background-color: #f1c40f;
-				color: rgba(0,0,0,.6);
-				font-weight: bold;
-			}
-			#status.online > a {
-				color: rgba(0,0,0,.95);
-			}
-			#status.offline {
-				background-color: #c0392b;
-				color: rgba(255,255,255,.6);
-				font-weight: bold;
-			}
-			#status.offline > a {
-				color: rgba(255,255,255,.95);
-			}
-			#status.connecting {
-				background-color: #333;
-				color: rgba(255,255,255,.85);
-				font-weight: bold;
-			}
-			#binshell {
-				position: absolute;
-				top: 45px;
-				left: 6px;
-				right: 6px;
-				bottom: 6px;
-				display: flex;
-				flex: 1 100%;
-			}
-			#request, #requests {
-				height: 100%;
-				border-radius: 3px;
-				background-color: #222222;
-				border: 1px solid #111111;
-				padding: 3px;
-				color: rgba(255,255,255,.9);
-			}
-			#requests {
-				flex: 1;
-				overflow-y: auto;
-				overflow-x: hidden;
-			}
-			#requests > div {
-				position: relative;
-				flex: 1;
-				margin: 4px;
-				border-radius: 3px;
-				cursor: pointer;
-				border-bottom: 1px solid #1c1c1c !important;
-				padding: 6px;
-				margin: 3px 0 0 0;
-				height: 25px;
-			}
-			#requests > div.selected {
-				background-color: #111111 !important;
-			}
-			#requests > div:hover {
-				background-color: #1c1c1c;
-			}
-			#requests > div > span:first-child {
-				background-color: #D2D7D3;
-				border-radius: 3px;
-				padding: 3px;
-				font-weight: bold;
-				font-size: 11px;
-				margin: 0 8px 0 0;
-				position: absolute;
-				top: 9px;
-				left: 6px;
-			}
-			#requests > div > span:nth-child(2) {
-				font-size: 12px;
-				position: absolute;
-				right: 6px;
-				top: 6px;
-			}
-			#requests > div > span:last-child {
-				display: block;
-				clear: both;
-				font-size: 10px;
-				color: #bbb;
-				margin: 4px 0 0 0;
-				position: absolute;
-				right: 6px;
-				bottom: 2px;
-			}
-			#request {
-				position: relative;
-				flex: 4;
-				margin: 0 0 0 4px !important;
-				background-color: transparent !important;
-				border: 0px !important;
-			}
-			#request > div > table {
-				padding: 0;
-				margin: 0;
-			}
-			#request > div > table > tbody {
-				padding: 0;
-				margin: 0;
-				border: 0;
-			}
-			#request > div > table > tbody > tr > th {
-				text-align: left;
-				padding: 2px;
-				font-family: 'Open Sans', 'Arial', sans-serif;
-				font-size: 14px;
-				color: cyan;
-				margin: 0;
-			}
-			#request > div > table > tbody > tr > th:first-child {
-				min-width: 150px;
-			}
-			#request > div > table > tbody > tr:first-child > th:last-child {
-				padding-left: 8px !important;
-			}
-			#request > div > table > tbody > tr > td {
-				font-family: 'Open Sans';
-				font-size: 13px;
-				font-weight: 300;
-				background-color: #000;
-				padding: 0;
-				margin: 0;
-			}
-			#request > div > table > tbody > tr > td:first-child {
-				font-weight: bold !important;
-				color: #999;
-				vertical-align: top;
-			}
-			#request > div > table > tbody > tr:nth-child(n+1) > td:last-child {
-				font-family: "courier new", Monaco, Consolas, 'Open Sans';
-				font-weight: 100 !important;
-				color: white !important;
-				padding: 2 2 2 8;
-			}
-			#request > div > table > tbody > tr:hover > td {
-				background-color: rgba(255,255,255,.1);
-			}
-			#request > .headers {
-				position: relative;
-				border-bottom: 1px dashed #212121;
-				padding: 0 0 9px 0;
-			}
-			#showheader {
-				position: absolute;
-				right: 12px;
-				top: 6px;
-				font-size: 11px;
-				background-color: #333;
-				color: #ecf0f1;
-				padding: 6px;
-				border-radius: 3px;
-				text-decoration: none;
-				z-index: 100;
-			}
-			#showheader:hover {
-				cursor: pointer;
-			}
-			#request > pre > code {
-				font-family: Monaco, Consolas,"courier new" !important;
-				font-size: 14px;
-				color: #bbb;
-			}
-			#request {
-				overflow-x: hidden;
-				overflow-y: auto;
-			}
-			.hide {
-				display: none;
-			}
-			#status > div:last-child {
-				position: absolute;
-				right: 7px;
-				top: 7px;
-				z-index: 500;
-			}
-			#status > div > a {
-				padding: 4px 8px 4px 8px;
-				border-radius: 3px;
-				background-color: #333;
-				color: #efefef;
-				text-decoration: none;
-				font-size: 14px;
-			}
-			span.get {
-				background-color: #1E8BC3 !important;
-			}
-			span.put {
-				background-color: #913D88 !important;
-			}
-			span.post {
-				background-color: #9b59b6 !important;
-			}
-			span.delete {
-				background-color: #D64541 !important;
-			}
-			span.head {
-				background-color: #F9BF3B !important;
-			}
-			span.patch {
-				background-color: #336E7B !important;
-			}
-			span.options {
-				background-color: #DADFE1 !important;
-				color: #333 !important;
-			}
-		</style>
+		<link rel="stylesheet" href="lib/css/requestbin.css"/>
+		<!-- endbuild -->
   </head>
   <body>
 		<div id="status" class="connecting">
@@ -255,7 +19,15 @@
 			<div id="requests"></div>
 			<div id="request"></div>
 		</div>
+		<!-- build:js lib/js/core.js -->
+    <script type="text/javascript" src="./lib/api/class.js"></script>
+    <script type="text/javascript" src="./lib/api/utility.js"></script>
+		<script type="text/javascript" src="./lib/js/zepto.js"></script>
+		<!-- endbuild -->
+		<!-- build:js lib/js/bin.js -->
+    <script src="./lib/js/prism.js" type="text/javascript"></script>
 		<script src="lib/api/requestbin.js" type="text/javascript"></script>
 		<script src="lib/bin-controller.js" type="text/javascript"></script>
+		<!-- endbuild -->
 	</body>
 </html>

@@ -344,7 +344,7 @@ var UI = {
 				'Status': {
 					displayname: 'Fenix Server Status',
 					enabled: true,
-					icon: require('fs').readFileSync('./resources/fenix.png')
+					icon: require('fs').readFileSync('./lib/icons/fenix.png')
 				}
 			});
 			UI._growl.app.register();

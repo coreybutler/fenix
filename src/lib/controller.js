@@ -15,7 +15,9 @@ var openRequestBin = function(){
 			position: 'center',
 			width: 990,
 			height: 700,
-			title: 'Fenix Request Browser'
+			title: 'Fenix Request Browser',
+			toolbar: false,
+			icon: './lib/icons/webhooks.png'
 		});
 
 		bin.on('close',function(){
@@ -38,7 +40,9 @@ var openAbout = function(){
 			position: 'center',
 			width: 990,
 			height: 700,
-			title: 'Fenix Request Browser'
+			title: 'Fenix Request Browser',
+			toolbar: false,
+			icon: './lib/icons/fenix.png'
 		});
 
 		abt.on('close',function(){
@@ -61,7 +65,7 @@ s.submenu = server;
 
 menu.append(s);
 menu.append(new gui.MenuItem({ label: 'Request Browser', menu: server, click: openRequestBin }));
-menu.append(new gui.MenuItem({ label: 'About', menu: server, click: openAbout }));
+menu.append(new gui.MenuItem({ label: 'Help', menu: server, click: openAbout }));
 
 win.menu = menu;
 
@@ -73,7 +77,7 @@ win.on('close',function(){
 	gui.App.quit();
 });
 
-/*var tray = new gui.Tray({title:'Fenix',icon:'../resources/fenix.png'});
+/*var tray = new gui.Tray({title:'Fenix',icon:'../lib/icons/fenix.png'});
 var tmenu = new gui.Menu();
 tmenu.append(new gui.MenuItem({ label: 'Server A' }));
 tray.menu = tmenu;*/
