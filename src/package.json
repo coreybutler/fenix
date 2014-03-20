@@ -10,14 +10,14 @@
     "server",
     "static"
   ],
-  "author": {
-    "name": "Corey butler",
-    "email": "corey@coreybutler.com",
-    "url": "http://ecorsystems.com"
-  },
+	"author": {
+		"name": "Corey butler",
+		"email": "corey@coreybutler.com",
+		"url": "http://ecorsystems.com"
+	},
   "window": {
     "title": "Fenix Web Servers",
-    "icon": "./resources/fenix.png",
+    "icon": "./lib/icons/fenix.png",
     "toolbar": true,
     "width": 400,
     "height": 600,
@@ -50,7 +50,6 @@
     "grunt-text-replace": "^0.3.11",
     "grunt-usemin": "^2.1.0",
     "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-cssmin": "^0.9.0",
-    "grunt-contrib-concat": "^0.3.0"
+    "grunt-contrib-cssmin": "^0.9.0"
   }
 }
