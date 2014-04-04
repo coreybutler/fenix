@@ -1,0 +1,317 @@
+/* Owl Slider */
+section.work .owl-wrapper-outer {
+    overflow:visible !important;
+}
+section.work .owl-item {
+    opacity:0.2;
+    filter: alpha(opacity=20);
+    padding:0 0px;
+}
+section.work .owl-item.o_2away {
+    opacity:0.04;
+    filter: alpha(opacity=04);
+    transition:all .45s ease-in-out;
+    -webkit-transition:all .45s ease-in-out;
+    -moz-transition:all .45s ease-in-out;
+}
+section.work .owl-item div {
+    text-align:center;
+}
+section.work .owl-item.active {
+    opacity:1;
+    filter: alpha(opacity=100);
+    transition:all .45s ease-in-out;
+    -webkit-transition:all .45s ease-in-out;
+    -moz-transition:all .45s ease-in-out;
+    position:relative;
+    z-index:50
+}
+section.work .owl-item.active div img {
+    width:270px;
+    margin:-65px 0 0 -13px;
+}
+    section.work .owl-item div img {
+        width:200px;
+    margin-top:21px;
+    transition:all .5s ease-in-out;
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    text-align:center;
+}
+section.work .owl-item h2 {
+    color: #fff;
+    font-weight: 200;
+    margin-top: 0;
+    display: inline-block;
+    width: 270px;
+    height: 30px;
+    position: absolute;
+    top: -138px;
+    left: 50%;
+    margin-left: -135px;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    opacity:0;
+    filter: alpha(opacity=0);
+}
+.end_slider {
+    text-indent:-9999px;
+}
+section.work .owl-buttons {
+    font-family:"FontAwesome";
+    display:inline-block;
+    font-style:normal;
+    font-weight:normal;
+    -webkit-font-smoothing: antialiased;
+    font-size:33px;
+    top:-150px;
+    position:absolute;
+    left:50%;
+    z-index:9000;
+}
+section.work .owl-buttons div {
+    color:#fff;
+    transition:.3s all ease-in-out;
+    -webkit-transition:.3s all ease-in-out;
+    -moz-transition:.3s all ease-in-out;
+}
+section.work .owl-buttons div.owl-prev {
+    position:absolute;
+    top:0;
+    left:-120px;
+}
+section.work .owl-buttons div.owl-next {
+    position:absolute;
+    top:0;
+    right:-120px;
+}
+section.work .owl-buttons div:hover {
+    color:#fff;
+}
+
+/*----------------------------
+Bullet Base Position Styling
+---------------------------- */
+.bullet.left {
+    left:50%;
+}
+.bullet.right {
+    right:50%;
+}
+/* Bullet Height Positions */
+.bullet.top {
+        top:18px;
+}
+.bullet.centre {
+        top:148px;
+}
+.bullet.btm {
+        top:268px;
+}
+/*----------------------------
+Right Length Positions
+---------------------------- */
+.bullet.right div {
+    background: url(../img/indicator-right.png) right no-repeat;
+position: absolute;
+left: 15px;
+height: 14px;
+}
+/* Left close Length */
+.right.close {
+    margin-right:-120px;
+}
+.bullet.right.close span {
+    left:30px;
+}
+.bullet.right.close > div {
+    width:45px;
+}
+.right.mid {
+    margin-right:-70px;
+}
+.right.mid > div {
+    background: url(../img/indicator-right.png) right no-repeat;
+position: absolute;
+width: 108px;
+left: 15px;
+height: 14px;
+}
+
+/* Right far Length */
+.bullet.right.far {
+    margin-right:-40px;
+}
+.bullet.right.far span {
+    left:170px;
+}
+.bullet.right.far > div {
+    width:185px;
+}
+
+/*----------------------------
+Left Positions
+---------------------------- */
+.bullet.left div {
+    background: url(../img/indicator.png) left no-repeat;
+position: absolute;
+right: 15px;
+height: 14px;
+}
+/* Left close Length */
+.left.close {
+    margin-left:-120px;
+}
+.bullet.left.close span {
+    right:30px;
+}
+.bullet.left.close > div {
+    width:45px;
+}
+/* Left mid Length */
+.bullet.left.mid {
+    margin-left:-70px;
+}
+.bullet.left.mid span {
+    right:90px;
+}
+.bullet.left.mid > div {
+    width:108px;
+}
+/* Left far Length */
+.bullet.left.far {
+    margin-left:-40px;
+}
+.bullet.left.far span {
+    right:170px;
+}
+.bullet.left.far > div {
+    width:185px;
+}
+
+/*----------------------------
+Bullet Span Styling
+---------------------------- */
+.bullet.left span {
+    display:block;
+    padding-right:30px;
+    position:absolute;
+    right:90px;
+    width:250px;
+    top:-12px;
+    text-align:right;
+}
+.bullet.right span {
+    display:block;
+    padding-left:30px;
+    position:absolute;
+    left:90px;
+    width:250px;
+    top:-12px;
+    text-align:left;
+}
+
+/*----------------------------
+Phone Hover - Typography
+---------------------------- */
+.bullet span h4 {
+    font:18px "Montserrat", sans-serif;
+    margin-bottom:0;
+    text-transform:uppercase;
+    color:#fff;
+    text-shadow:none;
+}
+.bullet span p {
+    color:#212930;
+    font:13px "Roboto";
+    font-weight:normal;
+    text-shadow:none;
+    color:white;
+}
+
+/*----------------------------
+Phone Bullets - General Styling
+---------------------------- */
+section.work .owl-item .bullet {
+    opacity:0;
+    filter: alpha(opacity=0);
+    transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    transform:scale(0.8);
+    -webkit-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    width:20px;
+    height:20px;
+    border-radius:20px;
+    background:#212930;
+    position:absolute;
+    border:3px solid white;
+}
+section.work .owl-item.active h2 {
+    transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    transform:scale(0.8);
+    -webkit-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    opacity:0;
+    filter: alpha(opacity=0);
+}
+section.work .owl-item.active .bullet, section.work .owl-item.active h2 {
+    opacity:1;
+    filter: alpha(opacity=100);
+    transition:1s all .4s ease-in-out;
+    -webkit-transition:1s all .4s ease-in-out;
+    -moz-transition:1s all .4s ease-in-out;
+    transform:scale(1);
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    -moz-transform:scale(1);
+}
+
+/* .phoneOverlay */
+.phoneOverlay {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: 318px;
+    background: rgba(14,15,16,0.9);
+    z-index: 9999;
+    border-top: 1px solid #2e323c;
+    border-bottom: 1px solid #2e323c;
+    display:none;
+    color:#fff;
+}
+.phoneOverlay div {
+    width:280px;
+    margin:20px auto;
+    text-align:center;
+}
+.phoneOverlay div h4 {
+    font:18px "Montserrat", sans-serif;
+    text-transform:uppercase;
+    margin-top:120px;
+}
+.phoneOverlay div p {
+    font: 13px "Open Sans", sans-serif;
+    color:#fff;
+}
+.phoneOverlay .clicktoClose {
+    margin: 0 auto;
+    position: relative;
+    bottom: 45px;
+    font: 11px "Montserrat", sans-serif;
+    text-align: center;
+    width: 200px;
+    margin-left: -100px;
+    left: 50%;
+    position: absolute;
+    color:#fff;
+    text-transform: uppercase;
+    cursor:pointer;
+}

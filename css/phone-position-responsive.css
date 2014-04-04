@@ -1,0 +1,34 @@
+/* Specific to Mobile Placement Banner */
+
+@media (max-width:992px) {
+    .bullet span {
+        width:200px !important;
+    }
+}
+
+@media (max-width:850px) {
+    .bullet.right.far span {
+        left:118px;
+    }
+    .bullet.left.far span {
+        right:118px;
+    }
+    .bullet.far > div {
+        width:135px !important;
+    }
+}
+@media (max-width: 740px) {
+     .bullet div {
+        display:none;
+    }
+    .bullet div.active {
+        display:block;
+    }
+    section.work .owl-item .bullet {
+        width:30px;
+        height:30px;
+    }
+    section.work .owl-item.active .bullet:hover {
+        background:#78858e;
+    }
+}

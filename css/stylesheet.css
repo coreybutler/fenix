@@ -1,0 +1,650 @@
+/*----------------------------
+FontAwesome Icons - Uses Unicode, see Cheatsheet here:
+http://fortawesome.github.io/Font-Awesome/cheatsheet/
+---------------------------- */
+
+.fa {
+    font-family:"FontAwesome";
+    display:inline-block;
+    font-style:normal;
+    font-weight:normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*----------------------------
+1 General Styling
+Includes: links, lists, buttons and all consistant elements
+---------------------------- */
+body {
+    position:relative;
+    font-family:"Roboto", sans-serif;
+    z-index:5;
+    background:#171a20;
+}
+a {text-decoration:none;}
+a:hover {
+    color:#6b7275;
+    text-decoration:none;
+}
+li {list-style:none;}
+p {
+    line-height:23px;
+}
+a, input, button {
+    -ms-touch-action: none !important;
+}
+
+/*----------------------------
+Buttons
+---------------------------- */
+.w_btn {
+    background:white;
+    font-family:"Montserrat", sans-serif;
+    padding:12px 21px;
+    font-size:13px;
+    color:#121415;
+    border-radius:4px;
+    display:inline-block;
+    text-transform:uppercase;
+}
+.w_btn:hover {
+    background:#dde2e5;
+    color:#121415;
+    transition:.1s all ease-in-out;
+    -webkit-transition:.1s all ease-in-out;
+    -moz-transition:.1s all ease-in-out;
+    -o-transition:.1s all ease-in-out;
+}
+.b_btn {
+    background:#0e0f10;
+    font-family:"Montserrat", sans-serif;
+    padding:12px 21px;
+    font-size:13px;
+    color:#fff;
+    border-radius:4px;
+    display:inline-block;
+    text-transform:uppercase;
+}
+.b_btn:hover {
+    background:#3b3e41;
+    color:#fff;
+    transition:.1s all ease-in-out;
+    -webkit-transition:.1s all ease-in-out;
+    -moz-transition:.1s all ease-in-out;
+    -o-transition:.1s all ease-in-out;
+}
+section .w_btn, footer .w_btn {
+    background:#0e0f10;
+    font-family:"Montserrat", sans-serif;
+    padding:12px 21px;
+    font-size:13px;
+    color:#fff;
+    border-radius:4px;
+    display:inline-block;
+    text-transform:uppercase;
+}
+section .w_btn:hover, footer .w_btn:hover {
+    background:#3b3e41;
+    color:#fff;
+    transition:.1s all ease-in-out;
+    -webkit-transition:.1s all ease-in-out;
+    -moz-transition:.1s all ease-in-out;
+    -o-transition:.1s all ease-in-out;
+}
+section .b_btn {
+    background:white;
+    font-family:"Montserrat", sans-serif;
+    padding:12px 21px;
+    font-size:13px;
+    color:#121415;
+    border-radius:4px;
+    display:inline-block;
+    text-transform:uppercase;
+}
+section .b_btn:hover {
+    background:#dde2e5;
+    color:#121415;
+    transition:.1s all ease-in-out;
+    -webkit-transition:.1s all ease-in-out;
+    -moz-transition:.1s all ease-in-out;
+    -o-transition:.1s all ease-in-out;
+}
+
+/*----------------------------
+Banner Header Elements
+---------------------------- */
+header {
+    width:100%;
+    background:#151a1d;
+    background:url(../img/main_top_bg.jpg) no-repeat center top;
+    background-size:cover;
+}
+.top_interface {
+    padding:84px 0;
+}
+.header_tag {
+    text-align:center;
+}
+.header_tag h1 {
+    font-family:"Roboto", sans-serif;
+    font-weight:100;
+    color:white;
+    font-size:45px;
+    margin-top:0;
+}
+.header_tag h2 {
+    font-family:"Montserrat", sans-serif;
+    font-size:13px;
+    font-weight:400;
+    color:white;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    line-height:24px;
+}
+.header_tag a {
+    margin:30px 8px 0;
+}
+
+/*----------------------------
+Text Logo
+---------------------------- */
+.logo > .text-logo {
+    font-family:"Montserrat", sans-serif;
+    font-size:23px;
+    color:white;
+    font-weight:400;
+    text-transform:uppercase;
+    display:inline-block;
+}
+.logo > .text-logo b {
+    font-weight:700;  /* Bold part of your text */
+}
+
+/*----------------------------
+Navigation Menu
+---------------------------- */
+nav.main_navigation {
+    float:right;
+    margin-top:4px;
+}
+nav.main_navigation ul li {
+float:left;
+list-style:none;
+}
+nav.main_navigation ul li a{
+    color:white;
+    font-family:"Montserrat", sans-serif;
+    margin-left:40px;
+    font-size:12px;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+nav.main_navigation ul i {
+    color:white;
+    font-size:18px;
+    display:none;
+    margin-top:14px;
+    margin-bottom:10px;
+}
+/*----------------------------
+Phone Navigation Menu
+---------------------------- */
+.phone-menu {
+    font-size:30px;
+    color:white;
+    float:right;
+    margin-right:20px;
+}
+.phone-menu:hover {
+    cursor:pointer;
+}
+
+/*----------------------------
+Phone in Header - With Text Elements
+---------------------------- */
+.phone_preview {
+    margin-top:70px;
+}
+.banner_phone {
+    text-align:center;
+    background:url(../img/banner_device.png) top center no-repeat;
+    height:400px;
+}
+.phone_preview .regular_text_left h3, .phone_preview .regular_text_right h3 {
+    font-size:25px;
+    font-family:"Roboto", sans-serif;
+    color:white;
+    font-weight:100;
+    margin-top:70px;
+}
+.phone_preview .regular_text_left p, .phone_preview .regular_text_right p {
+    color:white;
+    font-family:"Roboto", sans-serif;
+    font-size:14px;
+    font-weight:300;
+}
+.phone_preview .regular_text_left {
+    text-align:right;
+}
+
+/*----------------------------
+General Styling - Section
+---------------------------- */
+section {
+    background:#171a20;
+    padding:84px 0;
+}
+section h1 {
+    font:24px "Montserrat",sans-serif;
+    color:#fff;
+    text-transform:uppercase;
+    margin-top:0;
+}
+section h2 {
+    font:25px "Open Sans", sans-serif;
+    font-size:25px;
+    color:#fff;
+    font-weight:200;
+    margin-top:0;
+    display:inline-block;
+}
+section h2 b {
+    font-weight:400;
+}
+section p {
+    color:#a4a7ab;
+    font-size:13px;
+}
+section .title h2 {
+    display:block;
+}
+section .title {
+    text-align:center;
+    padding:0 20px 30px;
+}
+section .title p {
+    max-width:430px;
+    display:inline-block;
+}
+
+/*----------------------------
+App Overview Section
+---------------------------- */
+section.app_overview {
+    overflow:hidden;
+}
+section.app_overview i.fa {
+    font-size:33px;
+    color:#fff;
+    position:relative;
+    top:-6px;
+}
+section.app_overview h2 {
+    margin-left:10px;
+}
+section.app_overview h2 small {
+    display:block;
+    font:11px "Montserrat", sans-serif;
+    text-transform:uppercase;
+    color:#fff;
+}
+section.app_overview .list-items div {
+    margin-top:40px;
+}
+section.app_overview .title {
+    margin-bottom:-40px;
+}
+
+/*----------------------------
+How does it Work Section
+---------------------------- */
+section.work {
+    background:#0e0f10;
+    padding-bottom:0;
+}
+section.work .center_bin {
+  height:595px;
+  background:url(../img/win32/bin.png) top center no-repeat;
+  margin:0 auto;
+  padding-top:82px;
+  position:relative;
+  width: 730px;
+  left: 50%;
+  margin-left: -365px;
+}
+
+section.work .center_phone {
+  height:595px;
+  background:url(../img/win32/shell.png) top center no-repeat;
+  margin:0 auto;
+  padding-top:82px;
+  position:relative;
+  width: 730px;
+  left: 50%;
+  margin-left: -365px;
+}
+
+.phone_previews {
+    overflow:hidden;
+    padding-top:60px;
+}
+
+
+/*----------------------------
+Get the App - Bar
+---------------------------- */
+.promotion_bar {
+    background:url(../img/grey_shader.png);
+    width:100%;
+    padding:50px 0;
+    position:relative;
+    margin-top:-126px;
+    text-align:center;
+    color:#fff;
+}
+.promotion_bar a {
+    display:inline-block;
+    margin-left:25px;
+}
+.promotion_bar h4 {
+    display:inline-block;
+    text-transform:uppercase;
+    font-size:17px;
+    font-family:"Montserrat", sans-serif;
+}
+
+
+/*----------------------------
+Features
+---------------------------- */
+section.features {
+    padding-bottom:0;
+}
+.feature-phone {
+    background:url(../img/win32/feature-phone.png) center no-repeat;
+    height:600px;
+}
+.feature-bin {
+    background:url(../img/win32/feature-bin.png) center no-repeat;
+    height:600px;
+}
+.feature-term {
+    background:url(../img/win32/feature-console.png) center no-repeat;
+    height:600px;
+}
+section.features .container {
+    padding:0;
+}
+section.features .title {
+    text-align:left;
+    margin-top:90px;
+    padding:0;
+}
+ul.feature-list {
+    margin:0;
+    padding:5px 0 25px;
+    color:white;
+}
+ul.feature-list li {
+text-transform: uppercase;
+padding: 7px 0;
+float: left;
+width: 50%;
+font-size: 12px;
+font-family: "Montserrat", sans-serif;
+}
+ul.feature-list li i {
+    margin-right:10px;
+}
+.underline-p {
+    display:inline-block;
+    text-decoration:underline;
+    font:11px "Montserrat", sans-serif;
+    text-transform:uppercase;
+    color:#464e54;
+    margin-left:20px;
+}
+
+
+/*----------------------------
+Close Up
+---------------------------- */
+section.close-up {
+    border-top:1px solid #2e323c;
+    padding-bottom:0;
+    overflow:hidden;
+}
+section.close-up .landscape-phone {
+    width:830px;
+    margin:0 auto 10px;
+    position: relative;
+    left: 50%;
+    margin-left: -415px;
+}
+.magni_con {
+   position: relative;
+    width: 830px !important;
+    height: auto;
+}
+.magni_con img {
+    width:100%;
+    box-shadow:none !important;
+}
+#mlens_wrapper_0 {
+    width:100% !important;
+}
+.ls-phone {
+    width:100%;
+    display:none;
+}
+.ls-phone img {
+    width:100%;
+}
+
+/*----------------------------
+Gallery
+---------------------------- */
+section.gallery {
+    border-top:1px solid #2e323c;
+    overflow:hidden;
+    padding-bottom: 86px;
+}
+#gallery-images .owl-item {
+    text-align:center;
+    padding-bottom:4px;
+}
+#gallery-images > div  img {
+    width:95%;
+    box-shadow:0 2px 4px rgba(0,0,0,0.4);
+}
+div.dark_rounded .pp_content {
+    background:0;
+}
+a.pp_close {
+    text-indent:0;
+    color:white;
+    font-size:30px;
+    background:0 !important;
+    z-index:9999;
+    text-shadow:0px 2px 5px black;
+    right:-50px;
+}
+
+/* Slider Button Styling // Gallery */
+.owl-controls {
+    text-align:center;
+    height:35px;
+}
+
+section.gallery .owl-buttons {
+    font-family:"FontAwesome";
+    display:inline-block;
+    font-style:normal;
+    font-weight:normal;
+    -webkit-font-smoothing: antialiased;
+    font-size:33px;
+    bottom:15px;
+    z-index:9000;
+    margin: 0 auto;
+    text-align:center;
+    width: 300px;
+position: absolute;
+left: 50%;
+margin-left: -150px;
+}
+section.gallery .owl-buttons div {
+    color:#fff;
+    transition:.3s all ease-in-out;
+    -webkit-transition:.3s all ease-in-out;
+    -moz-transition:.3s all ease-in-out;
+    text-align:center;
+}
+section.gallery .owl-buttons div.owl-prev {
+    display:inline-block;
+    left:20px;
+    position:absolute;
+}
+section.gallery .owl-buttons div.owl-next {
+    display:inline-block;
+    right:20px;
+    position:absolute;
+}
+section.gallery .owl-buttons div:hover {
+    color:#464e54;
+}
+
+/* Pagination Styling // Gallery */
+#gallery-images .owl-pagination div {
+    border-radius:10px;
+    width:10px;
+    height:10px;
+    background:#cfcfcf;
+    float:left;
+    margin:0 5px;
+}
+#gallery-images .owl-pagination {
+    position: relative;
+margin:0 auto;
+display:inline-block;
+padding:0;
+bottom:-35px;
+}
+#gallery-images .owl-pagination div.active {
+    background:transparent;
+    border:2px solid #464e54;
+    height:12px;
+    width:12px;
+    border-radius:20px;
+    margin-top:-1px;
+}
+
+/*----------------------------
+Newsletter
+---------------------------- */
+section.newsletter {
+    background:url(../img/newsletter-bg.jpg) top center no-repeat;
+    background-size:cover;
+}
+section.newsletter .title {
+    padding-bottom:0;
+}
+section.newsletter form {
+    margin-top:13px;
+}
+section.newsletter h1, section.newsletter h2 {
+    color:white;
+    text-align:left;
+}
+section.newsletter h2 {
+    font-size:22px;
+}
+section.newsletter input {
+    background:rgba(217,222,226,0.5);
+    border-radius:5px;
+    padding:12px 16px;
+    font-size:12px;
+    text-transform:uppercase;
+    border:0;
+    color:#fff;
+    width:160px;
+    margin-right:8px;
+    font:12px "Montserrat", sans-serif;
+}
+section.newsletter button {
+    border:none;
+}
+
+/* Placeholder Styling */
+ ::-webkit-input-placeholder {
+   color:#e2e3e4;
+}
+:-moz-placeholder {
+    color:#e2e3e4;
+}
+::-moz-placeholder {
+    color:#e2e3e4;
+}
+:-ms-input-placeholder {
+    color:#e2e3e4;
+}
+
+/*----------------------------
+Footer
+---------------------------- */
+footer {
+    padding:69px 0 59px;
+    text-align:center;
+    background:#fff;
+}
+footer .text-logo {
+    margin-right:20px;
+    position:relative;
+    bottom:-3px;
+    color:#0e0f10 !important;
+}
+footer .social_media {
+    padding:40px 0 26px;
+    color:#0e0f10;
+}
+footer .social_media i {
+    margin:0 19px;
+    font-size:30px;
+    color:#0e0f10;
+}
+footer p {
+    color:#a4a7ab;
+}
+
+section {
+    overflow:hidden;
+}
+
+.terminal {
+  background: #000 url(../img/win32/terminal.png) no-repeat;
+  margin: auto;
+  width: 800px;
+  height: 473px;
+  padding: 40px 15px 15px 15px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.terminal > pre {
+  position: relative;
+  background-color: transparent !important;
+  border: 0 !important;
+  color: #808080;
+  padding-left: 46px;
+  font-family: Consolas,Monospace;
+  font-size: 16px;
+}
+.terminal > pre.cmd {
+  color: #ccc;
+}
+.terminal > pre.cmd:before {
+  position: absolute;
+  content: 'C:\\>';
+  color: #ccc;
+  margin-left: -36px;
+  z-index: 5px;
+}

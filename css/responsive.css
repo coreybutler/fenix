@@ -1,0 +1,259 @@
+/* ---------------------------------------------------- */
+/* Mobile Screens */
+/* ---------------------------------------------------- */
+@media (max-width:485px) {
+    /* General Styling and Headers */
+    section {
+        padding:49px 0;
+    }
+    section h1 {
+        font-size:19px;
+    }
+    section h2 {
+        font-size:19px;
+    }
+    /* Banner */
+    .banner_phone {
+        text-align:center;
+        background:url(../img/banner_device.png) 50px 0px no-repeat;
+        height:400px;
+        margin-right:-15px;
+    }
+    /* Footer Styling */
+    footer .social_media {
+        padding:40px 0 26px;
+        color:white;
+    }
+    footer .social_media i {
+        margin:0 12px;
+        font-size:22px;
+    }
+    footer .text-logo {
+        margin-bottom:20px;
+    }
+    /* Phone List */
+    ul.feature-list {
+        float:none;
+        width:175px;
+        margin: 10px auto 5px;
+        text-align:left;
+    }
+    ul.feature-list li {
+        float:none;
+        width:100%;
+        font-size: 12px;
+    }
+    /* Feature Section */
+    section.features {
+        text-align:center;
+    }
+    .feature-phone {
+            background-size:cover;
+            height:360px;
+            background-position:top; 
+            margin-top:40px;
+    }
+    /* Close-Up Section */
+    section.close-up .landscape-phone {
+        width:480px;
+        margin:0 auto 10px;
+        position: relative;
+        left: 50%;
+        margin-left: -240px;
+    }
+    /* Newsletter Section */
+    section.newsletter form input {
+        width:270px;
+        margin-bottom:20px;
+        display:inline-block;
+    }
+    /* Work Section */
+    section.work .owl-item.active .bullet, section.work .owl-item.active h2 {
+    opacity:1;
+    transition:1s all .1s ease-in-out;
+    -webkit-transition:1s all .1s ease-in-out;
+    -moz-transition:1s all .1s ease-in-out;
+    transform:scale(1);
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    -moz-transform:scale(1);
+    }
+    section.work .owl-item div img {
+        width:200px;
+    margin-top:21px;
+    transition:all .5s ease-in-out;
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    text-align:center;
+    }
+
+} /* End of Max 486px Styling */
+
+@media (min-width: 486px) and (max-width: 768px) {
+    ul.feature-list {
+    margin: 0 auto;
+    padding: 5px 0 25px;
+    width:400px;
+    }
+    .feature-phone {
+        margin-top:25px;
+    }
+    button.b_btn {
+        margin-top:17px !important;
+    }
+}/* End of 468px - 768px Styling */
+
+    /* Device Zoom Exception */
+@media (max-width: 767px) {
+    .hidden767 {
+        display:none;
+    }
+    .ls-phone {
+        display:block;
+    }
+} /* End Device Exception Rule */
+
+/* ---------------------------------------------------- */
+/* X Small Screens - Mobile Devices */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Banner Header Elements */
+    .top_interface {
+        padding:49px 0 40px;
+    }
+    .header_tag h1 {
+        font-size:29px;
+    }
+    section.gallery {
+    padding-bottom:60px;
+    }
+    .w_btn, .b_btn {
+        padding:10px 18px;
+        font-size:10px;
+    }
+    button.b_btn {
+    padding:12px 21px;
+    font-size:13px;
+    display:block;
+    margin:0 auto;
+    }
+    .header_tag a {
+    margin:20px 5px 0;
+    }
+    section.features .title {
+        text-align:center;
+        margin-top:0px;
+    }
+    section.features {
+    text-align:center;
+    }
+    ul.feature-list {
+    text-align:left;
+    }
+    .promotion_bar a {
+        margin-left:0;
+    }
+    .promotion_bar h4 {
+        display:block;
+    }
+} /* End of max width 768px */
+
+/* ---------------------------------------------------- */
+/* Between Portrait iPad and Landscape iPad */
+/* ---------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 992px) {
+    .feature-phone {
+        background-position:right;
+    }
+    section.features .title {
+    text-align: left;
+    margin-top: 80px;
+    padding: 0;
+    }
+    .features-text {
+        position:relative;
+        margin-left:-40px;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Small Screens - Tablet and Up*/
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    .container {width:auto;}
+    .text-logo {
+        padding-left:20px;
+    }
+
+    nav.main_navigation {
+       /* display:none; */
+    }
+    nav.main_navigation {
+        position:fixed;
+        background:#0e0f10;
+        margin:0;
+        height:100%;
+        top:0;
+        right:0px;
+        width:240px;
+        padding-top:30px;
+        padding-left:10px;
+        z-index:-1;
+    }
+    nav.main_navigation ul li {
+        float:none;
+        padding:10px 0;
+        margin:0;
+    }
+    nav.main_navigation ul li a {
+        margin:0;
+    }
+    section.newsletter h1, section.newsletter h2, section.newsletter form {
+    color:white;
+    text-align:center;
+    }
+    section.newsletter form {
+        margin-top:25px;
+    }
+    nav.main_navigation ul i {
+    display:block;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Medium screens and down */
+/* ---------------------------------------------------- */
+@media (max-width: 1200px) {
+    section.features .underline-p {
+        margin-left:0;
+        margin-top:20px;
+        display:block;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Medium Screens - Laptops and Up */
+/* ---------------------------------------------------- */
+@media (min-width: 992px) and (max-width: 1200px) {
+    section.newsletter h1 {
+    font-size:19px;
+    }
+    section.newsletter h2 {
+    font-size:17px;
+    }
+    section.newsletter form {
+    margin-top:6px;
+    }
+    section.newsletter form {
+        float:right;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Large Screens - Desktops and Up*/
+/* ---------------------------------------------------- */
+@media (min-width: 1200px) {
+    section.newsletter form {
+        float:right;
+    }
+}
