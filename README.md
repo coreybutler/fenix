@@ -1,25 +1,14 @@
 # Fenix Web Servers
 
-Version 2.0 is complete and undergoing pre-release testing.
+Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 
-## New Features in 2.0
+The [wiki](https://github.com/coreybutler/fenix/wiki) has additional information about how Fenix works, how to hack on it,
+and how to use it on other platforms.
 
-- Request bin (receive webhooks)
-- Growl support
-- Installation Wizard
-- Now supports Mac OSX --> An installer will be slightly delayed since my Mac died while writing it.
-- [Command Line Utility](http://github.com/coreybutler/fenix-cli) (requires [node.js](http://nodejs.org))
+Like Fenix?
 
-### Upgrades in 2.0
-
-- New User Interface
-- Servers now have logging.
-- Local sites can now be shared publicly (via localtunnel)
-- Automatically find an unused port for new sites (overridable)
-- Show a thumbnail of running servers
+[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/coreybutler/)
 
 ## GPL License (Freeware)
 
 Fenix 2.0 will be released under the GPL license.
-
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/coreybutler/)
