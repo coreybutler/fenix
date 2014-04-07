@@ -13,10 +13,12 @@
     "request"
   ],
   "author": {
-    "name": "Corey butler",
+    "name": "Corey Butler",
     "email": "corey@coreybutler.com",
-    "url": "http://ecorsystems.com"
+    "url": "http://coreybutler.com"
   },
+  "contributors": [],
+  "no-edit-menu": true,
   "window": {
     "title": "Fenix Web Servers",
     "icon": "./lib/icons/fenix.png",
