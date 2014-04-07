@@ -405,7 +405,6 @@ var Router = Utility.extend({
     try {
       var svrs = JSON.parse(require('fs').readFileSync(require('path').resolve(require('path').join('./','servers.fnx'))));
       svrs.forEach(function(server){
-        console.dir(server);
         me.servers[server.id] = new Server({
           name: server.name,
           domain: server.domain,
