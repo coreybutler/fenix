@@ -21,3 +21,5 @@ Version 2.0 is complete and undergoing pre-release testing.
 ## GPL License (Freeware)
 
 Fenix 2.0 will be released under the GPL license.
+
+[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/coreybutler/)
