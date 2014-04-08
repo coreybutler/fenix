@@ -12,3 +12,5 @@ Like Fenix?
 ## GPL License (Freeware)
 
 Fenix 2.0 will be released under the GPL license.
+
+test
