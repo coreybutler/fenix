@@ -12,3 +12,4 @@ node_modules
 *.db
 dist
 npm-debug.log
+src/Gruntfile.js
