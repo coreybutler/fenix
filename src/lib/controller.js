@@ -42,7 +42,7 @@ var openRequestBin = function(){
       width: 990,
       height: 700,
       title: 'Fenix Request Browser',
-      toolbar: true,
+      toolbar: false,
       icon: './lib/icons/webhooks.png'
     });
 
