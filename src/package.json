@@ -28,7 +28,7 @@
     "position": "center",
     "min_width": 400,
     "min_height": 250,
-    "show": true,
+    "show": false,
     "resizable": true,
     "single-instance": true
   },

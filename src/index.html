@@ -1,12 +1,6 @@
 <html>
   <head>
     <title>Fenix Web Servers</title>
-    <!-- build:css lib/css/core.css -->
-    <link rel="stylesheet" href="lib/css/main.css"/>
-    <link rel="stylesheet" href="lib/css/animate.min.css"/>
-    <link rel="stylesheet" href="lib/css/hint.min.css"/>
-    <!-- endbuild -->
-    <link rel="stylesheet" href="lib/css/fenix-embedded.css"/>
     <style>
       BODY.updateavailable > #servers:after {
         content: 'Update Available';
@@ -52,39 +46,6 @@
     <div id="loader">Loading...</div>
     <div id="mask" class="animated"></div>
     <div id='status' style='display: none;'></div>
-    <script type="text/javascript">
-      process.on('uncaughtException',function(e){
-        if (e.message.indexOf('EADDRINUSE') >= 0){
-          alert('The server could not be started. Another process is already running on the same port.');
-        } else {
-          console.dir(e);
-        }
-      });
-    </script>
-    <!-- build:js lib/js/core.js -->
-    <script type="text/javascript" src="./lib/api/class.js"></script>
-    <script type="text/javascript" src="./lib/api/utility.js"></script>
-    <script type="text/javascript" src="./lib/js/zepto.js"></script>
-    <!-- endbuild -->
-    <!-- build:js lib/js/web.js -->
-    <script type="text/javascript" src="./lib/js/UI.js"></script>
-    <script type="text/javascript" src="./lib/api/syslog.js"></script>
-    <script type="text/javascript" src="./lib/api/server.js"></script>
-    <script type="text/javascript" src="./lib/api/router.js"></script>
-    <script type="text/javascript" src="./lib/js/router.js"></script>
-    <script type="text/javascript" src="./lib/js/wizard.js"></script>
-    <script type="text/javascript" src="./lib/js/editwizard.js"></script>
-    <script type="text/javascript" src="./lib/api/api.js"></script>
-    <script type="text/javascript" src="./lib/controller.js"></script>
-    <!-- endbuild -->
-    <script type="text/javascript">
-      // LogViewer Controller
-      $('#log > a:last-child').on('click',function(e){
-        e.preventDefault();
-        UI.logview.hide();
-      });
-
-      UI.server.listen();
-    </script>
+    
   </body>
 </html>

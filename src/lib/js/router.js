@@ -137,8 +137,8 @@ ROUTER.on('loadcomplete',function(){
         }
 
         setTimeout(function(){
-          splash.hide();
-          win.show();
+          //splash.hide();
+          //win.show();
           winloaded = true;
           if (localStorage.getItem('updateavailable')==='true'){
             UI.updateAvailable();
@@ -150,6 +150,7 @@ ROUTER.on('loadcomplete',function(){
         },2000+(localStorage.getItem('updateavailable')==='true'?3000:0));
 
       } else {
+          alert('test');
         setTimeout(function(){
           splash.hide();
           win.show();
@@ -158,8 +159,8 @@ ROUTER.on('loadcomplete',function(){
       }
     } catch (e){
       alert('ERROR: '+e.message);
-      splash.hide();
-      win.show();
+      //splash.hide();
+      //win.show();
       winloaded = true;
     }
   });
