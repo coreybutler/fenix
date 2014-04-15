@@ -307,6 +307,15 @@ var Server = Utility.extend({
 
           this._http = http.createServer(function(req,res){
 
+            var css = "<style>"
+                +        "BODY {font-family: Arial, Helvetica, Monaco, Consolas, sans-serif;}"
+                +        ".dir {list-style-type:none;}"
+                +        ".dir > a {font-weight: bold;}"
+                +        ".file {list-style-type:square;}"
+                +        "a {text-decoration: none; color: #121212;}"
+                +        "a:hover {text-decoration: none; color: #555;}"
+                +     "</style>";
+
             // Custom directory handling logic:
             function redirect() {
               me.syslog.info('Redirect to '+req.url);
@@ -316,9 +325,22 @@ var Server = Utility.extend({
             }
 
             function procError(err){
-              me.syslog.error('('+(err.status||500).toString()+') '+err.message);
-              res.statusCode = err.status || 500;
-              res.end(err.message);
+              if (err.message.indexOf('ENOENT') >= 0 && require('path').basename(err.message.match(/'(.*?)'/)[1]) === 'index.html'){
+                var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]);
+                fs.readdir(p,function(_err,_files){
+                  var str = "";
+                  str = _files.map(function(el){
+                    var isDir = require('fs').statSync(require('path').join(p,el)).isDirectory();
+                    return "<li class=\""+(isDir?'dir':'file')+"\"><a href='./"+el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':(isDir?'/':''))+"'>"+el+"</a></li>";
+                  });
+                  res.statusCode = 200;
+                  res.end('<html><head><title>'+p+'</title>'+css+'</head><body><h1>Directory</h1><ul>'+str.join('')+'</ul></body></html>');
+                });
+              } else {
+                me.syslog.error('('+(err.status||500).toString()+') '+err.message);
+                res.statusCode = err.status || 500;
+                res.end(err.message);
+              }
             }
 
             // Special file handling
@@ -517,7 +539,7 @@ var Server = Utility.extend({
     }
 
     url='http://localhost:'+this.port.toString();
-    webshot(url).width(w).height(h).capture(function(err,img){
+    webshot(url,{timeout:4500}).width(w).height(h).capture(function(err,img){
       if (err) throw err;
       me.screenshot = 'data:image\/png;base64,'+img.toString('base64');
     });

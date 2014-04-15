@@ -7,8 +7,6 @@ var gui = require('nw.gui'),
     abt = null,
     splash = null,
     request = require('request'),
-    //uuid = require('node-uuid'),
-    //ua = require('universal-analytics'),
     winloaded = false;
 
 // Get ID

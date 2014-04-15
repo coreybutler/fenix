@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <style>
+      HTML, BODY {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        background:  #131313 url('../icons/fenix.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center;
+        color:#fff;
+      }
+
+      div.loader{
+        position: absolute;
+        left: 48%;
+        top: 35%;
+        margin-top: -70px;
+        margin-left: -25px;
+        font-weight: bold;
+        color: #fff;
+        font-size: 80px;
+        width: 70px;
+        height: 111px;
+        animation: rotateglow 1.5s infinite linear;
+        -webkit-animation: rotateglow 1.5s infinite linear;
+      }
+
+      @keyframes rotateglow
+      {
+        0%   {transform: rotate(0deg); text-shadow: 0 0 2px #f00; color: #f00;}
+        50%  {text-shadow: 0 0 20px #0f0; color: #0f0;}
+        100% {transform: rotate(360deg); text-shadow: 0 0 2px #f00; color: #f00;}
+      }
+
+      @-webkit-keyframes rotateglow
+      {
+        0%   {-webkit-transform: rotate(0deg); text-shadow: 0 0 2px #f00; color: #f00;}
+        50%  {text-shadow: 0 0 40px #0f0; color: #0f0;}
+        100% {-webkit-transform: rotate(360deg); text-shadow: 0 0 2px #f00; color: #f00;}
+      }
+
+      header {
+        text-align: center;
+        background-color: gold;
+        color: #fff;
+        text-shadow: 1px 1px 3px #000;
+        font-size: medium;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 40px;
+        vertical-align: middle;
+        height: 40px;
+        display: none;
+      }
+
+      footer {
+        position: absolute;
+        text-align: center;
+        font-size: x-small;
+        color: #ccc;
+        font-family: Arial, "times new roman", sans-serif;
+        font-weight: 200;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+      }
+
+      .show {display: block;}
+    </style>
+  </head>
+  <body>
+    <header>Update Available</header>
+    <div class="loader">&there4;</div>
+    <footer>
+      Created by Corey Butler.<br/>
+      Copyright &copy; 2014 Ecor Ventures, LLC. All Rights Reserved.
+    </footer>
+    <script type="text/javascript">
+      var update = (localStorage.getItem('updateavailable')||'false') === 'true';
+      if (update){
+        document.getElementsByTagName('header')[0].classList.add('show');
+      }
+    </script>
+  </body>
+</html>

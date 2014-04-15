@@ -259,9 +259,7 @@ var RequestBin = Utility.extend({
       me.emit('start',me.port);
 
       // Start listening on localtunnel
-      me.share(function(){
-        cb && cb();
-      });
+      cb && cb();
     });
 
   },

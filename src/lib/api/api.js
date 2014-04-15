@@ -4,7 +4,7 @@ var express = require('express'),
 
 api.use(express.json());
 api.use(express.urlencoded());
-api.use(express.bodyParser());
+api.use(require('connect-multiparty'));
 
 api.use(function(req,res,next){
   res.set({

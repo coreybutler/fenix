@@ -32,7 +32,7 @@ BODY {
 
 BODY > div {
   position: absolute;
-  top: 6px;
+  top: 25px;
   bottom: 6px;
   right: 6px;
   left: 6px;
@@ -45,10 +45,10 @@ BODY > div:first-child:after {
   content: 'No Servers Available...';
   font-family: Monaco, Consolas, 'Open Sans', Arial, sans-serif;
   color: #303030;
-  text-shadow: -1px -1px 0px #222;
+  text-shadow: -1px 0px 0px #222;
   position: fixed;
   z-index: 10;
-  top: 10px !important;
+  top: 25px !important;
   right: 0;
   left: 0;
   text-align: center;
@@ -78,6 +78,7 @@ BODY.hasservers > div:first-child:after {
   overflow-y: auto;
   display: block;
   padding: 0 6px 0 6px;
+  margin-top: 0px;
 }
 #servers > div {
   background: #222;
@@ -140,7 +141,7 @@ BODY.hasservers > div:first-child:after {
 }
 #servers > div > div:nth-child(2) > div:last-child,
 #servers > div > div:nth-child(2) > div:nth-child(3) {
-  border-left: 1px solid #333;
+  border-left: 0px solid #333;
   padding: 0 3px 0 6px;
 }
 #servers > div:hover > div:last-child {
@@ -391,7 +392,7 @@ BODY.hasservers > div:first-child:after {
 }
 
 #log {
-  top: 12px;
+  top: 25px;
   bottom: 15px;
   left: 10px;
   right: 10px;
@@ -496,7 +497,10 @@ editServerBtn[disabled='true']:before,
 }
 
 .show {
-  display: block;
+  display: block !important;
+}
+.hide {
+  display: none !important;
 }
 
 #mask {

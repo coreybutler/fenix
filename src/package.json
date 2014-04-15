@@ -22,7 +22,7 @@
   "window": {
     "title": "Fenix Web Servers",
     "icon": "./lib/icons/fenix.png",
-    "toolbar": true,
+    "toolbar": false,
     "width": 400,
     "height": 600,
     "position": "center",
@@ -46,7 +46,8 @@
     "express": "3.4.8",
     "semver": "2.2.1",
     "node-uuid": "1.4.1",
-    "universal-analytics": "0.3.4"
+    "universal-analytics": "0.3.4",
+    "connect-multiparty": "^1.0.3"
   },
   "devDependencies": {
     "grunt": "0.4.4",

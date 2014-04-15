@@ -25,7 +25,7 @@ var initServer = function(server){
         title: server.name,
         text: 'Publicy sharing server at '+server.publicUrl
       });
-//      stats.event('Web Server','share','Shared Web Server').send();
+      global.track.event('Web Server','share','Shared Web Server').send();
     });
     server.on('unshare',function(){
       UI.server.unshare(server);
@@ -85,7 +85,7 @@ var initServer = function(server){
         },1000);
       }
     });
-//    stats.event('Web Server','create','Created Web Server').send();
+    global.track.event('Web Server','create','Created Web Server').send();
   } else {
     UI.server.display(server,function(){
       UI.loader.hide();
@@ -110,7 +110,7 @@ ROUTER.on('deleteserver',function(server){
       $('body').removeClass('hasservers');
     }
   },1000);
-//  stats.event('Web Server','delete','Deleted Web Server').send();
+  global.track.event('Web Server','delete','Deleted Web Server').send();
 });
 
 ROUTER.on('loadserver',function(server){
@@ -137,9 +137,6 @@ ROUTER.on('loadcomplete',function(){
         }
 
         setTimeout(function(){
-          //splash.hide();
-          //win.show();
-          winloaded = true;
           if (localStorage.getItem('updateavailable')==='true'){
             UI.updateAvailable();
             UI.notify({
@@ -147,6 +144,7 @@ ROUTER.on('loadcomplete',function(){
               text: 'Version '+data.tag_name+' is available.'
             });
           }
+          global.windows.main.emit('ready');
         },2000+(localStorage.getItem('updateavailable')==='true'?3000:0));
 
       } else {
@@ -159,8 +157,7 @@ ROUTER.on('loadcomplete',function(){
       }
     } catch (e){
       alert('ERROR: '+e.message);
-      //splash.hide();
-      //win.show();
+      global.windows.main.emit('ready');
       winloaded = true;
     }
   });

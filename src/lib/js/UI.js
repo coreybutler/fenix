@@ -71,8 +71,8 @@ var UI = {
       }
     },
     listen: function(cb){
-      $('#servers > div > img').on('click',function(e){
-        window.open($('#servers > div > img')[0].getAttribute('src'),'_blank','width=600,height=600,menubar=no,titlebar=no,location=no');
+      $('#servers > div > img').off('click').on('click',function(e){
+        window.open($(e.currentTarget)[0].getAttribute('src'),'_blank','width=600,height=600,menubar=no,titlebar=no,location=no');
       });
       $('#servers > div > div:nth-child(2) > div:first-child').on('click',function(e){
         if (ROUTER.getServer(e.currentTarget.parentNode.parentNode.id).running){
@@ -364,7 +364,7 @@ var UI = {
     if (!UI._growl.initialized){
       UI._growl.init();
     }
-    if (ROUTER.loading || !winloaded){
+    if (ROUTER.loading || typeof global.windows.main === 'string'){
       return;
     }
     msg = msg || {};
