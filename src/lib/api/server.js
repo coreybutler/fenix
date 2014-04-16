@@ -375,7 +375,7 @@ var Server = Utility.extend({
                 });
               } else {
                 if (req.url.indexOf('/fenixassets/') >= 0){
-                  var pfile = require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','public')));
+                  var pfile = require('path').resolve(require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','public')));
                   var ext = require('path').extname(req.url).substr(1,require('path').extname(req.url).length-1);
                   if (ext === 'ico'){
                     require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
@@ -383,7 +383,7 @@ var Server = Utility.extend({
                       res.end(data);
                     });
                   } else if (require('path').basename(req.url).toLowerCase() === 'fenix.png') {
-                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
+                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','icons'))),function(err,data){
                       res.setHeader('Content-Type','image/png');
                       res.statusCode = 200;
                       res.end(data);
