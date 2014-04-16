@@ -305,38 +305,103 @@ var Server = Utility.extend({
             smartypants: false
           });
 
-          this._http = http.createServer(function(req,res){
+          var html = require('fs').readFileSync(require('path').join('lib','public','directory.html'));
 
-            var css = "<style>"
-                +        "BODY {font-family: Arial, Helvetica, Monaco, Consolas, sans-serif;}"
-                +        ".dir {list-style-type:none;}"
-                +        ".dir > a {font-weight: bold;}"
-                +        ".file {list-style-type:square;}"
-                +        "a {text-decoration: none; color: #121212;}"
-                +        "a:hover {text-decoration: none; color: #555;}"
-                +     "</style>";
+          this._http = http.createServer(function(req,res){
 
             // Custom directory handling logic:
             function redirect() {
-              me.syslog.info('Redirect to '+req.url);
+              me.syslog.log('Redirect to '+req.url+'/');
               res.statusCode = 301;
               res.setHeader('Location', req.url + '/');
               res.end('Redirecting to ' + req.url + '/');
             }
 
+            function getXtn($extn){
+              $extn = $extn.substr(0,1) === '.' ? $extn.substr(1,$extn.length-1) : $extn;
+              switch ($extn.toLowerCase()){
+                case "png": $extn="PNG Image"; break;
+                case "jpg": $extn="JPEG Image"; break;
+                case "svg": $extn="SVG Image"; break;
+                case "gif": $extn="GIF Image"; break;
+                case "ico": $extn="Windows Icon"; break;
+
+                case "txt": $extn="Text File"; break;
+                case "log": $extn="Log File"; break;
+                case "htm": $extn="HTML File"; break;
+                case "php": $extn="PHP Script"; break;
+                case "js": $extn="Javascript"; break;
+                case "css": $extn="Stylesheet"; break;
+                case "pdf": $extn="PDF Document"; break;
+
+                case "zip": $extn="ZIP Archive"; break;
+                case "bak": $extn="Backup File"; break;
+
+                default: $extn=$extn.toUpperCase()+" File"; break;
+              }
+              return $extn;
+            };
+
             function procError(err){
+              var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]);
               if (err.message.indexOf('ENOENT') >= 0 && require('path').basename(err.message.match(/'(.*?)'/)[1]) === 'index.html'){
-                var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]);
+                var _d = "",_f = "";
                 fs.readdir(p,function(_err,_files){
-                  var str = "";
-                  str = _files.map(function(el){
-                    var isDir = require('fs').statSync(require('path').join(p,el)).isDirectory();
-                    return "<li class=\""+(isDir?'dir':'file')+"\"><a href='./"+el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':(isDir?'/':''))+"'>"+el+"</a></li>";
+                  _d = _files.filter(function(el){return require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
+                    var href = el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':''),
+                        stat = require('fs').statSync(require('path').join(p,el));
+                    console.log(stat);
+                    return  "<tr class='dir'>"
+                          + "<td><a href='./"+href+"'>"+el+"</a></td>"
+                          + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
+                          + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
+                          + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
+                          + "</tr>";
+                  });
+                  _f = _files.filter(function(el){return !require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
+                    var href = './'+el,
+                        $extn = require('path').extname(el),
+                        stat = require('fs').statSync(require('path').join(p,el));
+                    return  "<tr class='file'>"
+                          + "<td><a href='./"+href+"'>"+el+"</a></td>"
+                          + "<td><a href='./"+href+"'>"+getXtn($extn)+"</a></td>"
+                          + "<td><a href='./"+href+"'>"+(stat.size/1024).toFixed(2)+" KB</a></td>"
+                          + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
+                          + "</tr>";
                   });
                   res.statusCode = 200;
-                  res.end('<html><head><title>'+p+'</title>'+css+'</head><body><h1>Directory</h1><ul>'+str.join('')+'</ul></body></html>');
+                  res.end(html.toString().replace('<!-- BODY -->',_d.join('')+_f.join('')));
+                  return;
                 });
               } else {
+                if (req.url.indexOf('/fenixassets/') >= 0){
+                  var pfile = require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','public')));
+                  var ext = require('path').extname(req.url).substr(1,require('path').extname(req.url).length-1);
+                  if (ext === 'ico'){
+                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
+                      res.statusCode = 200;
+                      res.end(data);
+                    });
+                  } else if (require('path').basename(req.url).toLowerCase() === 'fenix.png') {
+                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
+                      res.setHeader('Content-Type','image/png');
+                      res.statusCode = 200;
+                      res.end(data);
+                    });
+                  } else if (require('fs').existsSync(pfile)){
+                    require('fs').readFile(pfile,function(err,data){
+                      if (['css','html','js','htm'].indexOf(ext) >= 0){
+                        res.setHeader('Content-Type',(['css','html'].indexOf(ext) >= 0 ? 'text' : 'application')+'/'+(ext==='js'?'javascript':ext));
+                      }
+                      res.statusCode = 200;
+                      res.end(data);
+                    });
+                  } else {
+                    res.statusCode = 404;
+                    res.end();
+                  }
+                  return;
+                }
                 me.syslog.error('('+(err.status||500).toString()+') '+err.message);
                 res.statusCode = err.status || 500;
                 res.end(err.message);
@@ -345,6 +410,9 @@ var Server = Utility.extend({
 
             // Special file handling
             function sendFile(path){
+              if (!require('fs').existsSync(path)){
+                alert(path+' DNE');
+              }
               var type = require('path').extname(path).toLowerCase().replace('.','');
               me.syslog.log('Requested '+path);
               if (['json','xml'].indexOf(type)>=0){

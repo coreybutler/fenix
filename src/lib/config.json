@@ -1,5 +1,5 @@
 {
-  "dev": false,
+  "dev": true,
   "googleanalytics": "UA-49695003-4",
   "icon": "./lib/icons/fenix.png",
   "splash": {
