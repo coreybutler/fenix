@@ -10,6 +10,7 @@ node_modules
 !.npmignore
 !.travis.yml
 *.db
+*.fnx
 dist
 npm-debug.log
 src/Gruntfile.js
