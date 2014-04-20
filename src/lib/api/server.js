@@ -284,6 +284,13 @@ var Server = Utility.extend({
           return this._http;
         }
       },
+        
+      assistingstart: {
+        enumerable: false,
+        writable: true,
+        configurable: false,
+        value: false
+      },
 
       updateServer: {
         enumerable: false,
@@ -350,7 +357,6 @@ var Server = Utility.extend({
                   _d = _files.filter(function(el){return require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
                     var href = el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':''),
                         stat = require('fs').statSync(require('path').join(p,el));
-                    console.log(stat);
                     return  "<tr class='dir'>"
                           + "<td><a href='./"+href+"'>"+el+"</a></td>"
                           + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
@@ -439,7 +445,19 @@ var Server = Utility.extend({
               .on('file', sendFile)
               .pipe(res);
           });
-
+          // Capture problems
+          this.http.on('error',function(e){
+            me.starting = !me.running ? false : me.starting;
+            if (e.code === 'EACCES'){
+              /**
+               * @event startfailure
+               * Fired when the server fails to start.
+               */
+              me.emit('startfailure',e.code);
+            } else {
+              throw e;
+            }
+          });
         }
       },
 
@@ -659,6 +677,7 @@ var Server = Utility.extend({
    * @param {Function} [callback]
    * A callback function to execute when the server is started.
    * @fires start
+   * @fires startfailure
    */
   start: function(cb){
     var me = this;
@@ -710,12 +729,20 @@ var Server = Utility.extend({
         });
       });
     } else if (this.running){
-      this.http.close(function(){
-        me.running = false;
-        me.emit('stop',me);
-        me.syslog.log('Server stopped on port '+me.port.toString()+'.');
-        cb && cb();
-      });
+      try {
+        this.http.close(function(){
+          me.running = false;
+          me.emit('stop',me);
+          me.syslog.log('Server stopped on port '+me.port.toString()+'.');
+          cb && cb();
+        });
+      } catch(e) {
+        if (e.message.toLowerCase().indexOf('not running') >= 0){
+          cb & cb();
+        } else {
+          throw e;
+        }
+      }
     } else {
       cb && cb();
     }

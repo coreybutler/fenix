@@ -49,3 +49,7 @@ var openAbout = function(){
 global.windows.main.on('close',function(){
   ROUTER.save();
 });
+
+if (process.platform === 'darwin'){
+  global.windows.main.setShowInTaskbar(true);
+}

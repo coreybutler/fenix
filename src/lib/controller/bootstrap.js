@@ -14,7 +14,11 @@ var fs = require('fs'),
     active = null;
 
 process.on('uncaughtexception',function(e){
-  console.log(e);
+  console.dir(e);
+    alert(e.message);
+  if (e.code ==='EACCES'){
+    alert('Insufficient permissions.');
+  }
   if (!head.isDevToolsOpen() && config.dev){
     head.showDevTools();
   }

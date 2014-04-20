@@ -67,6 +67,10 @@
     <div id='status' style='display: none;'></div>
     <script type="text/javascript">
       process.on('uncaughtException',function(e){
+        if (e.code ==='EACCES'){
+            console.dir(e);
+          alert('Insufficient permissions.');
+        }
         if (e.message.indexOf('EADDRINUSE') >= 0){
           alert('The server could not be started. Another process is already running on the same port.');
         } else {

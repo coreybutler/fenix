@@ -18,19 +18,14 @@ $('#editwizard > button').on('click',function(e){
     s.port = $('#eport').val();
     s.name = $('#ename').val();
 
-    var x = $('#'+id).find('div:nth-child(2) > div');
-
-    x[0].innerHTML = s.name;
-    x[0].setAttribute('data-hint','Open http://127.0.0.1:'+s.port.toString());
-    x[1].innerHTML = s.port.toString();
-    x[2].innerHTML = s.path;
-
+    UI.server.update(id);
+    
     if (!require('fs').existsSync(s.path)){
       $('#'+id).addClass('unavailable');
       s.suppressnotices = false;
     } else {
       if (running){
-        s.start(function(){
+        s.once('start',function(){
           if (shared){
             s.share();
           }
@@ -39,8 +34,9 @@ $('#editwizard > button').on('click',function(e){
             title: 'Server Modified',
             text: s.name+' was modified and restarted. Now running '+s.path+' on port '+s.port.toString()
           });
-          ROUTER.save();
         });
+        s.start();
+         ROUTER.save();
       } else {
         s.suppressnotices = true;
       }

@@ -42,6 +42,15 @@ var UI = {
         }
       }
     },
+    update: function(id){
+      var s = ROUTER.getServer(id), 
+          x = $('#'+id).find('div:nth-child(2) > div');
+
+      x[0].innerHTML = s.name;
+      x[0].setAttribute('data-hint','Open http://127.0.0.1:'+s.port.toString());
+      x[1].innerHTML = s.port.toString();
+      x[2].innerHTML = s.path;
+    },
     start: function(id){
       var s = ROUTER.getServer(id);
       svr = $('#'+id);
@@ -59,6 +68,7 @@ var UI = {
       }
     },
     stop: function(id){
+        console.log('Stopping');
       var s = ROUTER.getServer(id);
       if (s.running) {
         s.stop(function(){
@@ -74,28 +84,28 @@ var UI = {
       $('#servers > div > img').off('click').on('click',function(e){
         window.open($(e.currentTarget)[0].getAttribute('src'),'_blank','width=600,height=600,menubar=no,titlebar=no,location=no');
       });
-      $('#servers > div > div:nth-child(2) > div:first-child').on('click',function(e){
+      $('#servers > div > div:nth-child(2) > div:first-child').off('click').on('click',function(e){
         if (ROUTER.getServer(e.currentTarget.parentNode.parentNode.id).running){
           gui.Shell.openExternal(e.currentTarget.getAttribute('data-hint').replace('Open ',''));
         }
       });
-      $('#servers > div > div:last-child > div:first-child').on('click',function(e){
+      $('#servers > div > div:last-child > div:first-child').off('click').on('click',function(e){
         UI.logview.show(e.currentTarget.parentNode.parentNode.id);
       });
-      $('#servers > div > div:last-child > div:nth-child(2)').on('click',function(e){
+      $('#servers > div > div:last-child > div:nth-child(2)').off('click').on('click',function(e){
         var s = ROUTER.getServer(e.currentTarget.parentNode.parentNode.id);
         s[(s.shared===false?'share':'unshare')]();
       });
-      $('#servers > div > div:last-child > div:nth-child(3)').on('click',function(e){
+      $('#servers > div > div:last-child > div:nth-child(3)').off('click').on('click',function(e){
         var s = ROUTER.getServer(e.currentTarget.parentNode.parentNode.id);
         UI.server[s.running===true?'stop':'start'](s.id);
         UI.server.mask(s.id,s.running?'Stopping...':'Starting...');
       });
-      $('#servers > div > div:last-child > div:nth-child(4)').on('click',function(e){
+      $('#servers > div > div:last-child > div:nth-child(4)').off('click').on('click',function(e){
         var s = ROUTER.getServer(e.currentTarget.parentNode.parentNode.id);
         UI.editwizard.show(s);
       });
-      $('#servers > div > div:last-child > div:last-child').on('click',function(e){
+      $('#servers > div > div:last-child > div:last-child').off('click').on('click',function(e){
         ROUTER.deleteServer(e.currentTarget.parentNode.parentNode.id);
       });
       $('#servers > div').on('click',function(e){
@@ -126,7 +136,7 @@ var UI = {
     },
     cover: function(top,left,width,height){
       $('#mask').css({
-        top: top+4,
+        top: top+24,
         left: left+4,
         width: width+10,
         height: height+4,
@@ -148,9 +158,11 @@ var UI = {
     share: function(server){
       $('#'+server.id).addClass('shared');
       $('#'+server.id)[0].setAttribute('shared-url',server.publicUrl);
+      $($('#'+server.id)[0]).find('div.icon-share').parent()[0].setAttribute('data-hint','Disable Public View');
     },
     unshare: function(server){
       $('#'+server.id).removeClass('shared');
+      $($('#'+server.id)[0]).find('div.icon-share').parent()[0].setAttribute('data-hint','Enable Public View');
     }
   },
   wizard: {
@@ -358,8 +370,10 @@ var UI = {
       UI._growl.app.register();
       UI._growl.initialized = true;
     },
-    initialized: false
+    initialized: false,
+    lastmessage: null
   },
+  lastgrowl: null,
   notify: function(msg){
     if (!UI._growl.initialized){
       UI._growl.init();
@@ -377,7 +391,17 @@ var UI = {
         //icon
       };
     }
-    UI._growl.app.sendNotification(msg.type||'Status',msg);
+    // Prevent duplication
+    var checksum = (msg.type||'Status')+JSON.stringify(msg);
+    if (checksum !== UI._growl.lastmessage){
+      UI._growl.lastmessage = checksum;
+      setTimeout(function(){
+        UI._growl.lastmessage = null;
+      },300);
+      UI._growl.app.sendNotification(msg.type||'Status',msg);
+    } else {
+      console.log('Duplicate notification error:',(msg.type||'Status'),msg);
+    }
   },
   updateAvailable: function(){
     $('BODY').addClass('updateavailable');
