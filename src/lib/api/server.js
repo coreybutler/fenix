@@ -284,7 +284,7 @@ var Server = Utility.extend({
           return this._http;
         }
       },
-        
+
       assistingstart: {
         enumerable: false,
         writable: true,
@@ -608,11 +608,11 @@ var Server = Utility.extend({
    * @fires screencapture
    */
   captureScreen: function(w,h,cb){
-    var webshot = require('url-to-screenshot'), binary = null, me = this, url = '127.0.0.1:'+this.port.toString();
+    var gui = require('nw.gui'), me = this;
 
     if (typeof w === 'function'){
       cb = w;
-      w = 600;
+      w = 1024;
       h = w;
     } else if (typeof h == 'function'){
       cb = h;
@@ -624,11 +624,21 @@ var Server = Utility.extend({
       return;
     }
 
-    url='http://localhost:'+this.port.toString();
-    webshot(url,{timeout:4500}).width(w).height(h).capture(function(err,img){
-      if (err) throw err;
-      me.screenshot = 'data:image\/png;base64,'+img.toString('base64');
+    var screenie = gui.Window.open('http://127.0.0.1:'+this.port.toString(),{
+      width: w,
+      height: h,
+      show: false,
+      toolbar: false
     });
+
+    setTimeout(function(){
+      screenie.capturePage(function(b64){
+        me.screenshot = b64;
+        screenie.close();
+        cb && cb();
+      },{format:'png',datatype:'raw'});
+    },4500);
+
   },
 
   /**
