@@ -9,6 +9,6 @@ Like Fenix?
 
 [![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/coreybutler/)
 
-## GPL License (Freeware)
+## GPL License
 
 Fenix 2.0 is available under the GPL license.
