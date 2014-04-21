@@ -41,7 +41,7 @@ BODY > div {
   display: none;
 }
 
-BODY > div:first-child:after {
+BODY > div:nth-child(2):after {
   content: 'No Servers Available...';
   font-family: Monaco, Consolas, 'Open Sans', Arial, sans-serif;
   color: #303030;
@@ -51,11 +51,11 @@ BODY > div:first-child:after {
   top: 25px !important;
   right: 0;
   left: 0;
-  top: 35px;
+  padding-top: 5px;
   text-align: center;
   vertical-align: top;
 }
-BODY.hasservers > div:first-child:after {
+BODY.hasservers > div:nth-child(2):after {
   display: none;
 }
 
