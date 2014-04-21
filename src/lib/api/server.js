@@ -261,6 +261,17 @@ var Server = Utility.extend({
         value: false
       },
 
+      /**
+       * @property {Boolean} stopping
+       * Indicates the server is stopping.
+       */
+      stopping:{
+        enumerable: true,
+        writable: true,
+        configurable: false,
+        value: false
+      },
+
       initialized:{
         enumerable: false,
         writable: true,
@@ -315,8 +326,6 @@ var Server = Utility.extend({
           var html = require('fs').readFileSync(require('path').join('lib','public','directory.html'));
 
           this._http = http.createServer(function(req,res){
-
-            req.setSocketKeepAlive(false,0);
 
             // Custom directory handling logic:
             function redirect() {
@@ -721,18 +730,18 @@ var Server = Utility.extend({
    * @fires stop
    */
   stop: function(cb){
-    console.log("Stop()");
     var me = this;
     this.starting = false;
     if (!this.running){
-      console.log('Not Running');
       cb && cb();
       return;
     }
+    this.stopping = true;
     if (this.shared){
       this.unshare(function(){
         me.http.close(function(){
           me.running = false;
+          me.stopping = false;
           /**
            * @event stop
            * Fired when the server is stopped. Sends the Server objects as a handler argument.
@@ -743,11 +752,10 @@ var Server = Utility.extend({
         });
       });
     } else if (this.running){
-      console.log('Shutting down the running server...');
       try {
         this._http.once('close',function(){
-          console.log('Closed');
           me.running = false;
+          me.stopping = false;
           me.emit('stop',me);
           me.syslog.log('Server stopped on port '+me.port.toString()+'.');
           cb && cb();
