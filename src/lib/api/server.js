@@ -316,6 +316,8 @@ var Server = Utility.extend({
 
           this._http = http.createServer(function(req,res){
 
+            req.setSocketKeepAlive(false,0);
+
             // Custom directory handling logic:
             function redirect() {
               me.syslog.log('Redirect to '+req.url+'/');
@@ -350,7 +352,7 @@ var Server = Utility.extend({
             };
 
             function procError(err){
-              var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]);
+              var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]) || '';
               if (err.message.indexOf('ENOENT') >= 0 && require('path').basename(err.message.match(/'(.*?)'/)[1]) === 'index.html'){
                 var _d = "",_f = "";
                 fs.readdir(p,function(_err,_files){
@@ -719,9 +721,11 @@ var Server = Utility.extend({
    * @fires stop
    */
   stop: function(cb){
+    console.log("Stop()");
     var me = this;
     this.starting = false;
     if (!this.running){
+      console.log('Not Running');
       cb && cb();
       return;
     }
@@ -739,21 +743,26 @@ var Server = Utility.extend({
         });
       });
     } else if (this.running){
+      console.log('Shutting down the running server...');
       try {
-        this.http.close(function(){
+        this._http.once('close',function(){
+          console.log('Closed');
           me.running = false;
           me.emit('stop',me);
           me.syslog.log('Server stopped on port '+me.port.toString()+'.');
           cb && cb();
         });
+        this._http.close();
       } catch(e) {
+        console.dir(e);
         if (e.message.toLowerCase().indexOf('not running') >= 0){
-          cb & cb();
+          cb && cb();
         } else {
           throw e;
         }
       }
     } else {
+      this.emit('stop',this);
       cb && cb();
     }
   }
