@@ -43,7 +43,7 @@ var UI = {
       }
     },
     update: function(id){
-      var s = ROUTER.getServer(id), 
+      var s = ROUTER.getServer(id),
           x = $('#'+id).find('div:nth-child(2) > div');
 
       x[0].innerHTML = s.name;
@@ -332,7 +332,7 @@ var UI = {
         $('#log').addClass('bounceIn show');
         $('#log').removeClass('bounceOut');
 
-        stats.event('Web Server','log','Viewed Log',1).send();
+        global.track.event('Web Server','log','Viewed Log',1).send();
       }
     },
     clean: function(msg){
