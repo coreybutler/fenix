@@ -392,7 +392,11 @@ var Router = Utility.extend({
       d.port = parseInt(d.port);
       data.push(d);
     });
-    require('fs').writeFileSync(require('path').join('./','servers.fnx'),JSON.stringify(data,null,2));
+    var _p = process.platform === 'win32'?'./':'/Users/Shared/Fenix.localized', fs = require('fs'), pth = require('path');
+    if (!fs.existsSync(pth.resolve(_p))){
+      fs.mkdirSync(pth.resolve(_p));
+    }
+    fs.writeFileSync(pth.join(_p,'servers.fnx'),JSON.stringify(data,null,2));
   },
 
   /**
@@ -403,7 +407,7 @@ var Router = Utility.extend({
     var me = this;
     this.loading = true;
     try {
-      var svrs = JSON.parse(require('fs').readFileSync(require('path').resolve(require('path').join('./','servers.fnx'))));
+      var svrs = JSON.parse(require('fs').readFileSync(require('path').resolve(require('path').join(process.platform === 'win32'?'./':'/Users/Shared/Fenix.localized','servers.fnx'))));
       svrs.forEach(function(server){
         me.servers[server.id] = new Server({
           name: server.name,

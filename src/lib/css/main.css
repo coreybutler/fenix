@@ -51,6 +51,7 @@ BODY > div:first-child:after {
   top: 25px !important;
   right: 0;
   left: 0;
+  top: 35px;
   text-align: center;
   vertical-align: top;
 }

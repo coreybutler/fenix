@@ -68,13 +68,13 @@ var UI = {
       }
     },
     stop: function(id){
-        console.log('Stopping');
       var s = ROUTER.getServer(id);
       if (s.running) {
-        s.stop(function(){
-          $('#'+id).removeClass('running');
+        s.once('stop',function(){
+          $( '#'+id).removeClass('running');
           $('#'+id).find('div:last-child > div:nth-child(3)')[0].setAttribute('data-hint','Start Server');
         });
+        s.stop();
       } else {
         $('#'+id).removeClass('running');
         $('#'+id).find('div:last-child > div:nth-child(3)')[0].setAttribute('data-hint','Start Server');
