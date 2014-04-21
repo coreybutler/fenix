@@ -7,6 +7,8 @@ and how to use it on other platforms.  The [release history](https://github.com/
 
 Like Fenix?
 
+Making a donation will go towards the development of Fenix. At the moment, I'd love to reach $100 in contributions so I can obtain an Apple Developer license for Fenix... which is the only application I'm distributing on Mac. This would help prevent the "Cannot install from unidentified developer" error some Mac users receive. Other contributions would go towards future efforts like hosting a public SSH tunnel (to take some load off localtunnel.me) and new feature development.
+
 [![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/coreybutler/)
 
 ## GPL License
