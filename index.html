@@ -542,6 +542,19 @@ Footer
     <script src="js/preloader.js"></script>
     <script src="js/core.js"></script>
     <script type="text/javascript">
+      if (navigator.platform.toLowerCase().indexOf('mac') < 0){
+        alert('Load OSX');
+        function loadcss(filename){
+          var fileref=document.createElement("link")
+          fileref.setAttribute("rel", "stylesheet")
+          fileref.setAttribute("type", "text/css")
+          fileref.setAttribute("href", filename)
+          if (typeof fileref !== undefined){
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+          }
+        }
+        loadcss('./css/osx.css');
+      }
         $(document).ready(function(){
           $('a.download').attr('href',(navigator.platform.toLowerCase() === 'win32' ? 'http://www.fenixwebserver.com/download/windows': (navigator.platform.toLowerCase().indexOf('mac') >= 0 ? 'http://www.fenixwebserver.com/download/osx' : 'http://github.com/coreybutler/fenix/releases')));
             try {

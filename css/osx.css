@@ -1,0 +1,48 @@
+.banner_phone {
+    background:url(../img/osx/banner_device.png) top center no-repeat;
+}
+section.work .center_bin {
+  background:url(../img/osx/bin.png) top center no-repeat;
+}
+
+section.work .center_phone {
+  background:url(../img/osx/shell.png) top center no-repeat !important;
+}
+.feature-phone {
+    background:url(../img/osx/feature-phone.png) center no-repeat;
+}
+.feature-bin {
+    background:url(../img/osx/feature-bin.png) center no-repeat;
+}
+.feature-term {
+    background:url(../img/osx/feature-console.png) center no-repeat;
+}
+.terminal {
+  background: #000 url(../img/osx/terminal.png) no-repeat;
+  margin: auto;
+  width: 800px;
+  height: 473px;
+  padding: 40px 15px 15px 15px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.terminal > pre {
+  position: relative;
+  background-color: transparent !important;
+  border: 0 !important;
+  color: #808080;
+  padding-left: 46px;
+  font-family: Monaco,Monospace;
+  font-size: 16px;
+}
+.terminal > pre.cmd {
+  color: #ccc;
+}
+.terminal > pre.cmd:before {
+  position: absolute;
+  content: '~ $';
+  color: #ccc;
+  margin-left: -36px;
+  z-index: 5px;
+}

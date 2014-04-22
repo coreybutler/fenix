@@ -207,7 +207,7 @@ Phone in Header - With Text Elements
 }
 .banner_phone {
     text-align:center;
-    background:url(../img/banner_device.png) top center no-repeat;
+    background:url(../img/win32/banner_device.png) top center no-repeat;
     height:400px;
 }
 .phone_preview .regular_text_left h3, .phone_preview .regular_text_right h3 {
