@@ -542,8 +542,7 @@ Footer
     <script src="js/preloader.js"></script>
     <script src="js/core.js"></script>
     <script type="text/javascript">
-      if (navigator.platform.toLowerCase().indexOf('mac') < 0){
-        alert('Load OSX');
+      if (navigator.platform.toLowerCase().indexOf('mac') >= 0){
         function loadcss(filename){
           var fileref=document.createElement("link")
           fileref.setAttribute("rel", "stylesheet")
