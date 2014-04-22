@@ -303,6 +303,13 @@ var Server = Utility.extend({
         value: false
       },
 
+      sockets: {
+        enumerable: false,
+        writable: true,
+        configurable: false,
+        value: []
+      },
+
       updateServer: {
         enumerable: false,
         writable: true,
@@ -395,25 +402,45 @@ var Server = Utility.extend({
                   var pfile = require('path').resolve(require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','public')));
                   var ext = require('path').extname(req.url).substr(1,require('path').extname(req.url).length-1);
                   if (ext === 'ico'){
-                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
-                      res.statusCode = 200;
-                      res.end(data);
-                    });
+                    try {
+                      require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.replace('fenixassets','icons'))),function(err,data){
+                        res.statusCode = 200;
+                        res.end(data);
+                      });
+                    } catch (e){
+                      me.syslog.error('500 '+e.message);
+                      res.statusCode = 500;
+                      res.end(e.message);
+                    }
                   } else if (require('path').basename(req.url).toLowerCase() === 'fenix.png') {
-                    require('fs').readFile(require('path').resolve(require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','icons'))),function(err,data){
-                      res.setHeader('Content-Type','image/png');
-                      res.statusCode = 200;
-                      res.end(data);
-                    });
+                    try {
+                      require('fs').readFile(require('path').resolve(
+                        require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','icons'))),function(err,data){
+                        res.setHeader('Content-Type','image/png');
+                        res.statusCode = 200;
+                        res.end(data);
+                      });
+                    } catch (e) {
+                      me.syslog.error('500 '+e.message);
+                      res.statusCode = 500;
+                      res.end(e.message);
+                    }
                   } else if (require('fs').existsSync(pfile)){
-                    require('fs').readFile(pfile,function(err,data){
-                      if (['css','html','js','htm'].indexOf(ext) >= 0){
-                        res.setHeader('Content-Type',(['css','html'].indexOf(ext) >= 0 ? 'text' : 'application')+'/'+(ext==='js'?'javascript':ext));
-                      }
-                      res.statusCode = 200;
-                      res.end(data);
-                    });
+                    try {
+                      require('fs').readFile(pfile,function(err,data){
+                        if (['css','html','js','htm'].indexOf(ext) >= 0){
+                          res.setHeader('Content-Type',(['css','html'].indexOf(ext) >= 0 ? 'text' : 'application')+'/'+(ext==='js'?'javascript':ext));
+                        }
+                        res.statusCode = 200;
+                        res.end(data);
+                      });
+                    } catch(e) {
+                      me.syslog.error('500 '+e.message);
+                      res.statusCode = 500;
+                      res.end(e.message);
+                    }
                   } else {
+                    me.syslog.error('404 '+req.url);
                     res.statusCode = 404;
                     res.end();
                   }
@@ -456,6 +483,16 @@ var Server = Utility.extend({
               .on('file', sendFile)
               .pipe(res);
           });
+
+          // Track all connections
+          this.http.on('connection',function(socket){
+            me.sockets.push(socket);
+            socket.setTimeout(4000);
+            socket.on('close',function(){
+              me.sockets.splice(me.sockets.indexOf(socket), 1);
+            });
+          });
+
           // Capture problems
           this.http.on('error',function(e){
             me.starting = !me.running ? false : me.starting;
@@ -724,6 +761,17 @@ var Server = Utility.extend({
   },
 
   /**
+   * @method closeAllSockets
+   * Forcibly clears all of the open connections the server may have.
+   * @private
+   */
+  closeAllSockets: function(){
+    this.sockets.forEach(function(socket){
+      socket.destroy();
+    });
+  },
+
+  /**
    * @method stop
    * @param {Function} [callback]
    * A callback function to execute when the server has stopped.
@@ -750,6 +798,7 @@ var Server = Utility.extend({
           me.syslog.log('Server stopped on port '+me.port.toString()+'.');
           cb && cb();
         });
+        me.closeAllSockets();
       });
     } else if (this.running){
       try {
@@ -761,6 +810,7 @@ var Server = Utility.extend({
           cb && cb();
         });
         this._http.close();
+        me.closeAllSockets();
       } catch(e) {
         console.dir(e);
         if (e.message.toLowerCase().indexOf('not running') >= 0){
