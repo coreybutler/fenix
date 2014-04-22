@@ -107,7 +107,7 @@ Website Header / Start
     <h3 style="color:rgba(255,255,255,.3) !important; margin:0;">Available for Windows and Mac.</h3>
 
     <br/>
-    <a href="http://www.fenixwebserver.com/download" class="w_btn">download now</a>
+    <a href="http://www.fenixwebserver.com/download" class="w_btn download">download now</a>
     <a href="http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-" target="_blank" class="w_btn">See it in Action</a>
   </div><!-- /header_tag -->
 
@@ -282,7 +282,7 @@ Styling in phone-position.css & phone-position-responsive.css
 
 <div class="promotion_bar">
   <div class="container">
-      <h4>Did we mention Fenix is open source?</h4><a href="http://www.fenixwebserver.com/download" class="b_btn">Download Now</a>
+      <h4>Did we mention Fenix is open source?</h4><a href="http://www.fenixwebserver.com/download" class="b_btn download">Download Now</a>
   </div>
 </div><!-- /promotion_bar -->
 
@@ -318,7 +318,7 @@ Features
     <div class="clearfix"></div>
   </ul>
 
-<a href="http://www.fenixwebserver.com/download" class="b_btn">get the app now</a><p class="underline-p">don’t forget to register!</p>
+<a href="http://www.fenixwebserver.com/download" class="b_btn download">get the app now</a><p class="underline-p">don’t forget to register!</p>
 
   </div><!-- col-sm-push6-->
 
@@ -413,7 +413,7 @@ Features
     <div class="clearfix"></div>
   </ul>
 
-<a href="http://www.fenixwebserver.com/download" class="b_btn">get fenix now</a>
+<a href="http://www.fenixwebserver.com/download" class="b_btn download">get fenix now</a>
 
   </div><!-- col-sm-push6-->
 
@@ -543,10 +543,11 @@ Footer
     <script src="js/core.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+          $('a.download').attr('href',(navigator.platform.toLowerCase() === 'win32' ? 'http://fenixwebserver.com/download/windows': (navigator.platform.toLowerCase().indexOf('mac') >= 0 ? 'http://fenixwebserver.com/download/osx' : 'http://github.com/coreybutler/fenix/releases')));
             try {
-                $(':input:visible:first').focus();
-            $('#archive-list li:even').addClass("odd");
-                $('.field-group, .field-group input, .field-group select').bind('click',function(event){
+              $(':input:visible:first').focus();
+              $('#archive-list li:even').addClass("odd");
+              $('.field-group, .field-group input, .field-group select').bind('click',function(event){
               if (event.type == 'click') {
                 if ($(this).hasClass('field-group')){
                     var fg = $(this);
