@@ -9,8 +9,7 @@
   "main": {
     "width": 400,
     "height": 600,
-    "show": false,
-    "test":"TEST"
+    "show": false
   },
   "windows":{
     "bin": {

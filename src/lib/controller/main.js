@@ -53,3 +53,10 @@ global.windows.main.on('close',function(){
 if (process.platform === 'darwin'){
   global.windows.main.setShowInTaskbar(true);
 }
+
+$(window).on('keyup',function(e){
+  if (e.keyCode === 192 && e.ctrlKey && e.shiftKey){
+    global.windows.main.showDevTools();
+    global.windows.head.showDevTools();
+  }
+});

@@ -45,8 +45,7 @@
     "express": "3.4.8",
     "semver": "2.2.1",
     "node-uuid": "1.4.1",
-    "universal-analytics": "0.3.4",
-    "connect-multiparty": "^1.0.3"
+    "universal-analytics": "0.3.4"
   },
   "devDependencies": {
     "grunt": "0.4.4",

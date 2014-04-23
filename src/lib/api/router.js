@@ -128,6 +128,23 @@ var Router = Utility.extend({
       },
 
       /**
+       * @property serverstore
+       * The absolute path of the location/file where servers are persisted.
+       * @private
+       */
+      serverstore: {
+        enumerable: false,
+        get: function(){
+          var p = require('path');
+          switch (process.platform.toLowerCase()) {
+            case 'win32': return p.join(process.env.APPDATA,'Fenix','servers.fnx');
+            case 'darwin': return '/Users/Shared/Fenix.localized/servers.fnx';
+            default: return p.resolve(p.join('./','servers.fnx'));
+          }
+        }
+      },
+
+      /**
        * @property {String} MAC
        * The MAC address of the computer running the router.
        */
@@ -242,9 +259,10 @@ var Router = Utility.extend({
   deleteServer: function(id){
     var me = this;
     if(!this.servers.hasOwnProperty(id)){
+      throw new Error('Server '+id+' does not exist or could not be found.');
       return;
     }
-    this.servers[id].stop(function(){
+    this.servers[id].on('stop',function(){
       var s = me.servers[id];
       delete me.servers[id];
       me.save();
@@ -256,6 +274,7 @@ var Router = Utility.extend({
        */
       me.emit('deleteserver', s);
     });
+    this.servers[id].stop();
   },
 
   /**
@@ -392,7 +411,7 @@ var Router = Utility.extend({
       d.port = parseInt(d.port);
       data.push(d);
     });
-    var _p = process.platform === 'win32'?'./':'/Users/Shared/Fenix.localized', fs = require('fs'), pth = require('path');
+    var _p = require('path').dirname(this.serverstore), fs = require('fs'), pth = require('path');
     if (!fs.existsSync(pth.resolve(_p))){
       fs.mkdirSync(pth.resolve(_p));
     }
@@ -407,7 +426,8 @@ var Router = Utility.extend({
     var me = this;
     this.loading = true;
     try {
-      var svrs = JSON.parse(require('fs').readFileSync(require('path').resolve(require('path').join(process.platform === 'win32'?'./':'/Users/Shared/Fenix.localized','servers.fnx'))));
+      var svrs = JSON.parse(require('fs').readFileSync(this.serverstore));
+      console.log(svrs);
       svrs.forEach(function(server){
         me.servers[server.id] = new Server({
           name: server.name,
@@ -425,7 +445,9 @@ var Router = Utility.extend({
          */
         me.emit('loadserver',me.servers[server.id]);
       });
-    } catch (e) {}
+    } catch (e) {
+      alert(e.message);
+    }
     this.loading = false;
     /**
      * @event loadcomplete

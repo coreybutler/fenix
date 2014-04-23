@@ -4,7 +4,7 @@ var express = require('express'),
 
 api.use(express.json());
 api.use(express.urlencoded());
-api.use(require('connect-multiparty'));
+//api.use(require('connect-multiparty'));
 
 api.use(function(req,res,next){
   res.set({
@@ -333,11 +333,13 @@ api.put('/close',function(req,res){
 
 // Get the current worknig version
 api.get('/version',function(req,res){
-  res.send(require('../../package.json').version);
+  res.send(global.pkg.version);
 });
 
 
 //api.get('/server/list',function(req,res){});
 //api.get('/server/list',function(req,res){});
-
-api.listen(33649);
+//alert('Attempting to listen on port 33649');
+api.listen(33649,function(){
+  console.log('Console server available on port 33649');
+});

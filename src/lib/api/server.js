@@ -368,8 +368,9 @@ var Server = Utility.extend({
             };
 
             function procError(err){
-              var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]) || '';
-              if (err.message.indexOf('ENOENT') >= 0 && require('path').basename(err.message.match(/'(.*?)'/)[1]) === 'index.html'){
+              var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]) || '',
+                  bn = require('path').basename(err.message.match(/'(.*?)'/)[1]) || '';
+              if (err.message.indexOf('ENOENT') >= 0 && bn === 'index.html'){
                 var _d = "",_f = "";
                 fs.readdir(p,function(_err,_files){
                   _d = _files.filter(function(el){return require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
@@ -781,13 +782,18 @@ var Server = Utility.extend({
     var me = this;
     this.starting = false;
     if (!this.running){
+      me.emit('stop',me);
       cb && cb();
       return;
     }
     this.stopping = true;
     if (this.shared){
-      this.unshare(function(){
-        me.http.close(function(){
+      var to = setTimeout(function(){
+        throw new Error('Server timed out while unsharing.');
+      },3000);
+      this.once('unshare',function(){
+        clearTimeout(to);
+        me.http.once('close',function(){
           me.running = false;
           me.stopping = false;
           /**
@@ -798,19 +804,21 @@ var Server = Utility.extend({
           me.syslog.log('Server stopped on port '+me.port.toString()+'.');
           cb && cb();
         });
-        me.closeAllSockets();
+        me.http.close();
+        me.closeAllSockets(); // Force sockets to close.
       });
+      this.unshare();
     } else if (this.running){
       try {
-        this._http.once('close',function(){
+        this.http.once('close',function(){
           me.running = false;
           me.stopping = false;
           me.emit('stop',me);
           me.syslog.log('Server stopped on port '+me.port.toString()+'.');
           cb && cb();
         });
-        this._http.close();
-        me.closeAllSockets();
+        this.http.close();
+        this.closeAllSockets();
       } catch(e) {
         console.dir(e);
         if (e.message.toLowerCase().indexOf('not running') >= 0){

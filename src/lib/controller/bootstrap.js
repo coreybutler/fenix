@@ -68,6 +68,12 @@ Object.defineProperties(global,{
       }
       return ua(configuration.googleanalytics,localStorage.getItem('fid'));
     }
+  },
+  pkg: {
+    enumerable: true,
+    writable: false,
+    configurable: false,
+    value: pkg
   }
 });
 
@@ -156,3 +162,5 @@ head.on('close',function(){
   gui.App.closeAllWindows();
   gui.App.quit();
 });
+
+global.windows.head = head;

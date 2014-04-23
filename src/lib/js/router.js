@@ -34,7 +34,7 @@ var initServer = function(server){
           UI.server.update(server.id);
           UI.server.unmask();
           server.start();
-        },1025);  
+        },1025);
       } else {
         UI.server.unmask();
       }
@@ -176,8 +176,8 @@ ROUTER.on('loadcomplete',function(){
 
       } else {
         setTimeout(function(){
-          splash.hide();
-          win.show();
+          global.windows.splash && global.windows.splash.hide();
+          global.windows.main.show();
         },1500);
       }
     } catch (e){
