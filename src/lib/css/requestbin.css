@@ -3,10 +3,10 @@ BODY {
 }
 
 BODY > div:after {
-  position: absolute;
+  position: fixed;
   content: 'Awaiting Requests...';
   color: #555;
-  top: 0;
+  top: 45px;
   right: 10px;
 }
 BODY.hasrequests > div:after {
