@@ -426,8 +426,11 @@ var Router = Utility.extend({
     var me = this;
     this.loading = true;
     try {
+      if (!require('fs').existsSync(this.serverstore)){
+        alert('Fenix could not find a saved server configuration file. One will be automatically created for you at '+this.serverstore+'. This normally happens the first time you open Fenix.');
+        return;
+      }
       var svrs = JSON.parse(require('fs').readFileSync(this.serverstore));
-      console.log(svrs);
       svrs.forEach(function(server){
         me.servers[server.id] = new Server({
           name: server.name,
