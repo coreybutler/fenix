@@ -223,11 +223,13 @@ $(function() {
 // Scrolling
 // ************************ //
 $('nav.main_navigation li a').click(function(e){
-      e.preventDefault();
-      var $this = $($(this).attr('href'));
-      $('html,body').animate({
-        'scrollTop': $this.offset().top+'px'
-      }, "easeInOutCirc");
+      if (e.currentTarget.id !== 'medium'){
+        e.preventDefault();
+        var $this = $($(this).attr('href'));
+        $('html,body').animate({
+          'scrollTop': $this.offset().top+'px'
+        }, "easeInOutCirc");
+      }
     });
 
 });
