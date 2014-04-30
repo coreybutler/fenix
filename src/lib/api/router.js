@@ -426,28 +426,26 @@ var Router = Utility.extend({
     var me = this;
     this.loading = true;
     try {
-      if (!require('fs').existsSync(this.serverstore)){
-        alert('Fenix could not find a saved server configuration file. One will be automatically created for you at '+this.serverstore+'. This normally happens the first time you open Fenix.');
-        return;
-      }
-      var svrs = JSON.parse(require('fs').readFileSync(this.serverstore));
-      svrs.forEach(function(server){
-        me.servers[server.id] = new Server({
-          name: server.name,
-          domain: server.domain,
-          port: server.port,
-          path: server.path,
-          id: server.id
+      if (require('fs').existsSync(this.serverstore)){
+        var svrs = JSON.parse(require('fs').readFileSync(this.serverstore));
+        svrs.forEach(function(server){
+          me.servers[server.id] = new Server({
+            name: server.name,
+            domain: server.domain,
+            port: server.port,
+            path: server.path,
+            id: server.id
+          });
+          if (server.running){
+            me.servers[server.id].start();
+          }
+          /**
+           * @event loadserver
+           * Fired when a server is loaded from disk.
+           */
+          me.emit('loadserver',me.servers[server.id]);
         });
-        if (server.running){
-          me.servers[server.id].start();
-        }
-        /**
-         * @event loadserver
-         * Fired when a server is loaded from disk.
-         */
-        me.emit('loadserver',me.servers[server.id]);
-      });
+      }
     } catch (e) {
       alert(e.message);
     }
