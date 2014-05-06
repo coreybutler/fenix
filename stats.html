@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Fenix Stats</title>
+  </head>
+  <body>
+    <table id="stats"></table>
+    <script src="js/jquery1.11.0.min.js"></script>
+    <script>
+      $.ajax({
+        url: 'https://api.github.com/repos/coreybutler/fenix/releases',
+        method: 'get',
+        statusCode: {
+          200: function(data){
+            data.forEach(function(el){
+              if (el.tag_name === '1.0.0'){
+                return;
+              }
+              var str = "<tr><td colspan='2'><br/><b>"+el.tag_name+"</b></td></tr>";
+              el.assets.forEach(function(a){
+                str += "<tr><td>"+(a.name.toLowerCase().indexOf('osx') >= 0 ? 'Mac' : 'Windows')+":</td><td><i>"+a.download_count+"</i></td></tr>"
+              });
+              $('#stats').prepend(str);
+            });
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
