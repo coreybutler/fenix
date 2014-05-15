@@ -1,7 +1,3 @@
-# Issue Update (5/15/2014 11:23am CST)
-
-Somehow, some way, an old version of the Mac app overwrote the latest release in v2.0.0. This version has an issue that causes the program to hang on startup. I'm rebuilding the latest release now. The Windows version is up to date. I'll remvoe this notice as soon as the proper version is uploaded. Sorry for any inconvenience!
-
 # Fenix Web Servers
 
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
