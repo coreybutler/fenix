@@ -408,6 +408,8 @@ var Router = Utility.extend({
       delete d.cfg_paths;
       delete d.screenshot;
       delete d.suppressnotices;
+      delete d.starting;
+      delete d.stopping;
       d.port = parseInt(d.port);
       data.push(d);
     });

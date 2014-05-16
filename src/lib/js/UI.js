@@ -153,7 +153,11 @@ var UI = {
       }
     },
     setThumbnail: function(id,img){
-      $('#'+id).find('img:first-child')[0].setAttribute('src',img);
+      try {
+        $('#'+id).find('img:first-child')[0].setAttribute('src',img);
+      } catch (e) {
+        console.log('Image not displayed because DOM could not be found.');
+      }
     },
     share: function(server){
       $('#'+server.id).addClass('shared');

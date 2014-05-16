@@ -368,36 +368,51 @@ var Server = Utility.extend({
             };
 
             function procError(err){
+              switch(err.message.toLowerCase()){
+                case 'forbidden':
+                  res.statusCode = 403;
+                  res.end('Forbidden');
+                  return;
+              }
               var p = require('path').dirname(err.message.match(/'(.*?)'/)[1]) || '',
                   bn = require('path').basename(err.message.match(/'(.*?)'/)[1]) || '';
               if (err.message.indexOf('ENOENT') >= 0 && bn === 'index.html'){
                 var _d = "",_f = "";
-                fs.readdir(p,function(_err,_files){
-                  _d = _files.filter(function(el){return require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
-                    var href = el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':''),
-                        stat = require('fs').statSync(require('path').join(p,el));
-                    return  "<tr class='dir'>"
-                          + "<td><a href='./"+href+"'>"+el+"</a></td>"
-                          + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
-                          + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
-                          + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
-                          + "</tr>";
+                console.log(p);
+                try {
+                  fs.readdir(p,function(_err,_files){
+                    _files = _files || [];
+                    _d = _files.filter(function(el){return require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
+                      var href = el+(require('fs').existsSync(require('path').join(p,'index.html'))?'/index.html':''),
+                          stat = require('fs').statSync(require('path').join(p,el));
+                      return  "<tr class='dir'>"
+                            + "<td><a href='./"+href+"'>"+el+"</a></td>"
+                            + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
+                            + "<td><a href='./"+href+"'>&lt;Directory&gt;</a></td>"
+                            + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
+                            + "</tr>";
+                    });
+                    _f = _files.filter(function(el){return !require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
+                      var href = './'+el,
+                          $extn = require('path').extname(el),
+                          stat = require('fs').statSync(require('path').join(p,el));
+                      return  "<tr class='file'>"
+                            + "<td><a href='./"+href+"'>"+el+"</a></td>"
+                            + "<td><a href='./"+href+"'>"+getXtn($extn)+"</a></td>"
+                            + "<td><a href='./"+href+"'>"+(stat.size/1024).toFixed(2)+" KB</a></td>"
+                            + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
+                            + "</tr>";
+                    });
+                    res.statusCode = 200;
+                    res.end(html.toString().replace('<!-- BODY -->',_d.join('')+_f.join('')));
+                    return;
                   });
-                  _f = _files.filter(function(el){return !require('fs').statSync(require('path').join(p,el)).isDirectory();}).map(function(el){
-                    var href = './'+el,
-                        $extn = require('path').extname(el),
-                        stat = require('fs').statSync(require('path').join(p,el));
-                    return  "<tr class='file'>"
-                          + "<td><a href='./"+href+"'>"+el+"</a></td>"
-                          + "<td><a href='./"+href+"'>"+getXtn($extn)+"</a></td>"
-                          + "<td><a href='./"+href+"'>"+(stat.size/1024).toFixed(2)+" KB</a></td>"
-                          + "<td sorttable_customkey='"+stat.mtime.getTime()+"'><a href='./"+href+"'>"+stat.mtime+"</a></td>"
-                          + "</tr>";
-                  });
-                  res.statusCode = 200;
-                  res.end(html.toString().replace('<!-- BODY -->',_d.join('')+_f.join('')));
+                } catch (e) {
+                  me.syslog.error('500 '+e.message);
+                  res.statusCode = 500;
+                  res.send();
                   return;
-                });
+                }
               } else {
                 if (req.url.indexOf('/fenixassets/') >= 0){
                   var pfile = require('path').resolve(require('path').join('lib',req.url.substr(req.url.indexOf('/fenixassets'),req.url.length).replace('fenixassets','public')));
@@ -477,12 +492,17 @@ var Server = Utility.extend({
               }
             }
 
-            var s = send(req, require('url').parse(req.url).pathname)
-              .from(me.path)
-              .on('error', procError)
-              .on('directory', redirect)
-              .on('file', sendFile)
-              .pipe(res);
+            try {
+              var s = send(req, require('url').parse(req.url).pathname)
+                .from(me.path)
+                .on('error', procError)
+                .on('directory', redirect)
+                .on('file', sendFile)
+                .pipe(res);
+            } catch (e) {
+              console.dir(e);
+              alert('Error launching server.');
+            }
           });
 
           // Track all connections
@@ -504,6 +524,7 @@ var Server = Utility.extend({
                */
               me.emit('startfailure',e.code);
             } else {
+              console.log(e.message);
               throw e;
             }
           });
@@ -681,11 +702,15 @@ var Server = Utility.extend({
     });
 
     setTimeout(function(){
-      screenie.capturePage(function(b64){
-        me.screenshot = b64;
-        screenie.close();
-        cb && cb();
-      },{format:'png',datatype:'raw'});
+      try {
+        screenie.capturePage(function(b64){
+          me.screenshot = b64;
+          screenie.close();
+          cb && cb();
+        },{format:'png',datatype:'raw'});
+      } catch (e) {
+        console.dir(e);
+      }
     },4500);
 
   },
