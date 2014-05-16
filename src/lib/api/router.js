@@ -206,7 +206,9 @@ var Router = Utility.extend({
 
     // Get the computer's MAC address
     require('getmac').getMac(function(err,addr){
-      if (err) throw err;
+      if (err) {
+        addr = "UNKNOWN";
+      }
       me.MAC = addr;
       me.computer = addr;
     });
