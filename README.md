@@ -1,6 +1,7 @@
 # Fenix Web Servers
 
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
+There's also a companion [command line app](https://github.com/coreybutler/fenix-cli).
 
 ![Fenix](http://fenixwebserver.com/img/win32/banner_device.png)
 
