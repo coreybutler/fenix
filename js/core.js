@@ -223,7 +223,7 @@ $(function() {
 // Scrolling
 // ************************ //
 $('nav.main_navigation li a').click(function(e){
-      if (e.currentTarget.id !== 'medium'){
+      if (e.currentTarget.id !== 'medium' && e.currentTarget.id !== 'helper'){
         e.preventDefault();
         var $this = $($(this).attr('href'));
         $('html,body').animate({
