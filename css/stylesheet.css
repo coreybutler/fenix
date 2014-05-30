@@ -164,8 +164,9 @@ Text Logo
 Navigation Menu
 ---------------------------- */
 nav.main_navigation {
-    float:right;
-    margin-top:4px;
+  float:right;
+  margin-top:4px;
+  margin-left: -80px;
 }
 nav.main_navigation ul li {
 float:left;
