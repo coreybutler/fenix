@@ -431,7 +431,7 @@ Features
 
   <div class="container">
     <div class="terminal">
-      <pre class="cmd">npm install -g fenix</pre>
+      <pre class="cmd">npm install -g fenix-cli</pre>
       <pre class="cmd">fenix list</pre>
       <pre><span style="color:#fff;margin-top:-20px !important;">SERVERS:</span>
 
@@ -471,7 +471,7 @@ Features
     <div class="clearfix"></div>
   </ul>
 
-<span class="b_btn" style="text-transform:lowercase;">npm install -g fenix</span><p class="underline-p">Requires <a href="http://nodejs.org" target="_blank">node.js</a></p>
+<span class="b_btn" style="text-transform:lowercase;">npm install -g fenix-cli</span><p class="underline-p">Requires <a href="http://nodejs.org" target="_blank">node.js</a></p>
 
   </div><!-- col-sm-push6-->
 
@@ -518,6 +518,656 @@ Footer
         <a href="http://twitter.com/goldglovecb" target="_blank"><i class="fa">&#xf099;</i></a>
         <a href="https://plus.google.com/u/coreybutlerofficial" target="_blank"><i class="fa">&#xf0d5;</i></a>
         <a href="https://github.com/coreybutler/fenix" target="_blank"><i class="fa">&#xf113;</i></a>
+      </div>
+      <div class="copy">
+        <p>Copyright &copy; 2014 <a href="http://coreybutler.com" target="_blank">Corey Butler</a>. All rights reserved.</p>
+      </div>
+    </div>
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery1.11.0.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.mlens-1.3.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.inview.js"></script>
+    <!--[if !IE]><!-->
+    <script src="js/inview_custom.js"></script>
+    <!--<![endif]--> <!-- If not viewing in Internet Explorer -->
+    <script src="js/preloader.js"></script>
+    <script src="js/core.js"></script>
+    <script type="text/javascript">
+      if (navigator.platform.toLowerCase().indexOf('mac') >= 0){
+        function loadcss(filename){
+          var fileref=document.createElement("link")
+          fileref.setAttribute("rel", "stylesheet")
+          fileref.setAttribute("type", "text/css")
+          fileref.setAttribute("href", filename)
+          if (typeof fileref !== undefined){
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+          }
+        }
+        loadcss('./css/osx.css');
+      }
+        $(document).ready(function(){
+          $('a.download').attr('href',(navigator.platform.toLowerCase() === 'win32' ? 'http://www.fenixwebserver.com/download/windows': (navigator.platform.toLowerCase().indexOf('mac') >= 0 ? 'http://www.fenixwebserver.com/download/osx' : 'http://github.com/coreybutler/fenix/releases')));
+            try {
+              $(':input:visible:first').focus();
+              $('#archive-list li:even').addClass("odd");
+              $('.field-group, .field-group input, .field-group select').bind('click',function(event){
+              if (event.type == 'click') {
+                if ($(this).hasClass('field-group')){
+                    var fg = $(this);
+                    if($(this).children('.datefield').length == 1){
+                        // Do not select 1st input so date picker will work.
+                    } else {
+                        $(this).find('input, select').slice(0,1).focus();
+                      }
+                } else {
+                    var fg = $(this).parents('.field-group');
+                    $(this).focus();
+                }
+                      fg.not('.focused-field').addClass('focused-field').children('.field-help').slideDown('fast');
+                      $('.focused-field').not(fg).removeClass('focused-field').children('.field-help').slideUp('fast');
+              }
+                event.stopPropagation();
+                });
+                $('label').bind('click',function(event){
+              if (event.type == 'click') {
+                        var fg = $(this).next();
+
+                  if(fg.children('.datefield').length == 1){
+                      // Do not select 1st input so date picker will work.
+                  } else {
+                      fg.find('input, select').slice(0,1).focus();
+                    }
+                      fg.not('.focused-field').addClass('focused-field').children('.field-help').slideDown('fast');
+                      $('.focused-field').not(fg).removeClass('focused-field').children('.field-help').slideUp('fast');
+              }
+                event.stopPropagation();
+                });
+                // Allow select inputs to be width:auto up to 500px (because max-width doesn't work in IE7)
+                $("select").each(function(){
+                    $(this).css("width", "auto");
+                    if($(this).width() > 500){
+                        $(this).css("width", "500px");
+                    }
+                });
+
+                } catch(e){ console.log(e); }
+            });
+        </script>
+
+        <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.mailcheck.min.js" rel="nofollow"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                try {
+                var domains =['hp.com','hotmail.co.uk','yahoo.co.uk','yahoo.com.tw','yahoo.com.au','yahoo.com.mx','gmail.com','hotmail.com','yahoo.com','aol.com','comcast.net','msn.com','seznam.cz','sbcglobal.net','live.com','bellsouth.net','hotmail.fr','verizon.net','mail.ru','btinternet.com','cox.net','yahoo.com.br','bigpond.com','att.net','yahoo.fr','mac.com','ymail.com','googlemail.com','earthlink.net','xtra.co.nz','me.com','yahoo.gr','walla.com','yahoo.es','charter.net','shaw.ca','live.nl','yahoo.ca','orange.fr','optonline.net','gmx.de','wanadoo.fr','optusnet.com.au','rogers.com','web.de','ntlworld.com','juno.com','yahoo.com.sg','rocketmail.com','yandex.ru','yahoo.co.in','centrum.cz','live.co.uk','sympatico.ca','libero.it','walla.co.il','bigpond.net.au','yahoo.com.hk','ig.com.br','live.com.au','free.fr','sky.com','uol.com.br','abv.bg','live.fr','terra.com.br','hotmail.it','tiscali.co.uk','rediffmail.com','aim.com','blueyonder.co.uk','telus.net','bol.com.br','hotmail.es','email.cz','windowslive.com','talktalk.net','home.nl','t-online.de','yahoo.de','telenet.be','163.com','embarqmail.com','windstream.net','roadrunner.com','bluewin.ch','skynet.be','laposte.net','yahoo.it','qq.com','live.dk','planet.nl','hetnet.nl','gmx.net','mindspring.com','rambler.ru','iinet.net.au','eircom.net','yahoo.com.ar','wp.pl','mail.com','emmis.com','hotmail.de','lireo.com','gmx.at','ukr.net','zol.co.zw'];
+                var tdomains = [];
+                $('#MERGE0').on('blur', function() {
+                  $(this).mailcheck({
+                    domains: domains,
+                    topLevelDomains: tdomains,
+                    suggested: function(element, suggestion) {
+                        var msg = 'Hmm, did you mean '+suggestion.full+'?';
+                        if ( $('#MERGE0_mailcheck').length > 0 ){
+                            $('#MERGE0_mailcheck').html(msg);
+                        } else {
+                            element.after('<div id="MERGE0_mailcheck" class="errorText">'+msg+'</div>');
+                        }
+                    },
+                    empty: function(element) {
+                        if ( $('#MERGE0_mailcheck').length > 0 ){
+                            $('#MERGE0_mailcheck').remove();
+                        }
+                      return;
+                    }
+                  });
+                });
+                } catch(e){ console.log(e); }
+                $(this).scrollTop(0);
+            });
+        </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49695003-1', 'fenixwebserver.com');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en" class="no-js" itemscope itemtype="http://schema.org/Product">
+  <head>
+    <meta charset="utf-8"/>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"/>
+    <META NAME="COPYRIGHT" CONTENT="&copy; 2014 Corey Butler"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content="web,server,static,static web server,simple,visual,gui,HTML,CSS,JavaScript,JS,JSON,XML,node,node-webkit"/>
+    <meta name="author" content="Corey Butler"/>
+    <meta itemprop="name" content="Fenix Web Server"/>
+    <meta itemprop="description" content="Fenix is a beautiful desktop web server designed for developers and designers."/>
+    <meta itemprop="image" content="http://fenixwebserver.com/img/fenix.png"/>
+    <meta property="og:title" content="Fenix Web Server" />
+    <meta property="og:url" content="http://fenixwebserver.com" />
+    <meta property="og:determiner" content="the" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://fenixwebserver.com/img/fenix.png" />
+    <meta property="og:description" content="Fenix is a beautiful desktop web server designed for developers and designers." />
+    <meta name="robots" content="index,follow" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="public">
+
+    <title>Fenix Web Server | Static Web Servers for the Desktop</title>
+    <!-- Modernizr -->
+    <script src="js/modernizr.js"></script>
+    <!-- Google Fonts: Montserrat & Open Sans -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300|Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap / FontAwesome / Stylesheet / Responsive -->
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="css/prettyPhoto.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/phone-position.css">
+    <link rel="stylesheet" href="css/phone-position-responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/preload.css">
+    <link rel="icon" href="./img/favicon.ico">
+    <!--[if IE 8]>
+  <link rel="stylesheet" type="text/css" href="css/ie8.css">
+<![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!--
+Pre-loader
+**********************************
+-->
+<div id="preload">
+<div class="container logo">
+    <img src="img/236.gif" class="prl animated fadeInDown delayp4">
+    <p class="text-logo animated bounceIn delayp2"><b>fenix</b></p> <!-- Change your text logo here -->
+</div>
+</div>
+
+<div style="position:absolute;top:0;right:0;"><a href="http://github.com/coreybutler/fenix" target="_blank"><img src="img/fork-banner.png"/></a></div>
+
+<!--
+Website Header / Start
+**********************************
+-->
+<header>
+  <div class="container top_interface">
+      <div class="logo col-md-2 col-sm-8 col-xs-8">
+        <div class="text-logo"><b>fenix 2.0</b><!--<span style="color:#ddd">RC1</span>--></div> <!-- Change your text logo here -->
+      </div>
+      <div class="col-md-10 col-sm-4 col-xs-4">
+      <i class="fa phone-menu hidden-md hidden-lg">&#xf0c9;</i><!-- Tablet and Phone Navigation Button -->
+        <nav class="main_navigation">
+          <ul>
+              <i class="fa">&#xf190;</i>
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#servers">Servers</a></li>
+              <li><a href="#webhooks">Webhooks</a></li>
+              <li><a href="#console">Console</a></li>
+              <li><a href="#register">Register</a></li>
+              <li><a href="https://medium.com/tech-recipes/f488940f3e38" target="_blank" id="medium">Articles</a></li>
+              <li style="margin-left: 18px;">
+                <a href="https://twitter.com/share" style="margin-right:-25px;" class="twitter-share-button" data-url="http://fenixwebserver.com" data-text="Check out Fenix, a free desktop web server + GUI for developers. Based on #nodejs and other awesome tech." data-via="goldglovecb" data-hashtags="web,workflow">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              </li>
+              <li>
+                <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120" data-href="http://fenixwebserver.com"></div>
+                <script type="text/javascript">
+                  (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/platform.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                  })();
+                </script>
+              </li>
+          </ul>
+        </nav><!-- /nav -->
+      </div>
+  </div><!-- /top_interface -->
+
+  <div class="container header_tag">
+    <h1>Finally, a simple static desktop web server.</h1>
+    <h2>Because simple stuff shouldn't need Apache, IIS, or NGINX.</h2>
+    <h3 style="color:rgba(255,255,255,.3) !important; margin:0;">Available for Windows and Mac.</h3>
+
+    <br/>
+    <a href="http://www.fenixwebserver.com/download" class="w_btn download">download now</a>
+    <a href="http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-" target="_blank" class="w_btn">See it in Action</a>
+  </div><!-- /header_tag -->
+
+  <div class="container phone_preview">
+    <div class="col-md-3 hidden-xs hidden-sm col-sm-4 regular_text_left">
+      <h3>Easy to Use</h3>
+      <p>Click to fire up/kill static web servers. Auto-detects available ports.</p>
+      <h3>More Localhost <i class="fa">&#xf004;</i></h3>
+      <p>Includes a request bin, <a href="https://github.com/coreybutler/fenix/wiki/Growl#clients" target="_blank">Growl</a> support, Markdown rendering, and a slick&nbsp;<a href="#console">command line tool</a>.</p>
+    </div>
+    <div class="col-md-6 col-sm-8 banner_phone">
+    </div>  <!-- /banner_phone | Background of Phone -->
+    <div class="col-md-3 hidden-xs regular_text_right">
+      <h3>Beautiful Interface</h3>
+      <p>Visually manage local sites side by side, with thumbnails, logs, and more.</p>
+      <h3>Share Sites Online</h3>
+      <p>Develop locally, share online through localtunnel &mdash; with a simple mouse click.</p>
+    </div>
+  </div>
+
+</header><!-- /header -->
+
+<!--
+Section App Overview
+**********************************
+-->
+<section class="app_overview" id="overview">
+  <div class="title">
+<!--    <h1>app overview</h1>-->
+    <h2>Develop locally. Demo publicly. Done <b>effortlessly</b>.</h2>
+    <p>Fenix is for developers and designers working with static sites. Skip the infrastructure headaches. It's beautifully simple.</p>
+  </div><!-- Title -->
+
+  <div class="container list-items">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa">&#xf085;</i>
+        <h2>Serve<small>ad-hoc static web servers</small> </h2>
+        <p>Work on multiple sites simultaneously. Serve any number of HTTP projects side by side with Fenix.</p>
+    </div><!-- Point -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa">&#xf025;</i>
+        <h2>Listen<small>Examine webhook payloads</small> </h2>
+        <p>Fenix serves <u>and</u> receives. View JSON, XML, and other webhook payloads with the request browser.</p>
+    </div><!-- Point -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa" style="padding:0 6px 0 6px;border: 2px solid rgba(255,255,255,.93) !important;border-radius:4px;">&#xf120;</i>
+        <h2>Command<small>Manage Fenix from the command line</small> </h2>
+        <p>Create, stop, start, and share Fenix servers from the command line with the free Node.js console app.</p>
+    </div><!-- Point -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa">&#xf121;</i>
+        <h2>Mockup<small>Use data stubs in interactive sites</small> </h2>
+        <p>Create interactive web interfaces with <span style="font-family: Monaco, Consolas, courier, Monospace;">.json</span> or <span style="font-family: Monaco, Consolas, courier, Monospace;">.xml</span> files. No more Apache/IIS/NGINX needed for <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">CORS</a>!</p>
+    </div><!-- Point -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa">&#xf0c0;</i>
+        <h2>Collaborate<small>Demo local work-in-progress online</small> </h2>
+        <p>Turn your desktop into a public web server by sharing a link. Let collaborators/reviewers "touch and feel" the site.</p>
+    </div><!-- Point -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <i class="fa">&#xf023;</i>
+        <h2>Protect<small>Controlled access, secured with SSH</small> </h2>
+        <p>Control access to your work by turning on/off sharing at any time. Public sharing is tunneled through SSH (i.e. HTTP<b>S</b>).</p>
+    </div><!-- Point -->
+  </div><!-- /list-items -->
+</section><!-- /section app_overview -->
+
+<!--
+Section Work
+**********************************
+Styling in phone-position.css & phone-position-responsive.css
+-->
+<section class="work" id="servers">
+  <div class="title">
+    <h1>How it Works</h1>
+    <h2><b>Simple works.</b> We made simple web servers. <a href="http://www.youtube.com/watch?v=liYneTTtYhM&list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-&feature=share&index=1" target="_blank">See for Yourself</a>.</h2>
+  </div><!-- /Title -->
+
+<div class="container phone_previews">
+  <div class="center_phone">
+  <div class="phoneOverlay">
+    <div><!-- Phone description will be cloned here for phone view. See js/core.js --></div>
+    <p class="clicktoClose">
+    <i class="fa">&#xf00d;</i>
+    click to close</p>
+  </div>
+        <div id="phone_prev" class="owl-carousel">
+      <div class="end_slider">Empty <!-- Leave this div empty --></div>
+
+      <!-- Banner 1 -->
+      <div><img src="img/win32/preview-create.png" alt="">
+      <h2>Create Server</h2>
+        <div class="bullet left top mid">
+        <div><span>
+          <h4>Descriptive Titles</h4>
+          <p>Track sites by meaningful names. </p>
+        </span></div></div><!-- /Left Bullet -->
+          <div></div><!-- / Left Bullet -->
+          <div></div><!-- /Left Bullet -->
+
+          <div></div><!-- /Left Bullet -->
+          <div class="bullet right centre close" style="margin-top:-62px;">
+          <div><span>
+            <h4>Auto-detect Ports</h4>
+            <p>Let Fenix find an available port for each server or specify your own.</p>
+          </span></div></div><!-- / Left Bullet -->
+          <div></div><!-- /Left Bullet -->
+      </div>
+
+      <!-- Banner 2 -->
+      <div><img src="img/win32/preview-main.png" alt="">
+      <h2>Multiple Servers</h2>
+      <div class="bullet left top close" style="margin-top:-40px;">
+        <div><span>
+          <h4>Thumbnail Previews</h4>
+          <p>Capture a preview screenshot.<br/>Updated automatically.</p>
+        </span></div></div><!-- /Left Bullet -->
+        <div></div><!-- / Left Bullet -->
+        <div></div><!-- /Left Bullet -->
+
+        <div class="bullet right top close" style="margin-top:-3px;">
+        <div><span>
+          <h4>Color Coded</h4>
+          <p>Server status at a glance. </p>
+        </span></div></div><!-- /Left Bullet -->
+        <div></div><!-- / Left Bullet -->
+        <div></div><!-- /Left Bullet -->
+      </div>
+
+      <!-- Banner 3 -->
+      <div><img src="img/win32/preview-share.png" alt="">
+      <h2>Easy Sharing</h2>
+        <div></div><!-- /Left Bullet -->
+          <div></div><!-- / Left Bullet -->
+          <div></div><!-- /Left Bullet -->
+
+          <div class="bullet right top close" style="margin-top:-28px;">
+          <div><span>
+            <h4>Click to share</h4>
+            <p>Receive a public URL to share with collaborators.</p>
+          </span></div></div><!-- /Left Bullet -->
+          <div></div><!-- / Left Bullet -->
+          <div></div><!-- /Left Bullet -->
+      </div>
+
+      <!-- Banner 4 -->
+      <div><img src="img/win32/preview-log.png" alt="">
+      <h2>Built-in Logging</h2>
+        <div class="">
+          <div><span>
+          </span></div></div><!-- /Left Bullet -->
+          <div class="bullet left centre close" style="margin-top:15px;">
+          <div><span>
+            <h4>Scan Logs</h4>
+            <p>Easily scan logs with subtle and effective highlighting. </p>
+          </span></div></div><!-- / Left Bullet -->
+          <div></div><!-- /Left Bullet -->
+
+          <div></div><!-- /Left Bullet -->
+          <div></div><!-- / Left Bullet -->
+          <div class="bullet right btm close">
+          <div><span>
+            <h4>Highlight Problems</h4>
+            <p>Errors and warnings are color coded. </p>
+          </span></div></div><!-- /Left Bullet -->
+      </div>
+
+      <div class="end_slider"><!-- Leave this div empty --></div>
+    </div><!-- owl-carousel -->
+  </div><!-- /center_phone -->
+</div><!-- /phone_previews -->
+
+<div class="promotion_bar">
+  <div class="container">
+      <h4>Did we mention Fenix is open source?</h4><a href="http://www.fenixwebserver.com/download" class="b_btn download">Download Now</a>
+  </div>
+</div><!-- /promotion_bar -->
+
+</section>
+
+<!--
+Features
+**********************************
+-->
+<section class="features">
+<div class="container">
+<div class="col-sm-6 col-sm-push-6 features-text">
+  <div class="title">
+    <h1>Main Features</h1>
+    <h2>Simple <b>Ad-hoc Web Servers.</b></h2>
+    <p>Manage evereything through a simple GUI.</p>
+  </div><!-- Title -->
+
+  <ul class="feature-list">
+      <li><i class="fa">&#xf18e;</i>Run Multiple Web Servers</li>
+      <li><i class="fa">&#xf18e;</i>Point &amp; Click Controls</li>
+      <li><i class="fa">&#xf18e;</i>Autodetect Open Ports</li>
+      <li><i class="fa">&#xf18e;</i>Color coded status</li>
+      <li><i class="fa">&#xf18e;</i>Autoupdated Site Thumbnails</li>
+      <li><i class="fa">&#xf18e;</i>Markdown Rendering</li>
+      <li><i class="fa">&#xf18e;</i>Growl Support</li>
+      <li><i class="fa">&#xf18e;</i>SSH Firewall Traversal</li>
+      <li><i class="fa">&#xf18e;</i>Lightweight</li>
+      <li><i class="fa">&#xf18e;</i>Save Sites Automatically</li>
+      <li><i class="fa">&#xf18e;</i>Installer &amp; Uninstaller Included</li>
+      <li><i class="fa">&#xf18e;</i>GPL License</li>
+      <li><i class="fa">&#xf18e;</i>Request Bin Included (See Below)</li>
+    <div class="clearfix"></div>
+  </ul>
+
+<a href="http://www.fenixwebserver.com/download" class="b_btn download">get the app now</a><p class="underline-p">don’t forget to register!</p>
+
+  </div><!-- col-sm-push6-->
+
+  <div class="col-sm-6 col-sm-pull-6 feature-phone">
+  </div><!-- /feature-phone --><!-- col-sm-pull-6 -->
+
+</div>
+</section>
+
+    <!--
+Section Work
+**********************************
+Styling in phone-position.css & phone-position-responsive.css
+-->
+<section class="work" id="webhooks">
+  <div class="title">
+    <h1>Request Browsing</h1>
+    <h2><b>Two-way Communication.</b> Examine <b>real</b> webhook payloads. <a href="http://www.youtube.com/watch?v=O1n7j9OKxko&list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-&feature=share&index=2" target="_blank">See How</a>.</h2>
+  </div><!-- /Title -->
+
+<div class="container phone_previews">
+  <div class="center_bin">
+  <div class="phoneOverlay">
+    <div><!-- Phone description will be cloned here for phone view. See js/core.js --></div>
+    <p class="clicktoClose">
+    <i class="fa">&#xf00d;</i>
+    click to close</p>
+  </div>
+    <div id="bin_prev" class="owl-carousel">
+      <div class="end_slider">Empty <!-- Leave this div empty --></div>
+
+      <!-- Banner 1 -->
+      <div>
+<!--      <h2>Receive Webhooks</h2>-->
+       <div class="bullet left top mid" style="margin-top:-55px;left: -75px;">
+         <div>
+           <span>
+             <h4>Request List</h4>
+              <p>View requests as they arrive.</p>
+           </span>
+         </div>
+       </div>
+       <div></div>
+       <div class="bullet left bottom far" style="margin-top:215px;left:-10px;">
+         <div>
+           <span>
+             <h4>Formatted Output</h4>
+              <p>JSON &amp; XML request bodies are color coded with line numbers.</p>
+           </span>
+         </div>
+       </div>
+
+       <div class="bullet right top far" style="margin-top:2px;right:-5px;">
+         <div>
+           <span>
+             <h4>Toggle Headers</h4>
+             <p>Inspect HTTP headers as they're proxied to the request browser.</p>
+           </span>
+         </div>
+       </div>
+       <div></div>
+       <div></div>
+      </div>
+
+      <div class="end_slider"><!-- Leave this div empty --></div>
+    </div><!-- owl-carousel -->
+  </div><!-- /center_phone -->
+</div><!-- /phone_previews -->
+
+</section>
+
+<!--
+Features
+**********************************
+-->
+<section class="features">
+<div class="container">
+<div class="col-sm-6 col-sm-push-6 features-text">
+  <div class="title">
+    <h1>Request Browser</h1>
+    <h2>Simple <b>Webhook Handler.</b></h2>
+    <p>Examine the actual data your apps use.</p>
+  </div><!-- Title -->
+
+  <ul class="feature-list">
+      <li><i class="fa">&#xf18e;</i>Receive any HTTP Request</li>
+      <li><i class="fa">&#xf18e;</i>Available offline</li>
+      <li><i class="fa">&#xf18e;</i>Toggle request headers</li>
+      <li><i class="fa">&#xf18e;</i>Pretty-print JSON & XML</li>
+      <li><i class="fa">&#xf18e;</i>Color coded &amp; Time stamped</li>
+      <li><i class="fa">&#xf18e;</i><a href="https://github.com/coreybutler/fenix/wiki/Growl#clients" target="_blank">Growl</a> support</li>
+    <div class="clearfix"></div>
+  </ul>
+
+<a href="http://www.fenixwebserver.com/download" class="b_btn download">get fenix now</a>
+
+  </div><!-- col-sm-push6-->
+
+  <div class="col-sm-6 col-sm-pull-6 feature-bin">
+  </div><!-- /feature-phone --><!-- col-sm-pull-6 -->
+
+</div>
+</section>
+
+<section class="work" id="console">
+  <div class="title">
+    <h1>Command and Conquer</h1>
+    <h2><b>Control</b> servers from the command line too! <a href="http://www.youtube.com/watch?v=DOGy5EnI8Kg&feature=share&list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-&index=3" target="_blank">Watch Now</a>.</h2>
+  </div><!-- /Title -->
+
+  <div class="container">
+    <div class="terminal">
+      <pre class="cmd">npm install -g fenix-cli</pre>
+      <pre class="cmd">fenix list</pre>
+      <pre><span style="color:#fff;margin-top:-20px !important;">SERVERS:</span>
+
+<span style="color: #00FF00;">Fenix Website [on]</span>
+  - C:\Users\Me\Documents\sites\Fenix
+  - <span style="color:#006B00;">http://127.0.0.1:80</span>
+<span style="color:#fff;">Demo Server <span style="color:#808080">[off]</span></span>
+  - C:\Users\Me\Documents\sites\demo
+  - <span style="color:#800000;">http://127.0.0.1:8000</span>
+      </pre>
+      <pre class="cmd"><span style="border-bottom:1px solid #808080;">&nbsp;</span></pre>
+    </div>
+  </div>
+
+</section>
+
+<!--
+Features
+**********************************
+-->
+<section class="features">
+<div class="container">
+<div class="col-sm-6 col-sm-push-6 features-text">
+  <div class="title">
+    <h1>Console App</h1>
+    <h2>Simple <b>Commands.</b></h2>
+    <p>Always buried in the console? No problem.</p>
+  </div><!-- Title -->
+
+  <ul class="feature-list">
+      <li><i class="fa">&#xf18e;</i>"In-Directory" Commands</li>
+      <li><i class="fa">&#xf18e;</i>Start/Stop</li>
+      <li><i class="fa">&#xf18e;</i>Share/Unshare</li>
+      <li><i class="fa">&#xf18e;</i>List Servers</li>
+      <li><i class="fa">&#xf18e;</i>Node.js-based</li>
+      <li><i class="fa">&#xf18e;</i>Growl Support</li>
+    <div class="clearfix"></div>
+  </ul>
+
+<span class="b_btn" style="text-transform:lowercase;">npm install -g fenix-cli</span><p class="underline-p">Requires <a href="http://nodejs.org" target="_blank">node.js</a></p>
+
+  </div><!-- col-sm-push6-->
+
+  <div class="col-sm-6 col-sm-pull-6 feature-term">
+  </div><!-- /feature-phone --><!-- col-sm-pull-6 -->
+
+</div>
+</section>
+
+<!--
+Section Newsletter
+**********************************
+-->
+<section class="newsletter" id="register">
+  <div class="container">
+    <div class="col-md-5">
+      <div class="title">
+        <h1>Receive Notifications</h1>
+        <h2>Register for <b>free</b>.</h2>
+      </div><!-- /Title -->
+    </div><!-- col5 -->
+    <div class="col-md-7 form-container">
+      <form action="http://fenixwebserver.us8.list-manage1.com/subscribe/post" method="POST" rel="nofollow">
+        <input type="hidden" name="u" value="67535cf060b6e55fcd6323f0a">
+        <input type="hidden" name="id" value="5f0079e992">
+        <input type="text" name="MERGE1" id="MERGE1" placeholder="Your Name"><!-- Name Field -->
+        <input type="email" name="MERGE0" id="MERGE0" value="" placeholder="Email Address"><!-- Email Field -->
+        <button type="submit" class="b_btn">submit</button>
+      </form>
+    </div>
+  </div>
+</section><!-- /newsletter -->
+
+<!--
+Footer
+**********************************
+-->
+<footer>
+  <div class="container logo">
+     <div class="text-logo">fenix <b>2.0</b></div> <!-- Change your text logo here -->
+    <a href="https://www.gittip.com/coreybutler/" class="w_btn" target="_blank"><i class="fa">&#xf004;</i>&nbsp;Support via Gittip</a>
+
+      <div class="social_media">
+        <a href="http://twitter.com/goldglovecb" target="_blank"><i class="fa">&#xf099;</i></a>
+        <a href="https://plus.google.com/u/coreybutlerofficial" target="_blank"><i class="fa">&#xf0d5;</i></a>
+        <a href="https://github.com/coreybutler/fenix" target="_blank"><i class="fa">&#xf113;</i></a>
+        <br/><br/>
+        <a href="javascript:document.getElementsByTagName('body')[0].appendChild(document.createElement('script')).setAttribute('src','//geekli.st/javascript/bookmarklet/bookmarklet.js')"><img src="//geekli.st/images/assets/GeekIt_wFace.png"></a>
       </div>
       <div class="copy">
         <p>Copyright &copy; 2014 <a href="http://coreybutler.com" target="_blank">Corey Butler</a>. All rights reserved.</p>
