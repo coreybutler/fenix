@@ -104,3 +104,67 @@ $(window).on('keyup',function(e){
     global.windows.head.showDevTools();
   }
 });
+
+// disable default drag/drop behavior
+window.ondragover = function(e) { e.preventDefault(); return false; };
+window.ondrop = function(e) { e.preventDefault(); return false; };
+
+var dragTargetArea = $('#servers');
+dragTargetArea.on('dragenter', function() {
+  $(this).addClass('dragHover');
+  return false;
+});
+
+dragTargetArea.on('dragleave', function() {
+  $(this).removeClass('dragHover');
+  return false;
+});
+
+dragTargetArea.on('drop', function(e) {
+  e.preventDefault();
+  $(this).removeClass('dragHover');
+
+  var files = e.dataTransfer.files;
+  if (files.length > 0) {
+    createServersFromDropped(files);
+  }
+
+  return false;
+});
+
+/** Takes a FileList and creates a server for each folder in the list **/
+function createServersFromDropped(toCreate, index) {
+  if (toCreate.length < 1) {
+    return;
+  }
+
+  var fileIndex = index || 0;
+  if (fileIndex >= toCreate.length) {
+    return;
+  }
+
+  var file = toCreate.item(fileIndex);
+  if (file == null) {
+    return;
+  }
+
+  var droppedPath = file.path;
+  var serverName = file.name;
+
+  fs.lstat(droppedPath, function(err, stats) {
+    if (err || !stats.isDirectory()) {
+      // if the path provided wasn't a directory, skip it
+      createServerFromDrops(toCreate, ++fileIndex);
+    } else {
+      ROUTER.getAvailablePort(function(availablePort) {
+        UI.server.create({
+          name: serverName,
+          path: droppedPath,
+          port: availablePort
+        }, function() {
+          createServerFromDrops(toCreate, ++fileIndex);
+        });
+      });
+    }
+  });
+}
