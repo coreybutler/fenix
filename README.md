@@ -16,7 +16,7 @@ and how to use it on other platforms.  The [release history](https://github.com/
 
 ## Known Issues
 
-- The [OpenUI5 SDK](http://openui5.hana.ondemand.com) is known to cause an issue with Fenix. See issue #15 for details.
+- The [OpenUI5 SDK](http://openui5.hana.ondemand.com) is known to cause an issue with Fenix. See [issue #15](https://github.com/coreybutler/fenix/issues/15) for details.
 
 ## Like Fenix?
 
