@@ -1,4 +1,5 @@
-var gui = require('nw.gui');
+var gui = require('nw.gui'),
+    path = require('path');
 
 // Handle menu clicks
 $('nav > li > ul > li').click(function(e){
@@ -48,6 +49,49 @@ var openAbout = function(){
 
 global.windows.main.on('close',function(){
   ROUTER.save();
+});
+
+// When the main window is minimized, place the app in the system tray.
+var tray;
+global.windows.main.on('minimize', function() {
+  this.hide();
+
+  var tooltip = global.pkg.window.title;
+
+  tray = new gui.Tray({
+    icon: path.resolve(global.pkg.window.icon),
+    title: tooltip
+  });
+  tray.tooltip = tooltip; // On Windows the tooltip needs to be set after the Tray is created.
+
+  tray.on('click', function() {
+    global.windows.main.show();
+    this.remove();
+    tray = null;
+  });
+
+  // Create the tray menu with some basic functionality.
+  var menu = new gui.Menu();
+  menu.append(new gui.MenuItem({
+    label: 'View Servers',
+    click: function() { tray.emit('click'); }
+  }));
+  menu.append(new gui.MenuItem({ type: 'separator' }));
+  menu.append(new gui.MenuItem({
+    label: 'Start All',
+    click: function() { ROUTER.startAllWebServers(); }
+  }));
+  menu.append(new gui.MenuItem({
+    label: 'Stop All',
+    click: function() { ROUTER.stopAllWebServers(); }
+  }));
+  menu.append(new gui.MenuItem({ type: 'separator' }));
+  menu.append(new gui.MenuItem({
+    label: 'Quit',
+    click: function() { global.windows.main.emit('close'); }
+  }));
+
+  tray.menu = menu;
 });
 
 if (process.platform === 'darwin'){
