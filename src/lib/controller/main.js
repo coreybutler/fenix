@@ -152,17 +152,21 @@ function createServersFromDropped(toCreate, index) {
   var serverName = file.name;
 
   fs.lstat(droppedPath, function(err, stats) {
-    if (err || !stats.isDirectory()) {
+    if (err || !(stats.isDirectory() || stats.isFile())) {
       // if the path provided wasn't a directory, skip it
-      createServerFromDrops(toCreate, ++fileIndex);
+      createServersFromDropped(toCreate, ++fileIndex);
     } else {
+      if (stats.isFile()) {
+        droppedPath = path.dirname(droppedPath);
+        serverName = path.basename(droppedPath);
+      }
       ROUTER.getAvailablePort(function(availablePort) {
         UI.server.create({
           name: serverName,
           path: droppedPath,
           port: availablePort
         }, function() {
-          createServerFromDrops(toCreate, ++fileIndex);
+          createServersFromDropped(toCreate, ++fileIndex);
         });
       });
     }
