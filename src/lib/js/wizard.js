@@ -24,6 +24,9 @@ $('#filebrowser').on('click',function(e){
 document.querySelector('#choosefile').addEventListener('change',function(evt){
   $('#path').val(this.value);
   UI.wizard.prepopulate();
+  if ($('#name').val().trim().length < 1) {
+    $('#name').val(path.basename(this.value));
+  }
   UI.wizard.valid() && UI.wizard.button.enable();
 },false);
 
