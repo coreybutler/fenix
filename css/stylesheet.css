@@ -649,3 +649,8 @@ section {
   margin-left: -36px;
   z-index: 5px;
 }
+
+#downloads {
+  font-size: small;
+  color: #333;
+}

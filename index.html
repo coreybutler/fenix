@@ -105,7 +105,7 @@ Website Header / Start
   <div class="container header_tag">
     <h1>Finally, a simple static desktop web server.</h1>
     <h2>Because simple stuff shouldn't need Apache, IIS, or NGINX.</h2>
-    <h3 style="color:rgba(255,255,255,.3) !important; margin:0;">Available for Windows and Mac.</h3>
+    <h3 style="color:rgba(255,255,255,.3) !important; margin:0;">Available for Windows and Mac.<br/><span id="downloads"><span id="downloadcount"></span> Downloads To Date</span></h3>
 
     <br/>
     <a href="http://www.fenixwebserver.com/download" class="w_btn download">download now</a>
@@ -603,6 +603,28 @@ Footer
                 });
 
                 } catch(e){ console.log(e); }
+
+                $.ajax({
+                  url: 'https://api.github.com/repos/coreybutler/fenix/releases',
+                  method: 'get',
+                  statusCode: {
+                    200: function(data){
+                      data.forEach(function(el){
+                        if (el.tag_name === '1.0.0'){
+                          return;
+                        }
+
+                        var tot = 0;
+
+                        el.assets.forEach(function(a){
+                          tot += a.download_count;
+                        });
+                        $('#downloadcount')[0].innerHTML = tot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                      });
+                    }
+                  }
+                });
+
             });
         </script>
 
