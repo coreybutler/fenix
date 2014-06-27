@@ -81,6 +81,9 @@ BODY.hasservers > div:nth-child(2):after {
   padding: 0 6px 0 6px;
   margin-top: 0px;
 }
+#servers.dragHover {
+  background-color: #5D6B6B;
+}
 #servers > div {
   background: #222;
   border-radius: 2px;

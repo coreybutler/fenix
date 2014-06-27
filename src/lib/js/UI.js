@@ -6,6 +6,7 @@ var UI = {
     create: function(cfg,cb){
       // Add the server to the router
       ROUTER.createServer(cfg);
+      cb && cb();
     },
     display: function(server,cb){
       if (!document.getElementById(server.id)){
