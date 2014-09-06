@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2013 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fenix" horiz-adv-x="1000" >
+<font-face font-family="fenix" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="menu" unicode="&#xe80b;" d="m650 400q22 0 36-15t14-35t-15-35t-35-15l-600 0q-20 0-35 15t-15 35t14 35t36 15l600 0z m-600 100q-20 0-35 15t-15 35t14 35t36 15l600 0q22 0 36-15t14-35t-15-35t-35-15l-600 0z m600-300q22 0 36-15t14-35t-15-35t-35-15l-600 0q-20 0-35 15t-15 35t14 35t36 15l600 0z" horiz-adv-x="700" />
+<glyph glyph-name="stop" unicode="&#xe802;" d="m526 650q74 0 74-64l0-470q0-66-74-66l-450 0q-76 0-76 66l0 470q0 36 18 50t58 14l450 0z" horiz-adv-x="600" />
+<glyph glyph-name="lock" unicode="&#xe805;" d="m640 476q20 0 40-19t20-41l0-390q0-48-48-66l-60-18q-42-16-96-16l-290 0q-56 0-98 16l-60 18q-48 18-48 66l0 390q0 22 15 41t35 19l100 0l0 70q0 110 51 170t149 60t149-60t51-170l0-70l90 0z m-390 90l0-90l200 0l0 90q0 52-27 81t-73 29t-73-29t-27-81z" horiz-adv-x="700" />
+<glyph glyph-name="lock-open" unicode="&#xe806;" d="m640 450q20 0 40-20t20-40l0-390q0-20-14-39t-34-25l-60-20q-52-16-96-16l-290 0q-46 0-98 16l-60 20q-20 6-34 25t-14 39l0 390q0 22 15 41t35 19l400 0l0 140q0 110-100 110t-100-110l0-40l-100 0l0 20q0 110 51 170t149 60q200 0 200-230l0-120l90 0z" horiz-adv-x="700" />
+<glyph glyph-name="pencil" unicode="&#xe803;" d="m718 680q32-32 47-64t15-48l0-16l-252-252l-290-288l-238-52l50 240l290 288l252 252q54 12 126-60z m-494-640l24 24q-2 44-52 94q-22 22-45 35t-35 13l-14 2l-22-24l-18-80q28-16 46-34q24-24 36-48z" horiz-adv-x="780" />
+<glyph glyph-name="attention" unicode="&#xe807;" d="m957-24q10-16 0-34q-10-16-30-16l-892 0q-18 0-28 16q-13 18-2 34l446 782q8 18 30 18t30-18z m-420 50l0 100l-110 0l0-100l110 0z m0 174l0 300l-110 0l0-300l110 0z" horiz-adv-x="962" />
+<glyph glyph-name="trash" unicode="&#xe804;" d="m50 458q122-70 330-70t330 70l-54-486q-2-14-35-36t-100-43t-141-21t-140 21t-100 43t-36 36z m488 300q94-18 158-55t64-71l0-10q0-58-112-99t-268-41t-268 41t-112 99l0 10q0 34 64 71t158 55l42 48q22 26 70 26l92 0q52 0 70-26z m-54-112l84 0q-92 110-104 126q-14 16-32 16l-102 0q-22 0-32-16l-106-126l84 0l64 66l82 0z" horiz-adv-x="760" />
+<glyph glyph-name="minus" unicode="&#xe80a;" d="m550 400q30 0 30-50t-30-50l-520 0q-30 0-30 50t30 50l520 0z" horiz-adv-x="580" />
+<glyph glyph-name="share" unicode="&#xe800;" d="m650 200q62 0 106-43t44-107q0-62-44-106t-106-44t-106 44t-44 106q0 6 1 14t1 12l-260 156q-42-32-92-32q-62 0-106 44t-44 106t44 106t106 44q54 0 92-30l260 156q0 4-1 12t-1 12q0 62 44 106t106 44t106-43t44-107q0-62-44-106t-106-44q-52 0-90 32l-262-156q2-8 2-26q0-16-2-24l262-156q36 30 90 30z" horiz-adv-x="800" />
+<glyph glyph-name="window" unicode="&#xe80d;" d="m900 750q42 0 71-30t29-70l0-600q0-42-29-71t-71-29l-800 0q-40 0-70 29t-30 71l0 600q0 40 30 70t70 30l800 0z m-670-94q-16 0-27-11t-11-25q0-16 11-27t27-11q38 0 38 38q0 16-11 26t-27 10z m-138-36q0-16 11-27t27-11q38 0 38 38q0 16-11 26t-27 10t-27-11t-11-25z m810-570l0 460l-802 0l0-460l802 0z m0 540l0 60l-602 0l0-60l602 0z" horiz-adv-x="1000" />
+<glyph glyph-name="down-open-mini" unicode="&#xe808;" d="m405 470q22 26 48 0q26-22 0-48l-196-192q-22-22-48 0l-196 192q-26 26 0 48q24 24 50 0l170-156z" horiz-adv-x="466" />
+<glyph glyph-name="up-open-mini" unicode="&#xe809;" d="m62 230q-26-22-50 0q-24 24 0 50l196 190q26 26 48 0l196-190q24-26 0-50q-24-22-50 0l-170 158z" horiz-adv-x="464" />
+<glyph glyph-name="play" unicode="&#xe801;" d="m486 376q14-10 14-26q0-14-14-24l-428-266q-24-16-41-6t-17 40l0 514q0 30 17 40t41-6z" horiz-adv-x="500" />
+<glyph glyph-name="folder" unicode="&#xe80c;" d="m954 500q32 0 40-12t6-36l-42-452q-2-24-12-37t-42-13l-806 0q-52 0-56 50l-42 452q-2 24 6 36t40 12l908 0z m-34 110l10-40l-846 0l14 132q4 20 20 34t36 14l164 0q52 0 86-34l30-30q32-36 86-36l340 0q20 0 38-12t22-28z" horiz-adv-x="1001" />
+</font>
+</defs>
+</svg>

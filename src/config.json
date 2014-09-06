@@ -1,0 +1,34 @@
+{
+  "dev": true,
+  "googleanalytics": "UA-49695003-4",
+  "icon": "./assets/icons/fenix.png",
+  "splash": {
+    "width": 600,
+    "height": 400
+  },
+  "main": {
+    "width": 400,
+    "height": 600,
+    "show": false
+  },
+  "windows":{
+    "bin": {
+      "show": false,
+      "position": "center",
+      "width": 990,
+      "height": 700,
+      "title": "Fenix Request Browser",
+      "icon": "./assets/icons/webhooks.png",
+      "close": "hide"
+    },
+    "about": {
+      "show": false,
+      "position": "center",
+      "width": 600,
+      "height": 400,
+      "title": "Fenix Help",
+      "close": "hide",
+      "frame": false
+    }
+  }
+}

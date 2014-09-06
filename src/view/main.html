@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Fenix Web Servers</title>
+    <!-- build:css ../css/core.css -->
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/animate.min.css"/>
+    <link rel="stylesheet" href="../css/hint.min.css"/>
+    <link rel="stylesheet" href="../css/toolbar.css"/>
+    <!-- endbuild -->
+    <link rel="stylesheet" href="../css/fenix-embedded.css"/>
+    <style>
+      BODY.updateavailable > #servers:after {
+        content: 'Update Available';
+        position: absolute;
+        bottom: 2px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        color: #555;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <li>
+        <h1>Web Servers</h1>
+        <ul>
+          <li><a href="javascript:UI.wizard.show();">New</a></li>
+          <li><a href="javascript:ROUTER.startAllWebServers();">Start All</a></li>
+          <li><a href="javascript:ROUTER.stopAllWebServers();">Stop All</a></li>
+        </ul>
+      </li>
+      <li><h1><a href="javascript:openRequestBin();">Request Browser</a></h1></li>
+      <li><h1><a href="javascript:openAbout();">Help</a></h1></li>
+    </nav>
+    <div id="out" style="z-index: 5; position: absolute;top:250px;display: flex;"></div>
+    <div id="servers">
+      <div style="display:none;"></div>
+    </div>
+    <div id="wizard" class="animated">
+      <h1>New Server</h1>
+      <input type="text" placeholder="Descriptive Name" id="name"/>
+      <input type="text" placeholder="Directory" id="path"><div id="filebrowser" class="icon-folder"></div></input>
+      <input type="text" placeholder="80" id="port"/>
+      <button id="createServerBtn" disabled="true">Create</button>
+      <input type="file" id="choosefile" style="display:none;" nwdirectory/>
+      <a href="">&times;</a>
+    </div>
+    <div id="editwizard" class="animated">
+      <h1>Modify Server</h1>
+      <input type="text" placeholder="Descriptive Name" id="ename"/>
+      <input type="text" placeholder="Directory" id="epath"><div id="filebrowser2" class="icon-folder"></div></input>
+      <input type="text" placeholder="80" id="eport"/>
+      <button id="editServerBtn" disabled="true">Update</button>
+      <input type="hidden" value="" id="eserver"/>
+      <input type="file" id="choosefile2" style="display:none;" nwdirectory/>
+      <a href="">&times;</a>
+    </div>
+    <div id="log" class="animated">
+      <h3>Log:<span></span></h3>
+      <div></div>
+      <a href="">&times;</a>
+    </div>
+    <div id="loader">Loading...</div>
+    <div id="mask" class="animated"></div>
+    <div id='status' style='display: none;'></div>
+    <script type="text/javascript">
+      process.on('uncaughtException',function(e){
+        if (e.code ==='EACCES'){
+          console.dir(e);
+          alert('Insufficient permissions.');
+        }
+        if (e.message.indexOf('EADDRINUSE') >= 0){
+          alert('The server could not be started. Another process is already running on the same port.');
+        } else {
+          console.log(e.stack);
+        }
+      });
+    </script>
+    <!-- build:js ../js/core.js -->
+    <script type="text/javascript" src="../api/class.js"></script>
+    <script type="text/javascript" src="../api/utility.js"></script>
+    <script type="text/javascript" src="../js/zepto.js"></script>
+    <!-- endbuild -->
+    <!-- build:js ../js/web.js -->
+    <script type="text/javascript" src="../js/UI.js"></script>
+    <script type="text/javascript" src="../api/syslog.js"></script>
+    <script type="text/javascript" src="../api/server.js"></script>
+    <script type="text/javascript" src="../api/router.js"></script>
+    <script type="text/javascript" src="../js/router.js"></script>
+    <script type="text/javascript" src="../js/wizard.js"></script>
+    <script type="text/javascript" src="../js/editwizard.js"></script>
+    <script type="text/javascript" src="../api/api.js"></script>
+    <script type="text/javascript" src="../controller/main.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+      // LogViewer Controller
+      $('#log > a:last-child').on('click',function(e){
+        e.preventDefault();
+        UI.logview.hide();
+      });
+
+      UI.server.listen();
+    </script>
+  </body>
+</html>
