@@ -12,28 +12,41 @@ I'm currently working on the next version of Fenix & would love your [feedback](
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
-**UPDATES (As of 5/19/16)**
+**UPDATES (As of 6/16/16)**
 
 Fenix 3.0.0 is in full development. [@gbdrummer](https://github.com/gbdrummer) is building the new UI, which is coming along nicely. We've also moved from NW.js to Electron, and have pretty much rewritten everything from scratch. 
 
 We're not announcing a release date yet, but we have some exciting new things coming in 3.0.0:
 
-- [ ] Autoupdate (Evergreen) - No more ridiculously long delays between updates!
-- [ ] Brand New UI
-- [ ] Native CLI app (no need to `npm install fenix-cli` anymore)
-- [x] Automatic port detection
-- [x] Replace Growl w/ Native System Notifications
+- [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates!
+- [ ] Brand new UI.
+- [ ] Native CLI app (no need to `npm install fenix-cli` anymore).
+- [x] Automatic port detection.
+- [x] Replace Growl w/ Native System Notifications.
+- [x] Optional JS/CSS minification.
+- [x] Optional GZip compression.
+- [x] Optionally Render Markdown as HTML (used to always do this, now you have a choice).
+- [x] Optional ETags.
+- [x] Optional CORS Support
+- [x] Optional JSON/XML Pretty-Print.
+- [ ] Custom Response Headers.
+- [x] Multiple server root directories.
+- [ ] Option to output logs to physical file.
+- [ ] Log Filtering
+- [ ] Realtime connection monitoring & statistics
 - [x] SSL Support (Fenix CA)
 
-Here's a preview of the upcoming SSL/TLS support in action:
+There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
+
+To the best of my knowledge, Fenix is the only local desktop server that will automatically support SSL keychain management. Here's a preview of the upcoming SSL/TLS support in action:
 
 ![Fenix CA](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/UjgcuFFGwugcDk0/ssl.png)
 
-Why yes, that _is_ a valid self-signed certificate without any annoying browser warnings/errors. Fenix CA automatically handles trust chains for OSX, Windows, and Firefox. Fenix will even monitor network changes to seamlessly support DHCP-assigned IP addresses for all of you digital nomads working out of coffeeshops, trains, or other areas with spotty connectivity.
+Why yes, that _is_ a valid **self-signed** certificate without any annoying browser warnings/errors. Fenix CA automatically handles trust chains for OSX, Windows, and Firefox. It handles all SSL certificate creation/revocation automatically... so you don't have to do anything. It just works. Fenix will even monitor and automatically handle network changes, seamlessly supporting DHCP-assigned IP addresses or changing network conditions. This one's for you, digital nomads, coffeeshop heroes, train commuters, and spotty connectivity sufferers.
 
-The request browser will be released as it's own separate app, so it won't be in Fenix 3.0.0. I always felt it was a useful tool, and survey results agree... but it also doesn't fit in with the original scope of Fenix. Moving it to it's own project will help it get the attention it needs to be awesome.
+The request browser will be released as it's own separate app, so it won't be in Fenix 3.0.0. I always felt it was a useful tool, and survey results agree... but it also doesn't fit in as well with the original scope of Fenix. Moving it to it's own project will help it get the attention it needs to be truly awesome.
 
-Finally, these new features will all be a part of the free version of Fenix. Additional features are in the pipeline, slated for commercial release. I'll release more details about that after Fenix 3.0.0 is released. In the meantime, use the survey (above) to influence the direction of Fenix!
+Finally, we're going "open core". The aforementioned features will all be a part of the free version of Fenix. Additional features are in the pipeline, slated for commercial release. I'll release more details about that after the open-core Fenix 3.0.0 release is delivered. In the meantime, use the survey (above) to influence the direction of Fenix!
 
 **Main App:**
 
