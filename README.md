@@ -48,6 +48,8 @@ The request browser will be released as it's own separate app, so it won't be in
 
 Finally, we're going "open core". The aforementioned features will all be a part of the free version of Fenix. Additional features are in the pipeline, slated for commercial release. I'll release more details about that after the open-core Fenix 3.0.0 release is delivered. In the meantime, use the survey (above) to influence the direction of Fenix!
 
+# Fenix 2.0.0
+
 **Main App:**
 
 ![Fenix](http://fenixwebserver.com/img/win32/banner_device.png)
