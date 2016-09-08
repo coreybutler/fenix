@@ -41,10 +41,15 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Soft Delete of Servers
 - [x] New File Browser
 - [x] Fenix Certificate Authority
+  - [x] Windows Trustchain Management
+  - [x] OSX Trustchain Management
+  - [x] Firefox Trustchain Management
+  - [x] Automatic NIC Management & Synchronization
+- [x] "Pretty" names for SSH tunneling (i.e. myapp.localtunnel.me)
+- [x] SSH Tunneling Keepalive
 - [x] Light Theme
 - [ ] Dark Theme (90% Done)
 - [ ] Drag 'n' Drop Server Creation
-- [x] Automatic NIC Management
 - [ ] Installer (we're waiting on code-signing certificates)
 
 There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
