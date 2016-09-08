@@ -12,16 +12,17 @@ I'm currently working on the next version of Fenix & would love your [feedback](
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
-**UPDATES (As of 6/16/16)**
+**UPDATES (As of 9/8/16)**
 
 Fenix 3.0.0 is in full development. [@gbdrummer](https://github.com/gbdrummer) is building the new UI, which is coming along nicely. We've also moved from NW.js to Electron, and have pretty much rewritten everything from scratch. 
 
 We're not announcing a release date yet, but we have some exciting new things coming in 3.0.0:
 
 - [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates!
-- [ ] Brand new UI.
+- [x] Brand new UI.
 - [ ] Native CLI app (no need to `npm install fenix-cli` anymore).
 - [x] Automatic port detection.
+- [x] Port conflict resolution via [porthog](https://github.com/coreybutler/porthog)
 - [x] Replace Growl w/ Native System Notifications.
 - [x] Optional JS/CSS minification.
 - [x] Optional GZip compression.
@@ -29,12 +30,22 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Optional ETags.
 - [x] Optional CORS Support
 - [x] Optional JSON/XML Pretty-Print.
-- [ ] Custom Response Headers.
+- [x] Custom Response Headers.
 - [x] Multiple server root directories.
-- [ ] Option to output logs to physical file.
+- [x] Option to output logs to physical file.
 - [ ] Log Filtering
-- [ ] Realtime connection monitoring & statistics
+- [x] Realtime connection monitoring & statistics
 - [x] SSL Support (Fenix CA)
+- [ ] API (50% done)
+- [x] Global Preferences
+- [x] Soft Delete of Servers
+- [x] New File Browser
+- [x] Fenix Certificate Authority
+- [x] Light Theme
+- [ ] Dark Theme (90% Done)
+- [ ] Drag 'n' Drop Server Creation
+- [x] Automatic NIC Management
+- [ ] Installer (we're waiting on code-signing certificates)
 
 There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
 
