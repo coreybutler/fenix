@@ -83,11 +83,9 @@ and how to use it on other platforms.  The [release history](https://github.com/
 
 ## Like Fenix?
 
-If you're using Fenix and find it useful, let everyone know! I've started a crude [list of companies](https://github.com/coreybutler/fenix/issues/45) that are using Fenix.
-
 Making a donation will go towards the development of Fenix. At the moment, I'd love to reach a simple goal of $100 in  _annual_ contributions so I can obtain an Apple Developer license for Fenix... which is the only application I'm distributing on Mac. This would help prevent the "Cannot install from unidentified developer" annoyance some OSX Mavericks users experience. Other contributions would go towards future efforts like hosting a public SSH tunnel (to take some load off localtunnel.me) and new feature development.
 
-[Support OSS Development via Stripe](https://coreybutler.typeform.com/to/ZY4pyp)
+[Support OSS Development via Stripe](https://coreybutler.typeform.com/to/ZY4pyp) or [Become a Patron](https://patreon.com/coreybutler)
 
 ## GPL License
 
