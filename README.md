@@ -45,6 +45,7 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
 - [ ] Installer (we're waiting on code-signing certificates)
 - [x] New Responsive File Browser.
+- [x] Autodeployment (w/ badge service via author.io)
 
 **PRO Edition**
 - [ ] Log Filtering
