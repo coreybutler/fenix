@@ -68,7 +68,7 @@ Why yes, that _is_ a valid **self-signed** certificate without any annoying brow
 
 The request browser will be released as it's own separate app, so it won't be in Fenix 3.0.0. I always felt it was a useful tool, and survey results agree... but it also doesn't fit in as well with the original scope of Fenix. Moving it to it's own project will help it get the attention it needs to be truly awesome.
 
-Finally, we're going "open core". The aforementioned features will all be a part of the free version of Fenix. Additional features are in the pipeline, slated for commercial release. I'll release more details about that after the open-core Fenix 3.0.0 release is delivered. In the meantime, use the survey (above) to influence the direction of Fenix!
+Finally, we're going "open core". Most of the features above will be free, but more advanced features are slated for a commercial release.
 
 # Fenix 2.0.0
 
