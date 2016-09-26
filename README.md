@@ -20,10 +20,11 @@ Fenix 3.0.0 is in full development. [@gbdrummer](https://github.com/gbdrummer) i
 
 We're not announcing a release date yet, but we have some exciting new things coming in 3.0.0:
 
+**Open Core**
 - [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates!
 - [x] Brand new UI.
 - [ ] Native CLI app (no need to `npm install fenix-cli` anymore).
-- [x] Automatic port detection.
+- [x] Automatic port management.
 - [x] Port conflict resolution via [porthog](https://github.com/coreybutler/porthog)
 - [x] Replace Growl w/ Native System Notifications.
 - [x] Optional JS/CSS minification.
@@ -32,21 +33,11 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Optional ETags.
 - [x] Optional CORS Support
 - [x] Optional JSON/XML/YAML Pretty-Print.
-- [x] Custom Response Headers.
-- [x] Multiple server root directories.
 - [x] Option to output logs to physical file.
 - [ ] Log Filtering
-- [x] Realtime connection monitoring & statistics
-- [x] SSL Support (Fenix CA)
 - [ ] API (70% done)
 - [x] Global Preferences
 - [x] Soft Delete of Servers
-- [x] New File Browser
-- [x] Fenix Certificate Authority
-  - [x] Windows Trustchain Management
-  - [x] OSX Trustchain Management
-  - [x] Firefox Trustchain Management
-  - [x] Automatic NIC Management & Synchronization
 - [x] "Pretty" names for SSH tunneling (i.e. myapp.localtunnel.me)
 - [x] SSH Tunneling Keepalive
 - [x] Light Theme
@@ -56,15 +47,26 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [ ] Installer (we're waiting on code-signing certificates)
 - [x] New Responsive File Browser.
 
+**PRO Edition**
+- [x] Custom Response Headers.
+- [x] Multiple server root directories.
+- [x] Realtime connection monitoring & statistics
+- [x] SSL Support (Fenix CA)
+- [x] Fenix Certificate Authority
+  - [x] Windows Trustchain Management
+  - [x] OSX Trustchain Management
+  - [x] Firefox Trustchain Management
+  - [x] Automatic NIC Management & Synchronization
+
 There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
 
 To the best of my knowledge, Fenix is the only local desktop server that will automatically support SSL keychain management. Here's a preview of the upcoming SSL/TLS support in action:
 
-![Fenix CA](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/UjgcuFFGwugcDk0/ssl.png)
+<!--![Fenix CA](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/UjgcuFFGwugcDk0/ssl.png)
 
-![Fenix Firefox](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/08WgN6yT5e8sgUz/upload.png)
+![Fenix Firefox](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/08WgN6yT5e8sgUz/upload.png)-->
 
-Why yes, that _is_ a valid **self-signed** certificate without any annoying browser warnings/errors in Chrome and _Firefox_. Fenix CA automatically handles trust chains for OSX, Windows, and Firefox. It handles all SSL certificate creation/revocation automatically... so you don't have to do anything. It just works. Fenix will even monitor and automatically handle network changes, seamlessly supporting DHCP-assigned IP addresses or changing network conditions. This one's for you, digital nomads, coffeeshop heroes, train commuters, and spotty connectivity sufferers.
+<!--Why yes, that _is_ a valid **self-signed** certificate without any annoying browser warnings/errors in Chrome and _Firefox_. Fenix CA automatically handles trust chains for OSX, Windows, and Firefox. It handles all SSL certificate creation/revocation automatically... so you don't have to do anything. It just works. Fenix will even monitor and automatically handle network changes, seamlessly supporting DHCP-assigned IP addresses or changing network conditions. This one's for you, digital nomads, coffeeshop heroes, train commuters, and spotty connectivity sufferers.-->
 
 The request browser will be released as it's own separate app, so it won't be in Fenix 3.0.0. I always felt it was a useful tool, and survey results agree... but it also doesn't fit in as well with the original scope of Fenix. Moving it to it's own project will help it get the attention it needs to be truly awesome.
 
