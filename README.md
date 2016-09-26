@@ -34,7 +34,6 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Optional CORS Support
 - [x] Optional JSON/XML/YAML Pretty-Print.
 - [x] Option to output logs to physical file.
-- [ ] Log Filtering
 - [ ] API (70% done)
 - [x] Global Preferences
 - [x] Soft Delete of Servers
@@ -48,6 +47,7 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] New Responsive File Browser.
 
 **PRO Edition**
+- [ ] Log Filtering
 - [x] Custom Response Headers.
 - [x] Multiple server root directories.
 - [x] Realtime connection monitoring & statistics
