@@ -1,6 +1,6 @@
 I'm currently working on the next version of Fenix & would love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**We're hoping to have a preview release in the next week or two (around 9/26-10/4). If you want to try out the new version before it hits the street, make sure you're signed up for the mailing list at the very bottom of [fenixwebserver.com](http://fenixwebserver.com).**
+**We're hoping to have a preview release in the next week or two (around mid-October). If you want to try out the new version before it hits the street, make sure you're signed up for the mailing list at the very bottom of [fenixwebserver.com](http://fenixwebserver.com).**
 
 [![Tweet This!][1.1] Share This!][1]
 [1.1]: http://i.imgur.com/wWzX9uB.png (Tweet about Fenix Web Server)
@@ -14,16 +14,23 @@ I'm currently working on the next version of Fenix & would love your [feedback](
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
-**UPDATES (As of 9/25/16)**
+**UPDATES (As of 10/05/16)**
 
-Fenix 3.0.0 is in full development. [@gbdrummer](https://github.com/gbdrummer) is building the new UI, which is coming along nicely. We've also moved from NW.js to Electron, and have pretty much rewritten everything from scratch. 
+Fenix 3.0.0 is inches away from completion. There has been a slight delay because we caught several issues in the newly released macOS Sierra. Those fixes are just about done. [@gbdrummer](https://github.com/gbdrummer) finished the new UI. We've fully moved from NW.js to Electron and rewrote everything from scratch. We're in the process of refactoring the code now that the core app has taken a final form (cleanup). We will prerelease as soon as we've completed the refactor.
 
-We're not announcing a release date yet, but we have some exciting new things coming in 3.0.0:
+We have some exciting new things coming in 3.0.0:
+
+**Base**
+- [x] Abstracted Foundation (i.e. our electron boilerplate)
+- [x] Middleware Plugin System (Internal Use Only)
+- [ ] UI Plugin System (Internal Use Only)
+
+_The plugin system is only for internal use. We hope to expand this for developer use in a later edition._
 
 **Open Core**
 - [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates!
 - [x] Brand new UI.
-- [ ] Native CLI app (no need to `npm install fenix-cli` anymore).
+- [x] Native CLI app (no need to `npm install fenix-cli` anymore).
 - [x] Automatic port management.
 - [x] Port conflict resolution via [porthog](https://github.com/coreybutler/porthog)
 - [x] Replace Growl w/ Native System Notifications.
@@ -34,18 +41,20 @@ We're not announcing a release date yet, but we have some exciting new things co
 - [x] Optional CORS Support
 - [x] Optional JSON/XML/YAML Pretty-Print.
 - [x] Option to output logs to physical file.
-- [ ] API (70% done)
+- [x] API
 - [x] Global Preferences
 - [x] Soft Delete of Servers
 - [x] "Pretty" names for SSH tunneling (i.e. myapp.localtunnel.me)
 - [x] SSH Tunneling Keepalive
 - [x] Light Theme
-- [ ] Dark Theme (90% Done)
+- [ ] Dark Theme (99% Done)
 - [x] System Tray Support
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
-- [ ] Installer (we're waiting on code-signing certificates)
+- [ ] Installer (we're waiting on new code-signing certificates now that StartSSL is on the fritz)
 - [x] New Responsive File Browser.
 - [x] Autodeployment (w/ badge service via author.io)
+
+There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
 
 **PRO Edition**
 - [ ] Log Filtering
@@ -59,9 +68,7 @@ We're not announcing a release date yet, but we have some exciting new things co
   - [x] Firefox Trustchain Management
   - [x] Automatic NIC Management & Synchronization
 
-There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
-
-To the best of my knowledge, Fenix is the only local desktop server that will automatically support SSL keychain management. Here's a preview of the upcoming SSL/TLS support in action:
+Due to the unique and complex nature of automating a desktop CA, we've been forced to move this to a feature in the upcoming paid edition (it easily consumed 50% of our workload). To the best of my knowledge, Fenix is the only local desktop server that supports SSL keychain management, automatic certificate issuance/reissuance, Windows/macOS/Firefox support, and NIC synchronization.
 
 <!--![Fenix CA](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/UjgcuFFGwugcDk0/ssl.png)
 
