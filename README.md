@@ -1,12 +1,12 @@
 I'm currently working on the next version of Fenix & would love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**We're hoping to have a preview release in the next week or two (around mid-October). If you want to try out the new version before it hits the street, make sure you're signed up for the mailing list at the very bottom of [fenixwebserver.com](http://fenixwebserver.com).**
+**Fenix 3 is currently in private beta/developer testing. If you want to try out the new release candidate before it hits the street, make sure you're signed up for the mailing list at the very bottom of [fenixwebserver.com](http://fenixwebserver.com).**
 
 [![Tweet This!][1.1] Share This!][1]
 [1.1]: http://i.imgur.com/wWzX9uB.png (Tweet about Fenix Web Server)
 [1]: https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb
 
-# Fenix Web Servers
+# Fenix Web Server
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
@@ -14,16 +14,18 @@ I'm currently working on the next version of Fenix & would love your [feedback](
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
-**UPDATES (As of 10/05/16)**
+**UPDATES (As of 11/06/16)**
 
-Fenix 3.0.0 is inches away from completion. There has been a slight delay because we caught several issues in the newly released macOS Sierra. Those fixes are just about done. [@gbdrummer](https://github.com/gbdrummer) finished the new UI. We've fully moved from NW.js to Electron and rewrote everything from scratch. We're in the process of refactoring the code now that the core app has taken a final form (cleanup). We will prerelease as soon as we've completed the refactor.
+Fenix 3.0.0 core development is done! Extremely early feedback suggested we implement the autoupdate service before a full release. There are some autoupdate servers on the market, but none support multiple license solutions (in addition to the free version, there will be a commercially supported version available for pro and enterprise use). So, we're building our own autoupdate servers. It's coming along nicely. We will still send out pre-release links before the autoupdate service is ready. These invites will be sent out on a rolling basis over the next few weeks.
+
+I'd also like to publicly thank those of you who have donated. Your support means the world to us!
 
 We have some exciting new things coming in 3.0.0:
 
 **Base**
 - [x] Abstracted Foundation (i.e. our electron boilerplate)
 - [x] Middleware Plugin System (Internal Use Only)
-- [ ] UI Plugin System (Internal Use Only)
+- [x] UI Plugin System (Internal Use Only)
 
 _The plugin system is only for internal use. We hope to expand this for developer use in a later edition._
 
@@ -50,7 +52,7 @@ _The plugin system is only for internal use. We hope to expand this for develope
 - [ ] Dark Theme (99% Done)
 - [x] System Tray Support
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
-- [ ] Installer (we're waiting on new code-signing certificates now that StartSSL is on the fritz)
+- [ ] Installer (we're waiting on new code-signing certificates now that StartSSL is being dropped by Mozilla)
 - [x] New Responsive File Browser.
 - [x] Autodeployment (w/ badge service via author.io)
 
@@ -58,6 +60,7 @@ There have been several requests for things like gzip compression, ETags, etc. T
 
 **PRO Edition**
 - [ ] Log Filtering
+- [ ] Advanced Live Reload
 - [x] Custom Response Headers.
 - [x] Multiple server root directories.
 - [x] Realtime connection monitoring & statistics
@@ -78,7 +81,7 @@ Due to the unique and complex nature of automating a desktop CA, we've been forc
 
 The request browser will be released as it's own separate app, so it won't be in Fenix 3.0.0. I always felt it was a useful tool, and survey results agree... but it also doesn't fit in as well with the original scope of Fenix. Moving it to it's own project will help it get the attention it needs to be truly awesome.
 
-Finally, we're going "open core". Most of the features above will be free, but more advanced features are slated for a commercial release.
+Finally, we're going "open core". Most of the features above will be free, but more advanced features are slated for a commercial release. As much has we'd like to make this free, devlopment has already grown into a full time effort.
 
 # Fenix 2.0.0
 
