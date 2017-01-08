@@ -14,9 +14,15 @@ I'm currently working on the next version of Fenix & would love your [feedback](
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
-**UPDATES (As of 11/06/16)**
+**UPDATES (As of 1/08/17)**
 
-Fenix 3.0.0 core development is done! Extremely early feedback suggested we implement the autoupdate service before a full release. There are some autoupdate servers on the market, but none support multiple license solutions (in addition to the free version, there will be a commercially supported version available for pro and enterprise use). So, we're building our own autoupdate servers. It's coming along nicely. We will still send out pre-release links before the autoupdate service is ready. These invites will be sent out on a rolling basis over the next few weeks.
+The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of our time building the backend of the brand new deployment service, which we're looking forward to debuting in Fenix 3. We've also built an online migration tool to help existing users move from Fenix 2 -> Fenix 3 (we were a bit surprised to see users with 50+ sites). Along with this comes an update to the Fenix 2 command line utility to automate the migration process for you.
+
+We're trying to keep any new features to a minimum since we're very anxious to release Fenix 3, but there are a few small niceties we were able to throw in:
+
+[x] Optional feature to "open in browser" upon server creation.
+
+For those we invited to the early beta, thank you. Your feedback has been invaluable. We will now be adding persistence (so webservers will now be saved) and sending out a release candidate to a wider audience. Most of our development has been done on Mac, but we're starting to go through the Windows version looking for any OS-specific issues.
 
 I'd also like to publicly thank those of you who have donated. Your support means the world to us!
 
@@ -30,7 +36,7 @@ We have some exciting new things coming in 3.0.0:
 _The plugin system is only for internal use. We hope to expand this for developer use in a later edition._
 
 **Open Core**
-- [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates!
+- [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates! (50% Done)
 - [x] Brand new UI.
 - [x] Native CLI app (no need to `npm install fenix-cli` anymore).
 - [x] Automatic port management.
@@ -49,10 +55,11 @@ _The plugin system is only for internal use. We hope to expand this for develope
 - [x] "Pretty" names for SSH tunneling (i.e. myapp.localtunnel.me)
 - [x] SSH Tunneling Keepalive
 - [x] Light Theme
-- [ ] Dark Theme (99% Done)
+- [x] Dark Theme
 - [x] System Tray Support
+- [x] "Run in Background" Mode
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
-- [ ] Installer (we're waiting on new code-signing certificates now that StartSSL is being dropped by Mozilla)
+- [ ] Installer (we're STILL impatiently waiting on new code-signing certificates)
 - [x] New Responsive File Browser.
 - [x] Autodeployment (w/ badge service via author.io)
 
