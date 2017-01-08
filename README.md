@@ -18,9 +18,9 @@ There's also a companion [command line app](https://github.com/coreybutler/fenix
 
 The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of our time building the backend of the brand new deployment service, which we're looking forward to debuting in Fenix 3. We've also built an online migration tool to help existing users move from Fenix 2 -> Fenix 3 (we were a bit surprised to see users with 50+ sites). Along with this comes an update to the Fenix 2 command line utility to automate the migration process for you.
 
-We're trying to keep any new features to a minimum since we're very anxious to release Fenix 3, but there are a few small niceties we were able to throw in:
+We're trying to keep any new features to a minimum since we're very anxious to release Fenix 3, but we were able to throw in an option to "open in browser" upon server creation, defined in the new preferences section.
 
-[x] Optional feature to "open in browser" upon server creation.
+We've also launched a placeholder website for [author.io](https://www.author.io) (Fenix commercial versions will being distributed under this comapny), a new Twitter account [@author_io](https://twitter.com/author_io) and an [Author.io Facebook Page](https://www.facebook.com/softwareauthor).
 
 For those we invited to the early beta, thank you. Your feedback has been invaluable. We will now be adding persistence (so webservers will now be saved) and sending out a release candidate to a wider audience. Most of our development has been done on Mac, but we're starting to go through the Windows version looking for any OS-specific issues.
 
