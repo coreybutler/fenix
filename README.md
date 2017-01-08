@@ -20,7 +20,7 @@ The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of ou
 
 We're trying to keep any new features to a minimum since we're very anxious to release Fenix 3, but we were able to throw in an option to "open in browser" upon server creation, defined in the new preferences section.
 
-We've also launched a placeholder website for [author.io](https://www.author.io) (Fenix commercial versions will being distributed under this comapny), a new Twitter account [@author_io](https://twitter.com/author_io) and an [Author.io Facebook Page](https://www.facebook.com/softwareauthor).
+We've also launched a placeholder website for [author.io](https://www.author.io) (Fenix commercial versions will being distributed under this comapny), a new Twitter account [@author_io](https://twitter.com/author_io) and an [Author.io Facebook Page](https://www.facebook.com/softwareauthor) where we've been posting a few screenshots of new stuff as we complete it.
 
 For those we invited to the early beta, thank you. Your feedback has been invaluable. We will now be adding persistence (so webservers will now be saved) and sending out a release candidate to a wider audience. Most of our development has been done on Mac, but we're starting to go through the Windows version looking for any OS-specific issues.
 
