@@ -1,14 +1,16 @@
-I'm currently working on the next version of Fenix & would love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
+If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**Fenix 3 is currently in private beta/developer testing. If you want to try out the new release candidate before it hits the street, make sure you're signed up for the mailing list at the very bottom of [fenixwebserver.com](http://fenixwebserver.com).**
-
-[![Tweet This!][1.1] Share This!][1]
-[1.1]: http://i.imgur.com/wWzX9uB.png (Tweet about Fenix Web Server)
-[1]: https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb
+**Fenix 3 is currently in developer preview for mailing list subscribers.**
 
 # Fenix Web Server
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
+
+If you aren't on the mailing list and want to see Fenix 3 before it's general availability release, see the new [blog](https://blog.author.io) for a preview talk.
+
+[![Tweet This!](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io) [Tweet About This!](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io)
+
+[![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
 
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
