@@ -1,8 +1,8 @@
+# Fenix Web Server
+
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
 **Fenix 3 is currently in developer preview for mailing list subscribers.**
-
-# Fenix Web Server
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
 
