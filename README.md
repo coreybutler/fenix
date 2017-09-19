@@ -36,7 +36,7 @@ We have some exciting new things coming in 3.0.0:
 _The plugin system is only for internal use. We hope to expand this for developer use in a later edition._
 
 **Open Core**
-- [ ] Autoupdate (evergreen) - No more ridiculously long delays between updates! (50% Done)
+- [x] Autoupdate (evergreen) - No more ridiculously long delays between updates! (50% Done)
 - [x] Brand new UI.
 - [x] Native CLI app (no need to `npm install fenix-cli` anymore).
 - [x] Automatic port management.
@@ -59,7 +59,7 @@ _The plugin system is only for internal use. We hope to expand this for develope
 - [x] System Tray Support
 - [x] "Run in Background" Mode
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
-- [ ] Installer (we're STILL impatiently waiting on new code-signing certificates)
+- [ ] Installer (macOS 100%, Windows 95%)
 - [x] New Responsive File Browser.
 - [x] Autodeployment (w/ badge service via author.io)
 
