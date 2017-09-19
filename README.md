@@ -1,5 +1,10 @@
 # Fenix Web Server
 
+Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
+There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
+
+---
+
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
 **Fenix 3 is currently in developer preview for mailing list subscribers.**
@@ -13,8 +18,7 @@ If you aren't on the mailing list and want to see Fenix 3 before it's general av
 [![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
 
-Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
-There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
+---
 
 **UPDATES (As of 1/08/17)**
 
