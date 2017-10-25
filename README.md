@@ -7,7 +7,7 @@ There's also a companion [command line app](https://github.com/coreybutler/fenix
 
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**Fenix 3 is currently in developer preview for mailing list subscribers.**
+**Fenix 3 is currently in [developer preview (macOS)](https://preview.fenixwebserver.com). Windows versions are nearly complete.**
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
 
@@ -20,7 +20,7 @@ If you aren't on the mailing list and want to see Fenix 3 before it's general av
 
 ---
 
-**UPDATES (As of 1/08/17)**
+**UPDATES (As of 10/25/17)**
 
 The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of our time building the backend of the brand new deployment service, which we're looking forward to debuting in Fenix 3. We've also built an online migration tool to help existing users move from Fenix 2 -> Fenix 3 (we were a bit surprised to see users with 50+ sites). Along with this comes an update to the Fenix 2 command line utility to automate the migration process for you.
 
@@ -42,7 +42,8 @@ We have some exciting new things coming in 3.0.0:
 _The plugin system is only for internal use. We hope to expand this for developer use in a later edition._
 
 **Open Core**
-- [x] Autoupdate (evergreen) - No more ridiculously long delays between updates! (50% Done)
+- [x] Autoupdate macOS (evergreen) - No more ridiculously long delays between updates!
+- [x] Autoupdate Windows (evergreen) - 90% done.
 - [x] Brand new UI.
 - [x] Native CLI app (no need to `npm install fenix-cli` anymore).
 - [x] Automatic port management.
@@ -65,7 +66,7 @@ _The plugin system is only for internal use. We hope to expand this for develope
 - [x] System Tray Support
 - [x] "Run in Background" Mode
 - [x] Drag 'n' Drop Server Creation (App & System Tray)
-- [ ] Installer (macOS 100%, Windows 95%)
+- [x] Installer (macOS pkg, Windows NSIS)
 - [x] New Responsive File Browser.
 - [x] Autodeployment (w/ badge service via author.io)
 
