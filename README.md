@@ -20,6 +20,10 @@ If you aren't on the mailing list and want to see Fenix 3 before it's general av
 
 ---
 
+**UPDATE 5/20/18**
+
+We got wrapped up in a paid client engagement (took a few months), but we'll be back to Fenix development on a full time basis starting 5/28. In the meantime, checkout [https://preview.fenixwebserver.com](https://preview.fenixwebserver.com) to use the latest 3.0.0 release candidate.
+
 **UPDATES (As of 10/25/17)**
 
 The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of our time building the backend of the brand new deployment service, which we're looking forward to debuting in Fenix 3. We've also built an online migration tool to help existing users move from Fenix 2 -> Fenix 3 (we were a bit surprised to see users with 50+ sites). Along with this comes an update to the Fenix 2 command line utility to automate the migration process for you.
