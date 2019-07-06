@@ -19,6 +19,25 @@ If you aren't on the mailing list and want to see Fenix 3 before it's general av
 ![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
 
 ---
+**UPDATE 6/6/19**
+The causes of the massive delays are finally over. My personal time was consumed by a [renovation](https://medium.com/@goldglovecb/how-i-used-css-js-to-remodel-a-condo-a6fc6834bc64?source=friends_link&sk=03582729f5d011a730bdc6f888f681b8) that was supposed to be a part-time 3 month effort (took 18, full time). During that time, I also built a consulting practice (you know, still need to put food on the table), and a data product (which is in the process of being acquired). With these things finally completed, more attention can finally be paid to Fenix.
+
+Fenix 3 is done, for both Mac and Windows. We had to cut a few things, like automatic updates (it will prompt you to download a new version when new updates are available). Unfortunately, the tools for updating an Electron app aren't really sufficient enough to support some of the new features (like the built-in CLI, updating the `PATH`, etc). We will be working on a more streamlined autoupdate experience after releasing Fenix 3.
+
+**Rather than making everyone wait longer, we're going to release Fenix 3 in mid-July 2019.** There is still alot we want to do with it, but we realize the delay has been ridiculous. 
+
+Fenix 3 is just one of several things we've been working on under the Author.io brand to make writing software a more efficient/enjoyable process. Since there are several efforts underway (and only 2 of us working on everything), we're also spending time to turn Author.io into a full-fledged company. Don't worry, Fenix will still be free... we're exploring other monetization options to support continued development.
+
+We're also nearly finished with the following:
+
+- [NGN 2.0.0](https://github.com/ngnjs/ngn) - A JS library for building your own frameworks.
+- [Chassis](https://github.com/ngn-chassis) - A PostCSS pre-processing framework.
+- [Web Components](https://github.com/author-elements) - A web component library.
+- [Metadoc](https://github.com/author/metadoc) - A JS documentation utility that produces JSON.
+
+NGN, Chassis, and the web components were all used to build Fenix 3 and the associated websites. NGN has been battle-tested with clients like [TopGolf](https://topgolf.com), [Aunt Bertha](https://auntbertha.com), and several enterprises. We're actively working on Metadoc to produce better documentation for the Fenix 3 API libraries.
+
+We've also released the initial [Fenix 3 docs](https://docs.fenixwebserver.com).
 
 **UPDATE 5/20/18**
 
