@@ -9,11 +9,9 @@ There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0p
 
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**Fenix 3.0.0 [release candidate 13 for macOS and Windows](https://preview.fenixwebserver.com) is available.
+**Fenix 3.0.0 [release candidate 13 for macOS and Windows](https://preview.fenixwebserver.com) is available.**
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
-
-If you aren't on the mailing list and want to see Fenix 3 before it's general availability release, see the new [blog](https://blog.author.io) for a preview talk.
 
 [![Tweet This!](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io) [Tweet About This!](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io)
 
