@@ -7,7 +7,7 @@ There's also a companion [command line app](https://github.com/coreybutler/fenix
 
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
 
-**Fenix 3 is currently in [developer preview (macOS)](https://preview.fenixwebserver.com). Windows versions are nearly complete.**
+**Fenix 3.0.0 [release candidate 13 for macOS and Windows](https://preview.fenixwebserver.com) is available.
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
 
