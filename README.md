@@ -13,10 +13,10 @@ If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.co
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
 
-[![Tweet This!](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io) [Tweet About This!](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=author_io)
+[![Tweet This!](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb) [Tweet About This!](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb)
 
 [![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
+![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v3.0.0/total.svg)
 
 ---
 **UPDATE 9/18/19**
