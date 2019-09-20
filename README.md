@@ -3,6 +3,8 @@
 Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
 There's also a companion [command line app](https://github.com/coreybutler/fenix-cli). There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) available as well.
 
+![Fenix 3.0.0](https://docs.fenixwebserver.com/assets/fenix-home.png)
+
 ---
 
 If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.com/to/Vk0v2x)! 
@@ -19,14 +21,10 @@ If you aren't on the mailing list and want to see Fenix 3 before it's general av
 ![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg)
 
 ---
-**UPDATE 6/6/19**
-The causes of the massive delays are finally over. My personal time was consumed by a [renovation](https://medium.com/@goldglovecb/how-i-used-css-js-to-remodel-a-condo-a6fc6834bc64?source=friends_link&sk=03582729f5d011a730bdc6f888f681b8) that was supposed to be a part-time 3 month effort (took 18, full time). During that time, I also built a consulting practice (you know, still need to put food on the table), and a data product (which is in the process of being acquired). With these things finally completed, more attention can finally be paid to Fenix.
+**UPDATE 9/18/19**
+Fenix 3 is done, for both Mac and Windows. We had to cut a few things, like automatic updates (it will prompt you to download a new version when new updates are available). Unfortunately, the tools for updating an Electron app aren't really sufficient enough to support some of the new features (like the built-in CLI, updating the `PATH`, etc). We are working on a more streamlined autoupdate experience, which will power future versions.
 
-Fenix 3 is done, for both Mac and Windows. We had to cut a few things, like automatic updates (it will prompt you to download a new version when new updates are available). Unfortunately, the tools for updating an Electron app aren't really sufficient enough to support some of the new features (like the built-in CLI, updating the `PATH`, etc). We will be working on a more streamlined autoupdate experience after releasing Fenix 3.
-
-**Rather than making everyone wait longer, we're going to release Fenix 3 in mid-July 2019.** There is still alot we want to do with it, but we realize the delay has been ridiculous. 
-
-Fenix 3 is just one of several things we've been working on under the Author.io brand to make writing software a more efficient/enjoyable process. Since there are several efforts underway (and only 2 of us working on everything), we're also spending time to turn Author.io into a full-fledged company. Don't worry, Fenix will still be free... we're exploring other monetization options to support continued development.
+Fenix 3 is just one of several things we've been working on under the Author.io brand to make writing software a more efficient/enjoyable process. Since there are several efforts underway (and only 2 of us working on everything), we're also spending time to turn Author.io into a full-fledged company. Don't worry, Fenix will still be free... we're exploring other monetization options to support continued development, as well as sponsorship for the many open source efforts we're puring time into.
 
 We're also nearly finished with the following:
 
@@ -39,21 +37,9 @@ NGN, Chassis, and the web components were all used to build Fenix 3 and the asso
 
 We've also released the initial [Fenix 3 docs](https://docs.fenixwebserver.com).
 
-**UPDATE 5/20/18**
+A placeholder website for [author.io](https://www.author.io), a Twitter account [@author_io](https://twitter.com/author_io) and an [Author.io Facebook Page](https://www.facebook.com/softwareauthor) are live.
 
-We got wrapped up in a paid client engagement (took a few months), but we'll be back to Fenix development on a full time basis starting 5/28. In the meantime, checkout [https://preview.fenixwebserver.com](https://preview.fenixwebserver.com) to use the latest 3.0.0 release candidate.
-
-**UPDATES (As of 10/25/17)**
-
-The Fenix 3.0.0 beta is complete. While we fixed a few bugs, we spent most of our time building the backend of the brand new deployment service, which we're looking forward to debuting in Fenix 3. We've also built an online migration tool to help existing users move from Fenix 2 -> Fenix 3 (we were a bit surprised to see users with 50+ sites). Along with this comes an update to the Fenix 2 command line utility to automate the migration process for you.
-
-We're trying to keep any new features to a minimum since we're very anxious to release Fenix 3, but we were able to throw in an option to "open in browser" upon server creation, defined in the new preferences section.
-
-We've also launched a placeholder website for [author.io](https://www.author.io) (Fenix commercial versions will being distributed under this comapny), a new Twitter account [@author_io](https://twitter.com/author_io) and an [Author.io Facebook Page](https://www.facebook.com/softwareauthor) where we've been posting a few screenshots of new stuff as we complete it.
-
-For those we invited to the early beta, thank you. Your feedback has been invaluable. We will now be adding persistence (so webservers will now be saved) and sending out a release candidate to a wider audience. Most of our development has been done on Mac, but we're starting to go through the Windows version looking for any OS-specific issues.
-
-I'd also like to publicly thank those of you who have donated. Your support means the world to us!
+For those we invited to the early beta, thank you. Your feedback has been invaluable. I'd also like to publicly thank those of you who have donated. Your support means the world to us!
 
 We have some exciting new things coming in 3.0.0:
 
@@ -95,7 +81,7 @@ _The plugin system is only for internal use. We hope to expand this for develope
 
 There have been several requests for things like gzip compression, ETags, etc. These features don't typically make sense for the simplest form of local development, but modern UI development "done right" requires a little more emphasis on networking/transmission. These features become very useful when testing and troubleshooting, so we've made it possible to turn them on/off for each server. We're also extending the Fenix API to manage these things programmatically, and we anticipate releasing a gulp/grunt plugin to help automate local testing workflows.
 
-**PRO Edition**
+~~**PRO Edition**~~
 - [ ] Log Filtering
 - [ ] Advanced Live Reload
 - [x] Custom Response Headers.
@@ -108,7 +94,7 @@ There have been several requests for things like gzip compression, ETags, etc. T
   - [x] Firefox Trustchain Management
   - [x] Automatic NIC Management & Synchronization
 
-Due to the unique and complex nature of automating a desktop CA, we've been forced to move this to a feature in the upcoming paid edition (it easily consumed 50% of our workload). To the best of my knowledge, Fenix is the only local desktop server that supports SSL keychain management, automatic certificate issuance/reissuance, Windows/macOS/Firefox support, and NIC synchronization.
+Due to the unique and complex nature of some of these features, we are moving them into a separate project. They will likely resurface in 3.1.x or 3.2.x edition (possibly for free).
 
 <!--![Fenix CA](https://s3.amazonaws.com/uploads.hipchat.com/94386/688041/UjgcuFFGwugcDk0/ssl.png)
 
@@ -120,7 +106,9 @@ The request browser will be released as it's own separate app, so it won't be in
 
 Finally, we're going "open core". Most of the features above will be free, but more advanced features are slated for a commercial release. As much has we'd like to make this free, devlopment has already grown into a full time effort.
 
-# Fenix 2.0.0
+---
+
+# Fenix 2.0 (OLD EDITION)
 
 **Main App:**
 
