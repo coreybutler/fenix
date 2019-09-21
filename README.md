@@ -13,10 +13,9 @@ If you're using Fenix, we'd love your [feedback](https://coreybutler.typeform.co
 
 [Join the Mailing List](https://fenixwebserver.com) (signup on the bottom of the page)
 
-[![Tweet This!](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb) [Tweet About This!](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20Fenix%20Web%20Server!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Fcoreybutler%2Ffenix&via=goldglovecb)
-
-[![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/coreybutler/fenix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-![Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v3.0.0/total.svg)
+[![Tweet](https://img.shields.io/badge/Tweet-Spread%20the%20Word-blue?style=for-the-badge&logo=twitter)](https://twitter.com/intent/tweet?hashtags=nodejs&original_referer=http%3A%2F%2Fgithub.com&text=Fenix%20Web%20Server%203.0.0%3A%20A%20desktop%20web%20server%20for%20JAM%20Stack%20Development%2C%20from%20%40author_io&tw_p=tweetbutton&url=http%3A%2F%2Fpreview.fenixwebserver.com&via=goldglovecb)
+![v2.0 Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/v2.0.0/total.svg?style=for-the-badge)
+![v3.0.0 Downloads](https://img.shields.io/github/downloads/coreybutler/fenix/3.0.0-rc.13/total.svg?style=for-the-badge)
 
 ---
 **UPDATE 9/18/19**
