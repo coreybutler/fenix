@@ -1,6 +1,6 @@
 # Fenix Web Server
 
-Fenix is a desktop web server for developers. Check out [fenixwebserver.com](http://fenixwebserver.com) for details.
+Fenix is a desktop web server for developers. Check out [fenixwebserver.com](https://preview.fenixwebserver.com) for details.
 There are some [YouTube videos](http://www.youtube.com/playlist?list=PL6u9ibuk0pbM68hZONUq-vY39ByaXoJj-) of the old version. We do not yet have any screencasts of v3.0.0, but a [live demo for Bleeding Edge Web](https://www.youtube.com/watch?v=KsoNGVScd_c&t=5053s) was recorded during the early development days.
 
 ![Fenix 3.0.0](https://docs.fenixwebserver.com/assets/fenix-home.png)
